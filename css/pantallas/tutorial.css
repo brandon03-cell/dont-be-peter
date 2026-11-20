@@ -1,0 +1,97 @@
+
+.botoneraHoja .botonEmpezar {
+    width: 100%;
+    max-width: none;
+}
+
+.botonEmpezar {
+    flex: 1;
+    max-width: 320px;
+}
+
+@media (min-width: 768px) {
+.pasos {
+    grid-template-columns: 1fr 1fr;
+}
+
+.reglas {
+    flex-direction: row;
+}
+
+.regla {
+    flex: 1;
+}
+
+.botoneraHoja .botonEmpezar {
+    width: auto;
+    max-width: 320px;
+}
+}
+
+@media (min-width: 1024px) {
+.pasos {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+}
+
+.paso {
+    flex-direction: column;
+    gap: 0;
+    padding: 56px 14px 18px;
+    text-align: center;
+    box-shadow: 4px 4px 0 #2b1a12;
+}
+
+.pasoNumero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #f7c63c;
+    border: 3px solid #2b1a12;
+    font-family: "Press Start 2P", monospace;
+    font-size: 14px;
+}
+
+.paso::after {
+    content: "";
+    position: absolute;
+    right: -26px;
+    top: 45%;
+    border-left: 14px solid #f7c63c;
+    border-top: 11px solid transparent;
+    border-bottom: 11px solid transparent;
+}
+
+.paso:last-child::after {
+    display: none;
+}
+
+.pasoDibujo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 190 / 150;
+    border-width: 3px;
+    margin-bottom: 20px;
+}
+
+.pasoTitulo {
+    font-size: 13px;
+    margin-bottom: 14px;
+}
+
+.pasoTexto {
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.pasoTexto,
+.regla {
+    font-size: 11px;
+}
+}
