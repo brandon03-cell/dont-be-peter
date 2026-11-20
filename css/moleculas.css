@@ -1,0 +1,586 @@
+/* En móvil la ficha es una fila de la hoja. En escritorio es una tarjeta del corcho (ver css/pantallas/reparto.css) */
+.ficha {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 2px solid #c9b48a;
+  padding: 4px 4px 4px 0;
+  animation: clavar 0.3s;
+}
+
+.ficha__numero {
+  width: 26px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 9px;
+  text-align: right;
+  color: #a85a1e;
+}
+
+.ficha__color {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #2b1a12;
+}
+
+.ficha__chincheta {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin-left: -10px;
+}
+
+.ficha__cara {
+  display: block;
+  width: 70%;
+  max-width: 147px;
+  margin: 0 auto;
+}
+
+.ficha .etiqueta {
+  flex: 1;
+  font-family: "Pixelify Sans", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #2b1a12;
+  background: none;
+  padding: 0;
+}
+
+.quitar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Silkscreen", monospace;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #c21f2b;
+  background-color: #d9c49a;
+  border: 3px solid #2b1a12;
+  box-shadow: 2px 2px 0 #2b1a12;
+  padding: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.quitar:hover {
+  background-color: #ffe9df;
+}
+
+.quitar img {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Pixelify Sans", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #2b1a12;
+  background-color: #fff8e7;
+  border: 2px solid #2b1a12;
+  box-shadow: 2px 2px 0 #2b1a12;
+  padding: 4px 10px 4px 6px;
+}
+
+.chip__cojin {
+  width: 10px;
+  height: 10px;
+  background-color: #e03c3c;
+  border: 2px solid #2b1a12;
+}
+
+.chip--fuera {
+  color: #7a2e20;
+  text-decoration: line-through;
+  background-color: #d9c49a;
+  box-shadow: none;
+}
+
+.chip--fuera .chip__cojin {
+  background-color: #9a8b76;
+}
+
+.contador-hud {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25em;
+  font-family: "Press Start 2P", monospace;
+  text-shadow: 0.62em 0.62em 0 #2b1a12;
+}
+
+.contador-hud__nombre {
+  font-size: 2em;
+  text-transform: uppercase;
+  color: #ffd23f;
+}
+
+.contador-hud__valor {
+  font-size: 3.4em;
+  color: #fff8e7;
+}
+
+.jugador {
+  position: absolute;
+  width: 19.4%;
+  margin-left: -9.7%;
+  margin-top: -13%;
+  text-align: center;
+  transition: left 0.6s ease-out, top 0.6s ease-out;
+}
+
+.jugador__dentro {
+  transition: transform 0.6s;
+}
+
+.jugador.sentado .jugador__dentro {
+  transform: scale(0.75);
+}
+
+.jugador__dentro .etiqueta {
+  font-size: 2.4em;
+  letter-spacing: 0.125em;
+  padding: 0.31em 0.5em;
+}
+
+.jugador.peter .jugador__dentro {
+  animation: temblar 0.3s 3;
+}
+
+.jugador.peter .etiqueta {
+  background-color: #c21f2b;
+}
+
+.retrato {
+  position: relative;
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background-color: #fff8e7;
+  border: 4px solid #2b1a12;
+  outline: 3px solid #c21f2b;
+}
+
+.retrato__cara {
+  width: 100%;
+  height: 100%;
+}
+
+.retrato__sello {
+  position: absolute;
+  left: -10px;
+  bottom: -8px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 8px;
+  text-transform: uppercase;
+  color: #fff8e7;
+  background-color: #c21f2b;
+  border: 2px solid #fff8e7;
+  padding: 3px 4px;
+  transform: rotate(-12deg);
+  animation: sellar 0.4s 0.3s backwards;
+}
+
+.dialogo--final .retrato {
+  outline-color: #ffd23f;
+}
+
+.dialogo--final .retrato__sello {
+  color: #2b1a12;
+  background-color: #ffd23f;
+}
+
+.silla {
+  position: absolute;
+  width: 8.25%;
+  margin-left: -4.1%;
+  margin-top: -4.1%;
+}
+
+.silla--retirada {
+  width: 10%;
+  margin-left: -5%;
+  margin-top: -9.5%;
+}
+
+.paso {
+  position: relative;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  background-color: #fff8e7;
+  border: 3px solid #2b1a12;
+  padding: 10px;
+  color: #2b1a12;
+}
+
+.paso__numero {
+  display: none;
+}
+
+.paso__dibujo {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 2px solid #2b1a12;
+  flex-shrink: 0;
+}
+
+.paso__titulo {
+  font-family: "Press Start 2P", monospace;
+  font-weight: 400;
+  font-size: 11px;
+  color: #d33a2c;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.paso__texto {
+  font-family: "Press Start 2P", monospace;
+  font-size: 9px;
+  line-height: 1.8;
+}
+
+.regla {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 9px;
+  line-height: 2;
+  color: #2b1a12;
+}
+
+.regla__icono {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ffd23f;
+  border: 3px solid #2b1a12;
+  font-family: "Press Start 2P", monospace;
+  font-size: 13px;
+}
+
+.tarjeta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  background-color: #fff8e7;
+  border: 3px solid #2b1a12;
+  box-shadow: 4px 4px 0 #2b1a12;
+  padding: 6px;
+  color: #2b1a12;
+}
+
+.tarjeta__foto {
+  background-color: #e8d5a8;
+  border: 2px solid #2b1a12;
+  flex-shrink: 0;
+  width: 72px;
+}
+
+.tarjeta__foto img {
+  display: block;
+  width: 100%;
+}
+
+.tarjeta__nombre {
+  font-family: "Press Start 2P", monospace;
+  font-size: 9px;
+  line-height: 1.8;
+  margin-bottom: 6px;
+}
+
+.ficha-disco {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  height: 42px;
+  font-family: "Silkscreen", monospace;
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: left;
+  color: #2b1a12;
+  background-color: #fff8e7;
+  border: 3px solid #2b1a12;
+  border-radius: 4px;
+  box-shadow: 4px 4px 0 #2b1a12;
+  padding: 0 10px 0 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.1s;
+}
+
+.ficha-disco:hover {
+  background-color: #fff2c8;
+}
+
+.ficha-disco:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+.ficha-disco--elegida,
+.ficha-disco--elegida:hover {
+  background-color: #ffd23f;
+}
+
+.ficha-disco--vacia {
+  justify-content: center;
+  color: #a08a6a;
+  background-color: transparent;
+  border-style: dashed;
+  border-color: #a08a6a;
+  box-shadow: none;
+  cursor: default;
+}
+
+.ficha-disco__codigo {
+  font-family: "Press Start 2P", monospace;
+  font-weight: 400;
+  font-size: 10px;
+  color: #fff8e7;
+  background-color: #e03c3c;
+  border-radius: 2px;
+  padding: 6px 4px;
+}
+
+.guirnalda {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  max-width: 560px;
+}
+
+.guirnalda--izquierda {
+  left: 0;
+}
+
+.guirnalda--derecha {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+.guirnalda__cable {
+  display: block;
+  width: 100%;
+}
+
+.bombilla {
+  position: absolute;
+  width: 2.6%;
+  margin-left: -1.3%;
+  transform-origin: top center;
+  transform: rotate(-8deg);
+  animation: parpadear 1.6s steps(2) infinite;
+}
+
+.bombilla--1,
+.bombilla--3 {
+  transform: rotate(8deg);
+}
+
+.bombilla--1 {
+  left: 50.1%;
+  top: 16.3%;
+}
+
+.bombilla--2 {
+  left: 34.4%;
+  top: 32.7%;
+}
+
+.bombilla--3 {
+  left: 19.6%;
+  top: 43.1%;
+}
+
+.bombilla--4 {
+  left: 6.7%;
+  top: 47.3%;
+}
+
+.bombilla--roja {
+  filter: drop-shadow(0 0 3px #ff6b6b) drop-shadow(0 0 8px rgba(224, 60, 60, 0.8));
+}
+
+.bombilla--azul {
+  filter: drop-shadow(0 0 3px #7ab8ff) drop-shadow(0 0 8px rgba(60, 140, 224, 0.8));
+  animation-delay: 0.4s;
+}
+
+.bombilla--amarilla {
+  filter: drop-shadow(0 0 3px #ffe58a) drop-shadow(0 0 8px rgba(255, 210, 63, 0.8));
+  animation-delay: 0.8s;
+}
+
+.bombilla--verde {
+  filter: drop-shadow(0 0 3px #8be08e) drop-shadow(0 0 8px rgba(76, 175, 80, 0.8));
+  animation-delay: 1.2s;
+}
+
+.lampara {
+  display: none;
+  position: absolute;
+  top: 400px;
+  width: 48px;
+}
+
+.lampara--izquierda {
+  left: 3%;
+}
+
+.lampara--derecha {
+  right: 3%;
+}
+
+.lampara__dibujo {
+  position: relative;
+  display: block;
+  width: 100%;
+  filter: drop-shadow(0 0 6px rgba(255, 220, 140, 0.7));
+}
+
+.lampara__luz {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  width: 180px;
+  height: 180px;
+  margin-left: -90px;
+  margin-top: -90px;
+  border-radius: 50%;
+  background-image: radial-gradient(circle, rgba(255, 236, 170, 0.75) 0%, rgba(255, 200, 100, 0.35) 30%, rgba(255, 200, 100, 0) 70%);
+  animation: iluminar 8s ease-in-out infinite;
+}
+
+.lampara--derecha .lampara__luz {
+  animation-delay: 4s;
+}
+
+/* ---------- Decoración del menú ---------- */
+.ventana-cabana {
+  position: absolute;
+  width: 80px;
+}
+
+.suelo {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #7a4e30;
+  background-image: linear-gradient(rgba(43, 26, 18, 0.5), rgba(43, 26, 18, 0)), url("../img/fondos/suelo_cabana.png");
+  background-size: auto, 256px;
+  image-rendering: pixelated;
+}
+
+.rodapie {
+  position: absolute;
+  top: -18px;
+  left: 0;
+  width: 100%;
+  height: 18px;
+  background-image: url("../img/decoracion/rodapie.svg");
+  background-size: auto 18px;
+  image-rendering: pixelated;
+}
+
+.planta,
+.lena {
+  position: absolute;
+}
+
+.planta {
+  left: 2%;
+  bottom: 40px;
+  width: 48px;
+}
+
+.lena {
+  right: 3%;
+  bottom: 40px;
+  width: 64px;
+}
+
+@keyframes brillar {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.35;
+  }
+}
+
+@keyframes parpadear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.55;
+  }
+}
+
+@keyframes iluminar {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes clavar {
+  from {
+    opacity: 0;
+    margin-top: -20px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes sellar {
+  from {
+    opacity: 0;
+    transform: rotate(-12deg) scale(3);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(-12deg) scale(1);
+  }
+}
+
+@keyframes temblar {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
