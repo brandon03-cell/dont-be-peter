@@ -48,7 +48,7 @@ hr {
   box-shadow: none;
 }
 
-.boton-sonido {
+.botonSonido {
   width: 44px;
   height: 44px;
   background-color: #fff8e7;
@@ -59,16 +59,16 @@ hr {
   transition: transform 0.1s, box-shadow 0.1s;
 }
 
-.boton-sonido:hover {
+.botonSonido:hover {
   background-color: #ffe9a8;
 }
 
-.boton-sonido:active {
+.botonSonido:active {
   transform: translate(3px, 3px);
   box-shadow: none;
 }
 
-.boton-sonido img {
+.botonSonido img {
   display: block;
   width: 100%;
 }
@@ -95,7 +95,7 @@ hr {
 .boton:focus-visible,
 .campo:focus-visible,
 .quitar:focus-visible,
-.ficha-disco:focus-visible,
+.fichaDisco:focus-visible,
 .flecha:focus-visible {
   outline: 3px solid #3c6fe0;
   outline-offset: 2px;
@@ -108,37 +108,37 @@ hr {
   box-shadow: 4px 4px 0 #2b1a12;
 }
 
-.boton--amarillo:hover {
+.botonAmarillo:hover {
   background-color: #ffe17a;
 }
 
-.boton--crema {
+.botonCrema {
   background-color: #f3e3c0;
 }
 
-.boton--crema:hover {
+.botonCrema:hover {
   background-color: #fff8e7;
 }
 
-.boton--rojo {
+.botonRojo {
   background-color: #c21f2b;
   color: #fff8e7;
 }
 
-.boton--rojo:hover {
+.botonRojo:hover {
   background-color: #dd323e;
 }
 
-.boton--ancho {
+.botonAncho {
   display: block;
   width: 100%;
 }
 
-.boton--alto {
+.botonAlto {
   padding: 16px;
 }
 
-.boton--grande {
+.botonGrande {
   padding: 20px 16px;
 }
 
@@ -164,7 +164,7 @@ hr {
   outline: none;
 }
 
-.campo--error {
+.campoError {
   border-color: #c21f2b;
 }
 
@@ -174,7 +174,7 @@ hr {
   color: #c21f2b;
 }
 
-.titulo-sombra {
+.tituloSombra {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   color: #ffd23f;
@@ -182,7 +182,7 @@ hr {
   text-shadow: 4px 4px 0 #2b1a12;
 }
 
-.titulo-grande {
+.tituloGrande {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   font-size: 32px;
@@ -192,7 +192,7 @@ hr {
   text-shadow: -3px 0 0 #2b1a12, 3px 0 0 #2b1a12, 0 -3px 0 #2b1a12, 0 3px 0 #2b1a12, 6px 6px 0 #2b1a12;
 }
 
-.logo-pequeno {
+.logoPequeno {
   font-family: "Press Start 2P", monospace;
   font-size: 12px;
   text-transform: uppercase;
