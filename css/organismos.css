@@ -12,7 +12,7 @@
   z-index: 5;
 }
 
-.barra__titulo {
+.barraTitulo {
   font-family: "Press Start 2P", monospace;
   font-size: 10px;
   text-transform: uppercase;
@@ -20,12 +20,12 @@
   width: 100%;
 }
 
-.barra__botones {
+.barraBotones {
   display: flex;
   gap: 12px;
 }
 
-.boton--barra {
+.botonBarra {
   font-size: 13px;
   padding: 12px 16px;
 }
@@ -36,7 +36,7 @@
   text-align: center;
 }
 
-.welcome__titulo {
+.welcomeTitulo {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   font-size: 26px;
@@ -75,16 +75,16 @@
   animation: perseguir 12s linear infinite;
 }
 
-.persecucion__cabeza {
+.persecucionCabeza {
   height: 60px;
   animation: bailar 0.3s steps(2) infinite;
 }
 
-.persecucion__vuelta {
-  animation: bailar 0.3s steps(2) 0.1s infinite, solo-vuelta 12s steps(1) infinite;
+.persecucionVuelta {
+  animation: bailar 0.3s steps(2) 0.1s infinite, soloVuelta 12s steps(1) infinite;
 }
 
-.persecucion__silla {
+.persecucionSilla {
   height: 45px;
   animation: bailar 0.3s steps(2) 0.15s infinite;
 }
@@ -92,21 +92,21 @@
 .profe {
   display: flex;
   align-items: center;
-  animation: solo-profe 36s steps(1) infinite;
+  animation: soloProfe 36s steps(1) infinite;
 }
 
-.profe__boli {
+.profeBoli {
   height: 12px;
   margin-right: -6px;
   transform: rotate(20deg);
 }
 
-.profe__cara {
+.profeCara {
   height: 60px;
   animation: bailar 0.3s steps(2) 0.2s infinite;
 }
 
-.menu-centro {
+.menuCentro {
   position: relative;
   width: 100%;
   max-width: 576px;
@@ -120,7 +120,7 @@
   animation: asomarse 9s ease-in-out infinite;
 }
 
-.boton--menu {
+.botonMenu {
   display: block;
   width: 100%;
   max-width: 210px;
@@ -131,16 +131,16 @@
   transform: rotate(0.58deg);
 }
 
-.boton--menu:hover {
+.botonMenu:hover {
   transform: rotate(0.58deg) scale(1.04);
 }
 
-.boton--menu:active {
+.botonMenu:active {
   transform: rotate(0.58deg) translate(4px, 4px);
 }
 
 /* El corcho y el panel oscuro solo se ven en escritorio (ver css/pantallas/reparto.css) */
-.corcho__vacio {
+.corchoVacio {
   font-family: "Silkscreen", monospace;
   font-size: 12px;
   color: #2b1a12;
@@ -162,7 +162,7 @@
   transform: rotate(4deg);
 }
 
-.hoja-titulo {
+.hojaTitulo {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   font-size: 13px;
@@ -170,33 +170,33 @@
   margin-bottom: 10px;
 }
 
-.hoja-nota {
+.hojaNota {
   font-size: 14px;
   color: #a85a1e;
   margin-bottom: 10px;
 }
 
-.pie-hoja {
+.pieHoja {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
 }
 
-.pie-hoja__texto {
+.pieHojaTexto {
   font-family: "Silkscreen", monospace;
   font-size: 10px;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
-.pie-hoja .boton {
+.pieHoja .boton {
   font-size: 13px;
   padding: 12px 10px;
   white-space: nowrap;
 }
 
-.panel__titulo {
+.panelTitulo {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   font-size: 16px;
@@ -205,7 +205,7 @@
   margin-bottom: 16px;
 }
 
-.panel__titulo--pequeno {
+.panelTituloPequeno {
   font-size: 14px;
 }
 
@@ -220,18 +220,18 @@
   min-width: 0;
 }
 
-.boton--anadir {
+.botonAnadir {
   width: auto;
   flex-shrink: 0;
 }
 
-.panel__nota {
+.panelNota {
   font-size: 18px;
   color: #d9c49a;
   margin-bottom: 20px;
 }
 
-.panel__linea {
+.panelLinea {
   height: 3px;
   background-color: rgba(255, 210, 63, 0.35);
   margin-bottom: 24px;
@@ -244,23 +244,23 @@
   margin-bottom: 18px;
 }
 
-.contador__numero {
+.contadorNumero {
   font-family: "Press Start 2P", monospace;
   font-size: 64px;
   color: #fff8e7;
 }
 
-.contador__texto {
+.contadorTexto {
   font-weight: 500;
   font-size: 24px;
 }
 
-.contador__sillas {
+.contadorSillas {
   font-size: 22px;
   color: #d9c49a;
 }
 
-.sillas-fila {
+.sillasFila {
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
@@ -268,7 +268,7 @@
   margin-bottom: 12px;
 }
 
-.sillas-fila img {
+.sillasFila img {
   width: 35px;
   height: 35px;
 }
@@ -287,7 +287,7 @@
   padding: 18px 20px;
 }
 
-.hud__ronda {
+.hudRonda {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   font-size: 16px;
@@ -296,12 +296,12 @@
   margin-bottom: 10px;
 }
 
-.hud__texto {
+.hudTexto {
   font-size: 16px;
   margin-bottom: 10px;
 }
 
-.hud__etiqueta {
+.hudEtiqueta {
   display: none;
   font-family: "Silkscreen", monospace;
   font-weight: 700;
@@ -370,7 +370,7 @@
   pointer-events: none;
 }
 
-.escena__hud {
+.escenaHud {
   position: absolute;
   top: 2.5%;
   left: 3%;
@@ -381,7 +381,7 @@
   z-index: 3;
 }
 
-.escena__banner {
+.escenaBanner {
   flex-shrink: 0;
   white-space: nowrap;
   font-family: "Press Start 2P", monospace;
@@ -392,7 +392,7 @@
   padding: 0.21em 0.36em 0.36em 0.21em;
 }
 
-.escena__derecha {
+.escenaDerecha {
   display: flex;
   gap: 2em;
   overflow: hidden;
@@ -406,14 +406,14 @@
   width: 46.88%;
 }
 
-.mesa-brillo {
+.mesaBrillo {
   position: absolute;
   left: 32.81%;
   top: 36.88%;
   width: 34.38%;
 }
 
-.mesa-texto {
+.mesaTexto {
   position: absolute;
   left: 25%;
   width: 50%;
@@ -447,11 +447,11 @@
   animation: girar 9s linear infinite;
 }
 
-.corro.girando .jugador__dentro {
+.corro.girando .jugadorDentro {
   animation: girar 9s linear infinite reverse;
 }
 
-.nota-musical {
+.notaMusical {
   position: absolute;
   font-family: "VT323", monospace;
   font-size: 8.1em;
@@ -460,48 +460,48 @@
   text-shadow: 0.08em 0.08em 0 #2b1a12;
 }
 
-.nota-musical--1 {
+.notaMusical1 {
   left: 8.1%;
   top: 17.5%;
 }
 
-.nota-musical--2 {
+.notaMusical2 {
   left: 71.9%;
   top: 18.75%;
 }
 
-.nota-musical--3 {
+.notaMusical3 {
   left: 81.9%;
   top: 73.75%;
 }
 
-.icono-nota {
+.iconoNota {
   position: absolute;
   width: 5%;
 }
 
-.icono-nota--1 {
+.iconoNota1 {
   left: 13.1%;
   top: 14.4%;
 }
 
-.icono-nota--2 {
+.iconoNota2 {
   left: 76.9%;
   top: 15.6%;
 }
 
-.icono-nota--3 {
+.iconoNota3 {
   left: 86.9%;
   top: 70.6%;
 }
 
-.escena.sonando .nota-musical,
-.escena.sonando .icono-nota {
+.escena.sonando .notaMusical,
+.escena.sonando .iconoNota {
   animation: bailar 0.8s steps(2) infinite;
 }
 
 /* ---------- Boombox ---------- */
-.gramola-escena {
+.gramolaEscena {
   position: relative;
   z-index: 1;
   display: flex;
@@ -521,7 +521,7 @@
   padding: 12px;
 }
 
-.tocadiscos__arriba {
+.tocadiscosArriba {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -551,12 +551,12 @@
   animation: girar 2.5s linear infinite;
 }
 
-.disco__vinilo {
+.discoVinilo {
   display: block;
   width: 100%;
 }
 
-.disco__etiqueta {
+.discoEtiqueta {
   position: absolute;
   left: 32%;
   top: 32%;
@@ -592,7 +592,7 @@
 }
 
 /* Pantallita de la radio */
-.ahora-suena {
+.ahoraSuena {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -602,11 +602,11 @@
   padding: 14px;
 }
 
-.ahora-suena.aparecer {
+.ahoraSuena.aparecer {
   animation: aparecer 0.4s;
 }
 
-.ahora-suena__etiqueta {
+.ahoraSuenaEtiqueta {
   font-family: "Silkscreen", monospace;
   font-weight: 700;
   font-size: 12px;
@@ -614,7 +614,7 @@
   color: #ffd23f;
 }
 
-.ahora-suena__titulo {
+.ahoraSuenaTitulo {
   font-family: "VT323", monospace;
   font-size: 36px;
   line-height: 0.9;
@@ -623,29 +623,29 @@
   text-shadow: 0 0 8px rgba(255, 210, 63, 0.5);
 }
 
-.ahora-suena__autor,
-.ahora-suena__estado,
-.ahora-suena__tiempo {
+.ahoraSuenaAutor,
+.ahoraSuenaEstado,
+.ahoraSuenaTiempo {
   font-family: "Silkscreen", monospace;
   font-size: 12px;
   text-transform: uppercase;
   color: #d9c49a;
 }
 
-.ahora-suena__estado {
+.ahoraSuenaEstado {
   color: #e86a5a;
 }
 
-.sonando .ahora-suena__estado {
+.sonando .ahoraSuenaEstado {
   color: #8be08e;
 }
 
-.ahora-suena__tiempo {
+.ahoraSuenaTiempo {
   color: #fff8e7;
   white-space: nowrap;
 }
 
-.ahora-suena__abajo {
+.ahoraSuenaAbajo {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -661,7 +661,7 @@
   cursor: pointer;
 }
 
-.progreso__relleno {
+.progresoRelleno {
   width: 0%;
   height: 100%;
   background-color: #ffd23f;
@@ -669,7 +669,7 @@
 }
 
 /* Parte de abajo del mueble: dos ruedas y el altavoz */
-.tocadiscos__frente {
+.tocadiscosFrente {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -686,7 +686,7 @@
   transition: transform 0.8s;
 }
 
-.sonando .perilla--volumen {
+.sonando .perillaVolumen {
   transform: rotate(120deg);
 }
 
@@ -699,7 +699,7 @@
   border: 4px solid #2b1a12;
 }
 
-.tocadiscos__pata {
+.tocadiscosPata {
   position: absolute;
   bottom: -18px;
   width: 26px;
@@ -707,16 +707,16 @@
   background-color: #2b1a12;
 }
 
-.tocadiscos__pata--izquierda {
+.tocadiscosPataIzquierda {
   left: 20px;
 }
 
-.tocadiscos__pata--derecha {
+.tocadiscosPataDerecha {
   right: 20px;
 }
 
 /* Notas que salen del tocadiscos cuando suena */
-.nota-gramola {
+.notaGramola {
   position: absolute;
   font-family: "Press Start 2P", monospace;
   font-size: 22px;
@@ -725,32 +725,32 @@
   transition: opacity 0.6s;
 }
 
-.sonando .nota-gramola {
+.sonando .notaGramola {
   opacity: 1;
   animation: bailar 0.8s steps(2) infinite;
 }
 
-.nota-gramola--1 {
+.notaGramola1 {
   left: -6px;
   top: -34px;
   color: #ffd23f;
 }
 
-.nota-gramola--2 {
+.notaGramola2 {
   left: 40px;
   top: -24px;
   color: #e03c3c;
   animation-delay: 0.4s;
 }
 
-.nota-gramola--3 {
+.notaGramola3 {
   right: 40px;
   top: -24px;
   color: #8be08e;
   animation-delay: 0.4s;
 }
 
-.nota-gramola--4 {
+.notaGramola4 {
   right: -6px;
   top: -34px;
   color: #ffd23f;
@@ -769,17 +769,17 @@
   padding: 24px 22px;
 }
 
-.discos__cabecera {
+.discosCabecera {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.discos__cabecera .flecha {
+.discosCabecera .flecha {
   width: 44px;
 }
 
-.discos__pagina {
+.discosPagina {
   flex: 1;
   font-family: "Silkscreen", monospace;
   font-weight: 700;
@@ -789,21 +789,21 @@
   color: #f3e3c0;
 }
 
-.discos__lista {
+.discosLista {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
-.gramola-lado {
+.gramolaLado {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
 /* Los consejos de teclado solo se ven en escritorio */
-.gramola-lado__texto,
-.gramola-lado__teclas {
+.gramolaLadoTexto,
+.gramolaLadoTeclas {
   display: none;
   font-family: "Silkscreen", monospace;
   font-size: 12px;
@@ -812,17 +812,17 @@
   color: #f3e3c0;
 }
 
-.gramola-lado__teclas {
+.gramolaLadoTeclas {
   color: #c9a66b;
 }
 
-.gramola-lado .boton {
+.gramolaLado .boton {
   font-size: 12px;
   text-align: center;
 }
 
 /* ---------- Título de la gramola ---------- */
-.gramola-titulo {
+.gramolaTitulo {
   position: relative;
   z-index: 1;
   display: flex;
@@ -831,7 +831,7 @@
   gap: 16px;
 }
 
-.gramola-escena.aparecer {
+.gramolaEscena.aparecer {
   animation: aparecer 0.4s;
 }
 
@@ -873,7 +873,7 @@
   color: #2b1a12;
 }
 
-.cinta--caja {
+.cintaCaja {
   position: absolute;
   top: -16px;
   left: 14px;
@@ -944,7 +944,7 @@
   color: #d33a2c;
 }
 
-.fondo-dialogo {
+.fondoDialogo {
   display: none;
   position: fixed;
   top: 0;
@@ -958,7 +958,7 @@
   padding: 16px 16px 40px;
 }
 
-.fondo-dialogo.abierto {
+.fondoDialogo.abierto {
   display: flex;
 }
 
@@ -975,18 +975,18 @@
   animation: aparecer 0.3s;
 }
 
-.dialogo--final {
+.dialogoFinal {
   border-color: #ffd23f;
 }
 
-.dialogo__cuerpo {
+.dialogoCuerpo {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.dialogo__titulo {
+.dialogoTitulo {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -997,26 +997,26 @@
   color: #ffd23f;
 }
 
-.dialogo__texto {
+.dialogoTexto {
   font-family: "VT323", monospace;
   font-size: 22px;
   line-height: 22px;
 }
 
-.dialogo__cuenta {
+.dialogoCuenta {
   font-family: "VT323", monospace;
   font-size: 18px;
   color: #d9c49a;
 }
 
-.dialogo__acciones {
+.dialogoAcciones {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
 }
 
-.dialogo__flecha {
+.dialogoFlecha {
   font-size: 14px;
   color: #ffd23f;
   animation: bailar 0.8s steps(2) infinite;
@@ -1052,7 +1052,7 @@
   }
 }
 
-@keyframes solo-vuelta {
+@keyframes soloVuelta {
   0% {
     opacity: 0;
   }
@@ -1064,7 +1064,7 @@
   }
 }
 
-@keyframes solo-profe {
+@keyframes soloProfe {
   0% {
     opacity: 0;
   }
@@ -1126,12 +1126,12 @@
   background-position: center;
 }
 
-.con-barra .pantalla {
+.conBarra .pantalla {
   min-height: calc(100vh - 58px);
 }
 
 /* Pared de tablas: un azulejo pequeño que se repite ampliado x4 (pixel art nítido) */
-.pantalla--pared {
+.pantallaPared {
   background-size: 1024px;
   background-position: center top;
   image-rendering: pixelated;
@@ -1151,35 +1151,35 @@
   margin-top: 30px;
 }
 
-.boton--volver {
+.botonVolver {
   width: 140px;
 }
 
-.pantalla--pared {
+.pantallaPared {
   background-image: url("../img/fondos/pared.png");
 }
 
-.pantalla--pared .titulo-grande {
+.pantallaPared .tituloGrande {
   margin: 14px 0 36px;
 }
 
-.botonera--hoja {
+.botoneraHoja {
   max-width: 1040px;
   margin: 30px auto 0;
   flex-direction: column-reverse;
   align-items: stretch;
 }
 
-.botonera--hoja .boton--volver {
+.botoneraHoja .botonVolver {
   width: 100%;
   max-width: none;
 }
 
-.pantalla--pared .logo-pequeno {
+.pantallaPared .logoPequeno {
   display: none;
 }
 
-.botonera--hoja .boton {
+.botoneraHoja .boton {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   font-size: 12px;
@@ -1195,16 +1195,16 @@
     padding: 12px 24px;
   }
 
-  .barra__titulo {
+  .barraTitulo {
     width: auto;
     font-size: 14px;
   }
 
-  .barra__botones {
+  .barraBotones {
     gap: 8px;
   }
 
-  .boton--barra {
+  .botonBarra {
     font-size: 14px;
     padding: 12px 16px;
   }
@@ -1231,24 +1231,24 @@
     width: 45%;
   }
 
-  .boton--volver {
+  .botonVolver {
     width: 260px;
   }
 
-  .titulo-grande {
+  .tituloGrande {
     font-size: 48px;
   }
 
-  .botonera--hoja {
+  .botoneraHoja {
     flex-direction: row;
     align-items: center;
   }
 
-  .botonera--hoja .boton--volver {
+  .botoneraHoja .botonVolver {
     width: 260px;
   }
 
-  .pantalla--pared .logo-pequeno {
+  .pantallaPared .logoPequeno {
     display: flex;
   }
 }
@@ -1269,7 +1269,7 @@
     width: 72px;
   }
 
-  .lampara .lampara__luz {
+  .lampara .lamparaLuz {
     width: 280px;
     height: 280px;
     margin-left: -140px;
@@ -1280,11 +1280,11 @@
     width: 38%;
   }
 
-  .lampara--izquierda {
+  .lamparaIzquierda {
     left: calc((100% - 576px) / 4 - 36px);
   }
 
-  .lampara--derecha {
+  .lamparaDerecha {
     right: calc((100% - 576px) / 4 - 36px);
   }
 
@@ -1312,18 +1312,18 @@
     width: 100px;
   }
 
-  .lampara .lampara__luz {
+  .lampara .lamparaLuz {
     width: 400px;
     height: 400px;
     margin-left: -200px;
     margin-top: -200px;
   }
 
-  .lampara--izquierda {
+  .lamparaIzquierda {
     left: calc((100% - 760px) / 4 - 50px);
   }
 
-  .lampara--derecha {
+  .lamparaDerecha {
     right: calc((100% - 760px) / 4 - 50px);
   }
 
