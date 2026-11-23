@@ -485,7 +485,7 @@
   width: 100%;
   height: 70px;
   background-color: #7a4e30;
-  background-image: linear-gradient(rgba(43, 26, 18, 0.5), rgba(43, 26, 18, 0)), url("../img/fondos/sueloCabana.png");
+  background-image: linear-gradient(rgba(43, 26, 18, 0.5), rgba(43, 26, 18, 0)), url("https://res.cloudinary.com/do4k9fww6/image/upload/v1795462143/sueloCabana.png");
   background-size: auto, 256px;
   image-rendering: pixelated;
 }
@@ -496,7 +496,7 @@
   left: 0;
   width: 100%;
   height: 18px;
-  background-image: url("../img/decoracion/rodapie.svg");
+  background-image: url("https://res.cloudinary.com/do4k9fww6/image/upload/v1795462142/rodapie.svg");
   background-size: auto 18px;
   image-rendering: pixelated;
 }
