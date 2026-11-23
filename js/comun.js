@@ -34,10 +34,17 @@ function cambiarSonido() {
 }
 
 function pintarSonido() {
+  let botonMenu = document.getElementById("botonSonidoMenu");
+  let icono = document.getElementById("iconoSonidoMenu");
+
   if (sonidoActivo) {
     document.getElementById("botonSonido").textContent = "Sonido";
+    icono.src = "https://res.cloudinary.com/do4k9fww6/image/upload/v1795462138/altavoz.svg";
+    botonMenu.setAttribute("aria-label", "Quitar la música");
   } else {
     document.getElementById("botonSonido").textContent = "Sin sonido";
+    icono.src = "https://res.cloudinary.com/do4k9fww6/image/upload/v1795462138/altavozMudo.svg";
+    botonMenu.setAttribute("aria-label", "Poner la música");
   }
 }
 
