@@ -129,3 +129,107 @@ function pintarSala() {
     cajaSillas.appendChild(silla);
   }
 }
+function empezarPartida() {
+  enJuego = jugadores.slice();
+  eliminados = [];
+  ronda = 1;
+  tiempo = 0;
+  posicionPeter = -1;
+  document.getElementById("botonParar").disabled = false;
+  document.getElementById("botonCambiarDisco").disabled = false;
+  mostrarPantalla("pantallaSala");
+  pintarSala();
+  ponerMusica();
+}
+
+function pararYElegir() {
+  if (!musicaSonando) {
+    ponerMusica();
+    return;
+  }
+
+  document.getElementById("botonParar").disabled = true;
+  document.getElementById("botonCambiarDisco").disabled = true;
+  document.getElementById("textoBanner").textContent = "¡A tu silla!";
+
+  // La música va cada vez más lenta y luego se para
+  relojFreno = setInterval(function () {
+    musica.playbackRate = musica.playbackRate - 0.1;
+    if (musica.playbackRate <= 0.4) {
+      clearInterval(relojFreno);
+      pararMusica();
+      elegirYSentar();
+    }
+  }, 120);
+}
+
+function elegirYSentar() {
+  posicionPeter = elegirPeter(enJuego);
+  sentarJugadores();
+  sonar("peter");
+
+  relojAviso = setTimeout(function () {
+    let nombre = enJuego[posicionPeter];
+    let quedan = enJuego.length - 1;
+    let texto = nombre + " se ha quedado sin silla. Hoy le toca ser Peter. Quedan " + quedan + ".";
+    if (quedan == 2) {
+      texto = texto + " ¡La próxima es la última ronda!";
+    }
+    modoDialogo = "peter";
+    sonar("aviso");
+    let cara = caraDe(nombre, jugadores.indexOf(nombre));
+    abrirDialogo("Ronda " + ronda + " · ¡Ese es Peter!", texto, "Siguiente ronda", false, cara);
+  }, 1800);
+}
+
+// Cada jugador va a una silla y Peter se queda de pie en medio, con el foco encima
+function sentarJugadores() {
+  let cabezas = document.querySelectorAll("#corro .jugador");
+  let totalSillas = numeroSillas(jugadores);
+  let silla = 0;
+
+  for (let i = 0; i < cabezas.length; i++) {
+    if (i == posicionPeter) {
+      cabezas[i].style.left = "50%";
+      cabezas[i].style.top = "47%";
+      cabezas[i].classList.add("peter");
+    } else {
+      let angulo = (2 * Math.PI * silla) / totalSillas - Math.PI / 2;
+      cabezas[i].style.left = 50 + 25 * Math.cos(angulo) + "%";
+      cabezas[i].style.top = 50 + 25 * Math.sin(angulo) + "%";
+      cabezas[i].classList.add("sentado");
+      silla = silla + 1;
+    }
+  }
+
+  document.getElementById("textoMesa").innerHTML = "";
+  document.getElementById("foco").classList.add("encendido");
+}
+
+function siguienteRonda() {
+  eliminados.push(enJuego[posicionPeter]);
+  enJuego = quitarNombre(enJuego, posicionPeter);
+  posicionPeter = -1;
+  document.getElementById("botonParar").disabled = false;
+  document.getElementById("botonCambiarDisco").disabled = false;
+
+  if (partidaTerminada(enJuego)) {
+    pintarSala();
+    modoDialogo = "final";
+    sonar("final");
+    abrirDialogo(
+      "Fin de la partida",
+      "Solo quedas tú, " + enJuego[0] + ". Has sobrevivido a todos. Soledad incluida.",
+      "Jugar otra vez",
+      true,
+      caraDe(enJuego[0], jugadores.indexOf(enJuego[0]))
+    );
+    empezarCuentaAtras();
+    return;
+  }
+
+  ronda = ronda + 1;
+  tiempo = 0;
+  pintarSala();
+  ponerMusica();
+}
