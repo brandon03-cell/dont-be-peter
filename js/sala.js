@@ -152,7 +152,7 @@ function pararYElegir() {
   document.getElementById("botonCambiarDisco").disabled = true;
   document.getElementById("textoBanner").textContent = "¡A tu silla!";
 
-  // La música va cada vez más lenta y luego se para
+
   relojFreno = setInterval(function () {
     musica.playbackRate = musica.playbackRate - 0.1;
     if (musica.playbackRate <= 0.4) {
@@ -182,7 +182,7 @@ function elegirYSentar() {
   }, 1800);
 }
 
-// Cada jugador va a una silla y Peter se queda de pie en medio, con el foco encima
+
 function sentarJugadores() {
   let cabezas = document.querySelectorAll("#corro .jugador");
   let totalSillas = numeroSillas(jugadores);
@@ -233,3 +233,32 @@ function siguienteRonda() {
   pintarSala();
   ponerMusica();
 }
+reloj = setInterval(function () {
+  if (musicaSonando) {
+    tiempo = tiempo + 1;
+    document.getElementById("hudTime").textContent = tiempo;
+  }
+}, 1000);
+
+document.getElementById("botonParar").addEventListener("click", function () {
+  pararYElegir();
+});
+
+document.getElementById("botonCambiarDisco").addEventListener("click", function () {
+  sonar("clic");
+  irAGramola();
+});
+
+document.addEventListener("keydown", function (evento) {
+  let enSala = document.getElementById("pantallaSala").classList.contains("activa");
+  let dialogoAbierto = document.getElementById("dialogo").classList.contains("abierto");
+  if (!enSala || dialogoAbierto) {
+    return;
+  }
+  if (evento.key == " " && evento.target.tagName != "BUTTON") {
+    evento.preventDefault();
+    if (!document.getElementById("botonParar").disabled) {
+      pararYElegir();
+    }
+  }
+});
