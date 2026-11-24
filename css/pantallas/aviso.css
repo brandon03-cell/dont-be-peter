@@ -1,0 +1,21 @@
+git a@media (min-width: 768px) {
+  .retrato {
+    width: 84px;
+    height: 84px;
+  }
+
+  .retratoSello {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+
+  .fondoDialogo {
+    padding: 16px 51px 66px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .fondoDialogo {
+    padding-bottom: 30px;
+  }
+}

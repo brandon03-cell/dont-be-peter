@@ -1,33 +1,33 @@
-var juego = require("../js/juego.js");
+let juego = require("../js/juego.js");
 
 test("no deja añadir un nombre vacío", function () {
     expect(juego.validarNombre([], "   ")).toBe("Escribe un nombre.");
 });
 
 test("no deja añadir nombres repetidos", function () {
-    var lista = ["Brandon", "Julián"];
+    let lista = ["Brandon", "Julián"];
     expect(juego.validarNombre(lista, "brandon")).toBe("Ese nombre ya está en la hoja.");
     expect(juego.validarNombre(lista, "  Julian ")).toBe("Ese nombre ya está en la hoja.");
 });
 
 test("deja añadir un nombre nuevo", function () {
-    var lista = ["Brandon"];
+    let lista = ["Brandon"];
     expect(juego.validarNombre(lista, "Alba")).toBe("");
-    var nueva = juego.anadirNombre(lista, "  Alba ");
+    let nueva = juego.anadirNombre(lista, "  Alba ");
     expect(nueva).toEqual(["Brandon", "Alba"]);
     expect(lista).toEqual(["Brandon"]);
 });
 
 test("no deja pasar de 12 jugadores", function () {
-    var lista = [];
-    for (var i = 0; i < 12; i++) {
+    let lista = [];
+    for (let i = 0; i < 12; i++) {
         lista.push("Jugador " + i);
     }
     expect(juego.validarNombre(lista, "Otro")).not.toBe("");
 });
 
 test("quitar un nombre lo borra de la lista", function () {
-    var lista = ["Brandon", "Alba", "Diego"];
+    let lista = ["Brandon", "Alba", "Diego"];
     expect(juego.quitarNombre(lista, 1)).toEqual(["Brandon", "Diego"]);
 });
 
@@ -42,9 +42,9 @@ test("siempre hay una silla menos que jugadores", function () {
 });
 
 test("elegirPeter devuelve una posición que existe", function () {
-    var lista = ["Brandon", "Alba", "Diego"];
-    for (var i = 0; i < 50; i++) {
-        var posicion = juego.elegirPeter(lista);
+    let lista = ["Brandon", "Alba", "Diego"];
+    for (let i = 0; i < 50; i++) {
+        let posicion = juego.elegirPeter(lista);
         expect(posicion).toBeGreaterThanOrEqual(0);
         expect(posicion).toBeLessThan(lista.length);
     }

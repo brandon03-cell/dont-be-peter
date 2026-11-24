@@ -199,7 +199,100 @@
     </section>
 
     <!-- ========== GRAMOLA (Diego) ========== -->
-    <section class="pantalla pantallaGramola" id="pantallaGramola">
+    <section class="pantalla pantallaGramola gramolaJukebox" id="pantallaGramola">
+      <div class="guirnalda guirnaldaIzquierda">
+        <img class="guirnaldaCable" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528506/cable_d9evoq.svg" alt="">
+        <img class="bombilla bombilla1 bombillaAmarilla" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528547/bombillaAmarilla_lpncxa.svg" alt="">
+        <img class="bombilla bombilla2 bombillaAzul" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528555/bombillaAzul_fmmvpn.svg" alt="">
+        <img class="bombilla bombilla3 bombillaRoja" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528557/bombillaRoja_k5utw2.svg" alt="">
+        <img class="bombilla bombilla4 bombillaVerde" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528559/bombillaVerde_cddgtu.svg" alt="">
+      </div>
+      <div class="guirnalda guirnaldaDerecha">
+        <img class="guirnaldaCable" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528506/cable_d9evoq.svg" alt="">
+        <img class="bombilla bombilla1 bombillaRoja" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528557/bombillaRoja_k5utw2.svg" alt="">
+        <img class="bombilla bombilla2 bombillaAmarilla" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528547/bombillaAmarilla_lpncxa.svg" alt="">
+        <img class="bombilla bombilla3 bombillaVerde" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528559/bombillaVerde_cddgtu.svg" alt="">
+        <img class="bombilla bombilla4 bombillaAzul" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528555/bombillaAzul_fmmvpn.svg" alt="">
+      </div>
+
+      <div class="lampara lamparaIzquierda">
+        <span class="lamparaLuz"></span>
+        <img class="lamparaDibujo" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528669/lampara_h1njch.svg" alt="">
+      </div>
+      <div class="lampara lamparaDerecha">
+        <span class="lamparaLuz"></span>
+        <img class="lamparaDibujo" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528669/lampara_h1njch.svg" alt="">
+      </div>
+
+      <div class="gramolaTitulo">
+        <h2 class="tituloSombra tituloSombraGramola">Boombox</h2>
+      </div>
+
+      <div class="gramolaEscena" id="escenaGramola">
+
+        <span class="tubo tuboAzul"></span>
+        <span class="tubo tuboVerde"></span>
+
+        <div class="tocadiscos">
+          <p class="notaGramola notaGramola1">♫</p>
+          <p class="notaGramola notaGramola2">♪</p>
+          <p class="notaGramola notaGramola3">♪</p>
+          <p class="notaGramola notaGramola4">♫</p>
+
+          <div class="tocadiscosArriba">
+            <div class="plato">
+              <div class="disco" id="disco" title="Pausar / seguir">
+                <img class="discoVinilo" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528271/vinilo_m4p4aj.svg" alt="">
+                <p class="discoEtiqueta" id="etiquetaDisco">A1</p>
+              </div>
+              <img class="brazo" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528280/brazo_ybe4j0.svg" alt="">
+            </div>
+
+            <div class="ahoraSuena" id="ahoraSuena">
+              <p class="ahoraSuenaEtiqueta">Ahora suena</p>
+              <p class="ahoraSuenaTitulo" id="tituloCancion">Stage Select</p>
+              <p class="ahoraSuenaAutor" id="autorCancion">Juhani Junkala</p>
+              <p class="ahoraSuenaEstado" id="estadoCancion">En pausa</p>
+              <div class="progreso" id="barraProgreso" title="Pulsa para avanzar o retroceder">
+                <div class="progresoRelleno" id="rellenoProgreso"></div>
+              </div>
+              <div class="ahoraSuenaAbajo">
+                <p class="ahoraSuenaTiempo" id="tiempoCancion">0:00 / 0:00</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tocadiscosFrente">
+            <span class="perilla"></span>
+            <span class="rejilla"></span>
+            <span class="perilla perillaVolumen"></span>
+          </div>
+          <span class="tocadiscosPata tocadiscosPataIzquierda"></span>
+          <span class="tocadiscosPata tocadiscosPataDerecha"></span>
+        </div>
+
+        <div class="discos">
+          <div class="discosCabecera">
+            <button class="flecha" id="paginaAnterior" aria-label="Página anterior">◀</button>
+            <p class="discosPagina" id="textoPagina">Página A · 1 de 1</p>
+            <button class="flecha" id="paginaSiguiente" aria-label="Página siguiente">▶</button>
+          </div>
+          <ul class="discosLista" id="listaCanciones"></ul>
+
+          <div class="gramolaLado">
+            <p class="gramolaLadoTexto">Pulsa un disco para ponerlo y el vinilo para pausar</p>
+            <p class="gramolaLadoTeclas">Espacio: pausa · Flechas: otra canción</p>
+            <button class="boton botonAmarillo botonAncho" id="botonVolverPartida">Volver a la partida</button>
+            <button class="boton botonCrema botonAncho" id="botonVolverGramola">Volver al menú</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="suelo">
+        <div class="rodapie"></div>
+      </div>
+      <img class="planta" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528748/planta_p9j8ny.svg" alt="">
+      <img class="lena" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528751/lena_ufwgul.svg" alt="">
     </section>
 
     <!-- ========== TUTORIAL (Alba) ========== -->
@@ -275,14 +368,14 @@
             <div class="tarjetaFoto"><img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462142/manuel.png" alt="Cara de Manuel"></div>
             <div>
               <p class="tarjetaNombre">Manuel Vasco<br>López</p>
-              <span class="rol">Product owner</span>
+              <span class="rol">Desarrollo</span>
             </div>
           </div>
           <div class="tarjeta">
             <div class="tarjetaFoto"><img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462141/diego.png" alt="Cara de Diego"></div>
             <div>
               <p class="tarjetaNombre">Diego José<br>Alonso Arias</p>
-              <span class="rol">Desarrollo</span>
+              <span class="rol">Product owner</span>
             </div>
           </div>
           <div class="tarjeta">
@@ -331,8 +424,23 @@
     </section>
 
     <!-- ========== AVISO Y FINAL (Diego) ========== -->
-    <section class="pantalla pantallaAviso" id="pantallaAviso">
-    </section>
+  <div class="fondoDialogo" id="dialogo">
+    <div class="dialogo" id="cajaDialogo">
+      <div class="retrato">
+        <img class="retratoCara" id="dialogoCara" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462138/alba.png" alt="">
+        <span class="retratoSello" id="dialogoSello">Peter</span>
+      </div>
+      <div class="dialogoCuerpo">
+        <p class="dialogoTitulo"><span id="dialogoTitulo">Ronda 1 · ¡Ese es Peter!</span></p>
+        <p class="dialogoTexto" id="dialogoTexto"></p>
+        <p class="dialogoCuenta" id="dialogoCuenta"></p>
+        <div class="dialogoAcciones">
+          <button class="boton botonAmarillo" id="dialogoBoton">Siguiente ronda</button>
+          <span class="dialogoFlecha">▼</span>
+        </div>
+      </div>
+    </div>
+  </div>
   </main>
 
   <script src="js/comun.js"></script>

@@ -9,7 +9,12 @@ musica.volume = 0.5;
 musica.preservesPitch = false;
 
 let sonidos = {
-  clic: new Audio("https://res.cloudinary.com/do4k9fww6/video/upload/v1795462140/clic.ogg")
+  clic: new Audio("https://res.cloudinary.com/do4k9fww6/video/upload/v1795462140/clic.ogg"),
+  anadir: new Audio("https://res.cloudinary.com/do4k9fww6/video/upload/v1795555360/anadir.ogg"),
+  borrar: new Audio("https://res.cloudinary.com/do4k9fww6/video/upload/v1795555361/borrar.ogg"),
+  aviso: new Audio("https://res.cloudinary.com/do4k9fww6/video/upload/v1795555361/aviso.ogg"),
+  peter: new Audio("https://res.cloudinary.com/do4k9fww6/video/upload/v1795555361/peter.ogg"),
+  final: new Audio("https://res.cloudinary.com/do4k9fww6/video/upload/v1795555361/final.ogg")
 };
 
 function sonar(nombre) {
