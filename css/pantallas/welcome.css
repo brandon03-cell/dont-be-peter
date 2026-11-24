@@ -25,4 +25,19 @@
     align-items: flex-end;
     padding-bottom: 40px;
   }
+   .welcome {
+    max-width: 968px;
+  }
+
+  .welcomeTitulo {
+    font-size: 56px;
+    line-height: 1;
+    text-shadow: 4px 0 0 #2b1a12, -4px 0 0 #2b1a12, 0 4px 0 #2b1a12, 0 -4px 0 #2b1a12, 4px 4px 0 #2b1a12, -4px -4px 0 #2b1a12, 4px -4px 0 #2b1a12, -4px 4px 0 #2b1a12, 8px 9px 0 #2b1a12;
+    margin-bottom: 24px;
+  }
+
+  #botonInicio {
+    padding: 14px 72px;
+    font-size: 14px;
+  }
 }
