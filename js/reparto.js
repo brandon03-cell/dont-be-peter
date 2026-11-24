@@ -1,5 +1,5 @@
 
-var chinchetas = [
+let chinchetas = [
     "https://res.cloudinary.com/daul6tzck/image/upload/v1795169966/chincheta_roja_hndirn.svg",
     "https://res.cloudinary.com/daul6tzck/image/upload/v1795169967/chincheta_azul_gyckgk.svg",
     "https://res.cloudinary.com/daul6tzck/image/upload/v1795169967/chincheta_verde_k2yvjs.svg",
@@ -8,20 +8,20 @@ var chinchetas = [
 ];
 
 function pintarReparto() {
-    var lista = document.getElementById("listaFichas");
+    let lista = document.getElementById("listaFichas");
     lista.innerHTML = "";
 
-for (var i = 0; i < jugadores.length; i++) {
-    var ficha = document.createElement("li");
+for (let i = 0; i < jugadores.length; i++) {
+    let ficha = document.createElement("li");
     ficha.className = "ficha";
 
-    var chincheta = document.createElement("img");
+    let chincheta = document.createElement("img");
     chincheta.className = "fichaChincheta";
     chincheta.src = chinchetas[i % chinchetas.length];
     chincheta.alt = "";
     ficha.appendChild(chincheta);
 
-    var numero = document.createElement("span");
+    let numero = document.createElement("span");
     numero.className = "fichaNumero";
     if (i < 9) {
         numero.textContent = "0" + (i + 1);
@@ -30,23 +30,23 @@ for (var i = 0; i < jugadores.length; i++) {
     }
     ficha.appendChild(numero);
 
-    var color = document.createElement("span");
+    let color = document.createElement("span");
     color.className = "fichaColor";
     color.style.backgroundColor = colorDe(i);
     ficha.appendChild(color);
 
-    var cara = document.createElement("img");
+    let cara = document.createElement("img");
     cara.className = "fichaCara";
     cara.src = caraDe(jugadores[i], i);
     cara.alt = "Cara de " + jugadores[i];
     ficha.appendChild(cara);
 
-    var nombre = document.createElement("p");
+    let nombre = document.createElement("p");
     nombre.className = "etiqueta";
     nombre.textContent = jugadores[i];
     ficha.appendChild(nombre);
 
-    var quitar = document.createElement("button");
+    let quitar = document.createElement("button");
     quitar.className = "quitar";
     quitar.innerHTML = '<img src="https://res.cloudinary.com/daul6tzck/image/upload/v1795169968/papelera_l93csq.svg" alt=""><span class="quitarTexto">Quitar</span>';
     quitar.setAttribute("aria-label", "Quitar a " + jugadores[i]);
@@ -68,7 +68,7 @@ if (jugadores.length == 0) {
     document.getElementById("corchoVacio").classList.add("oculto");
 }
 
-var sillas = numeroSillas(jugadores);
+let sillas = numeroSillas(jugadores);
 document.getElementById("contadorNumero").textContent = jugadores.length;
 if (jugadores.length == 1) {
     document.getElementById("contadorTexto").textContent = "jugador";
@@ -83,10 +83,10 @@ if (sillas == 1) {
     document.getElementById("contadorSillas").textContent = "= " + sillas + " sillas";
 }
 
-var fila = document.getElementById("sillasFila");
+let fila = document.getElementById("sillasFila");
 fila.innerHTML = "";
-for (var j = 0; j < sillas; j++) {
-    var silla = document.createElement("img");
+for (let j = 0; j < sillas; j++) {
+    let silla = document.createElement("img");
     silla.src = "https://res.cloudinary.com/daul6tzck/image/upload/v1795169970/silla_icono_dyud6w.svg";
     silla.alt = "";
     fila.appendChild(silla);
@@ -96,7 +96,7 @@ for (var j = 0; j < sillas; j++) {
 }
 
 function mostrarError(texto) {
-    var campo = document.getElementById("campoNombre");
+    let campo = document.getElementById("campoNombre");
         document.getElementById("mensajeError").textContent = texto;
     if (texto == "") {
         campo.classList.remove("campoError");
@@ -113,8 +113,8 @@ function irAlReparto() {
 
 document.getElementById("formularioNombre").addEventListener("submit", function (evento) {
     evento.preventDefault();
-    var campo = document.getElementById("campoNombre");
-    var error = validarNombre(jugadores, campo.value);
+    let campo = document.getElementById("campoNombre");
+    let error = validarNombre(jugadores, campo.value);
     if (error != "") {
         mostrarError(error);
         sonar("borrar");
