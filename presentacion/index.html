@@ -1,0 +1,3899 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <meta name="darkreader-lock">
+  <title>Don't be Peter · Presentación</title>
+  <link rel="icon" href="assets/img/iconoSilla.svg">
+  <!--
+    Presentación de Don't be Peter (15 diapositivas). Funciona sin internet: todo está en la carpeta assets.
+    - Pasar: flechas, espacio, Av Pág / Re Pág, clic (en el borde izquierdo retrocede) o rueda del ratón.
+    - Inicio y Fin: primera y última diapositiva. F: pantalla completa.
+    - index.html#5 abre directamente la diapositiva 5.
+    - index.html?estatico#5 (o index.html#5?estatico) quita las animaciones y enseña el estado final.
+  -->
+  <style>
+    /* ---------- Fuentes (las mismas de la web, en local) ---------- */
+    @font-face {
+      font-family: "Pixelify Sans";
+      font-weight: 400 700;
+      src: url("assets/fonts/PixelifySans.woff2") format("woff2");
+    }
+
+    @font-face {
+      font-family: "Press Start 2P";
+      src: url("assets/fonts/PressStart2P.woff2") format("woff2");
+    }
+
+    @font-face {
+      font-family: "Silkscreen";
+      font-weight: 400;
+      src: url("assets/fonts/Silkscreen-Regular.woff2") format("woff2");
+    }
+
+    @font-face {
+      font-family: "Silkscreen";
+      font-weight: 700;
+      src: url("assets/fonts/Silkscreen-Bold.woff2") format("woff2");
+    }
+
+    @font-face {
+      font-family: "VT323";
+      src: url("assets/fonts/VT323.woff2") format("woff2");
+    }
+
+    /* ---------- Base ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #0d0705;
+    }
+
+    body {
+      font-family: "Pixelify Sans", sans-serif;
+      font-size: 28px;
+      color: #fff8e7;
+      font-variant-ligatures: none;
+      cursor: default;
+      user-select: none;
+    }
+
+    img {
+      image-rendering: pixelated;
+    }
+
+    ul,
+    ol {
+      list-style: none;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    /* El escenario mide siempre 1920x1080 y se escala con JS para caber en la pantalla */
+    .escenario {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 1920px;
+      height: 1080px;
+      margin-left: -960px;
+      margin-top: -540px;
+      overflow: hidden;
+      background-color: #2b1a12;
+    }
+
+    /* Pared de tablas de la cabaña, igual que en el menú del juego */
+    .pared {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(ellipse at center, rgba(43, 26, 18, 0) 45%, rgba(43, 26, 18, 0.6) 100%), url("assets/img/pared.png");
+      background-size: auto, 1024px;
+      background-position: center, center top;
+      image-rendering: pixelated;
+    }
+
+    /* ---------- Guirnaldas ---------- */
+    .guirnalda {
+      position: absolute;
+      top: 0;
+      width: 600px;
+    }
+
+    .guirnaldaIzquierda {
+      left: 0;
+    }
+
+    .guirnaldaDerecha {
+      right: 0;
+      transform: scaleX(-1);
+    }
+
+    .guirnaldaCable {
+      display: block;
+      width: 100%;
+    }
+
+    .bombilla {
+      position: absolute;
+      width: 22px;
+      margin-left: -11px;
+      transform-origin: top center;
+      transform: rotate(-8deg);
+      animation: parpadear 1.6s steps(2) infinite;
+    }
+
+    .bombilla1,
+    .bombilla3 {
+      transform: rotate(8deg);
+    }
+
+    .bombilla1 {
+      left: 50.1%;
+      top: 16.3%;
+    }
+
+    .bombilla2 {
+      left: 34.4%;
+      top: 32.7%;
+    }
+
+    .bombilla3 {
+      left: 19.6%;
+      top: 43.1%;
+    }
+
+    .bombilla4 {
+      left: 6.7%;
+      top: 47.3%;
+    }
+
+    .bombillaRoja {
+      filter: drop-shadow(0 0 4px #ff6b6b) drop-shadow(0 0 12px rgba(224, 60, 60, 0.8));
+    }
+
+    .bombillaAzul {
+      filter: drop-shadow(0 0 4px #7ab8ff) drop-shadow(0 0 12px rgba(60, 140, 224, 0.8));
+      animation-delay: 0.4s;
+    }
+
+    .bombillaAmarilla {
+      filter: drop-shadow(0 0 4px #ffe58a) drop-shadow(0 0 12px rgba(255, 210, 63, 0.8));
+      animation-delay: 0.8s;
+    }
+
+    .bombillaVerde {
+      filter: drop-shadow(0 0 4px #8be08e) drop-shadow(0 0 12px rgba(76, 175, 80, 0.8));
+      animation-delay: 1.2s;
+    }
+
+    /* ---------- Diapositivas ---------- */
+    .diapo {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      display: none;
+    }
+
+    .diapo.activa {
+      display: block;
+    }
+
+    .titulo {
+      position: absolute;
+      left: 330px;
+      top: 56px;
+      width: 1260px;
+      font-family: "Press Start 2P", monospace;
+      font-weight: 400;
+      font-size: 46px;
+      line-height: 1.2;
+      text-align: center;
+      text-transform: uppercase;
+      color: #ffd23f;
+      text-shadow: -4px 0 0 #2b1a12, 4px 0 0 #2b1a12, 0 -4px 0 #2b1a12, 0 4px 0 #2b1a12, -4px -4px 0 #2b1a12, 4px -4px 0 #2b1a12, -4px 4px 0 #2b1a12, 4px 4px 0 #2b1a12, 9px 9px 0 #2b1a12;
+    }
+
+    .zona {
+      position: absolute;
+      left: 90px;
+      top: 195px;
+      width: 1740px;
+      height: 800px;
+    }
+
+    /* ---------- Piezas que se repiten (las mismas de la web) ---------- */
+    .hoja {
+      position: relative;
+      color: #2b1a12;
+      background-color: #f3e6c8;
+      border: 6px solid #2b1a12;
+      box-shadow: 10px 10px 0 #2b1a12;
+      padding: 54px 34px 30px;
+    }
+
+    .panel {
+      position: relative;
+      background-color: #3a2418;
+      border: 6px solid #2b1a12;
+      box-shadow: 10px 10px 0 #2b1a12;
+      outline: 3px solid rgba(255, 210, 63, 0.35);
+      outline-offset: -16px;
+      padding: 54px 38px 34px;
+    }
+
+    .alfombra {
+      position: relative;
+      background-color: #2f4a42;
+      border: 8px solid #2b1a12;
+      box-shadow: 10px 10px 0 rgba(43, 26, 18, 0.7);
+      outline: 4px dashed #c9a66b;
+      outline-offset: -22px;
+      padding: 60px 44px 40px;
+    }
+
+    .cinta {
+      position: absolute;
+      top: -26px;
+      left: 26px;
+      font-family: "Press Start 2P", monospace;
+      font-size: 20px;
+      line-height: 1;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: #fff8e7;
+      background-color: #d33a2c;
+      border: 4px solid #2b1a12;
+      box-shadow: 4px 4px 0 #2b1a12;
+      padding: 11px 14px;
+    }
+
+    .rol {
+      display: inline-block;
+      font-family: "Press Start 2P", monospace;
+      font-size: 15px;
+      line-height: 1;
+      text-transform: uppercase;
+      color: #fff8e7;
+      background-color: #d33a2c;
+      border: 3px solid #2b1a12;
+      padding: 8px 10px;
+    }
+
+    .etiqueta {
+      display: inline-block;
+      font-family: "Silkscreen", monospace;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff8e7;
+      background-color: #2b1a12;
+      padding: 6px 12px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 500;
+      font-size: 24px;
+      color: #2b1a12;
+      background-color: #fff8e7;
+      border: 3px solid #2b1a12;
+      box-shadow: 4px 4px 0 #2b1a12;
+      padding: 6px 14px 6px 10px;
+    }
+
+    .chipCojin {
+      width: 16px;
+      height: 16px;
+      background-color: #e03c3c;
+      border: 3px solid #2b1a12;
+    }
+
+    .boton {
+      display: inline-block;
+      font-family: "Silkscreen", monospace;
+      font-weight: 700;
+      font-size: 24px;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #2b1a12;
+      background-color: #ffd23f;
+      border: 5px solid #2b1a12;
+      box-shadow: 6px 6px 0 #2b1a12;
+      padding: 18px 26px;
+    }
+
+    .numero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-family: "Press Start 2P", monospace;
+      font-size: 18px;
+      color: #2b1a12;
+      background-color: #ffd23f;
+      border: 4px solid #2b1a12;
+    }
+
+    .sello {
+      display: inline-block;
+      font-family: "Silkscreen", monospace;
+      font-size: 22px;
+      text-transform: uppercase;
+      color: #c21f2b;
+      border: 4px solid #c21f2b;
+      padding: 2px 10px;
+      transform: rotate(4deg);
+    }
+
+    .enlace {
+      font-family: "VT323", monospace;
+      font-size: 32px;
+      line-height: 1;
+      color: #2b1a12;
+      text-decoration: underline;
+      text-decoration-thickness: 3px;
+      text-underline-offset: 5px;
+      cursor: pointer;
+    }
+
+    .enlaceClaro {
+      color: #ffd23f;
+    }
+
+    /* Flecha de píxeles hecha con CSS (los símbolos de flecha no están en las fuentes del juego) */
+    .fl {
+      display: inline-block;
+      position: relative;
+      width: 1.1em;
+      height: 0.62em;
+      margin: 0 0.2em;
+    }
+
+    .fl::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 62%;
+      height: 0.18em;
+      margin-top: -0.09em;
+      background-color: currentColor;
+    }
+
+    .fl::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -0.31em;
+      border-left: 0.5em solid currentColor;
+      border-top: 0.31em solid transparent;
+      border-bottom: 0.31em solid transparent;
+    }
+
+    .flIzquierda {
+      transform: scaleX(-1);
+    }
+
+    .triangulo {
+      display: inline-block;
+      width: 0;
+      height: 0;
+      border-left: 26px solid #ffd23f;
+      border-top: 19px solid transparent;
+      border-bottom: 19px solid transparent;
+      filter: drop-shadow(4px 4px 0 #2b1a12);
+    }
+
+    /* ---------- Pie: logo, contador y barra de progreso ---------- */
+    .pieLogo {
+      position: absolute;
+      left: 36px;
+      bottom: 30px;
+      font-family: "Press Start 2P", monospace;
+      font-size: 15px;
+      text-transform: uppercase;
+      color: #ffd23f;
+      text-shadow: -2px 0 0 #2b1a12, 2px 0 0 #2b1a12, 0 -2px 0 #2b1a12, 0 2px 0 #2b1a12, 3px 3px 0 #2b1a12;
+      opacity: 0.85;
+    }
+
+    .contador {
+      position: absolute;
+      right: 36px;
+      bottom: 28px;
+      font-family: "Press Start 2P", monospace;
+      font-size: 16px;
+      color: #fff8e7;
+      background-color: rgba(43, 26, 18, 0.8);
+      border: 3px solid #2b1a12;
+      padding: 7px 10px 5px;
+      opacity: 0.9;
+    }
+
+    .progreso {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 10px;
+      background-color: #1d120c;
+      border-top: 2px solid #2b1a12;
+    }
+
+    .progresoRelleno {
+      width: 0;
+      height: 100%;
+      background-color: #ffd23f;
+      transition: width 0.5s steps(8);
+    }
+
+    /* ---------- Cortina de píxeles entre diapositivas ---------- */
+    .cortina {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .bloque {
+      position: absolute;
+      width: 121px;
+      height: 121px;
+      background-color: #2b1a12;
+      transform: scale(0);
+      transition: transform 0.18s steps(4);
+    }
+
+    .bloqueClaro {
+      background-color: #3a2418;
+    }
+
+    .cortina.tapando .bloque {
+      transform: scale(1);
+    }
+
+    /* ---------- Animaciones de entrada ---------- */
+    .diapo.activa .titulo {
+      animation: caerTitulo 0.5s 0.35s backwards;
+    }
+
+    .diapo.activa .entra {
+      animation: entrar 0.55s backwards;
+    }
+
+    .diapo.activa .clava {
+      animation: clavar 0.45s backwards;
+    }
+
+    .diapo.activa .salta {
+      animation: saltito 0.6s backwards;
+    }
+
+    .diapo.activa .sella {
+      animation: sellar 0.4s backwards;
+    }
+
+    @keyframes caerTitulo {
+      0% {
+        opacity: 0;
+        transform: translateY(-90px);
+      }
+      70% {
+        opacity: 1;
+        transform: translateY(10px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes entrar {
+      from {
+        opacity: 0;
+        transform: translateY(46px);
+      }
+    }
+
+    @keyframes clavar {
+      from {
+        opacity: 0;
+        transform: translateY(-80px) rotate(-8deg) scale(1.15);
+      }
+    }
+
+    @keyframes saltito {
+      0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.5);
+      }
+      55% {
+        opacity: 1;
+        transform: translateY(-22px) scale(1.06);
+      }
+      80% {
+        transform: translateY(4px) scale(0.98);
+      }
+      100% {
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes sellar {
+      from {
+        opacity: 0;
+        transform: rotate(-12deg) scale(3);
+      }
+    }
+
+    @keyframes parpadear {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0.5;
+      }
+    }
+
+    @keyframes bailar {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(-8px);
+      }
+    }
+
+    @keyframes girar {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes brillar {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0.35;
+      }
+    }
+
+    /* ========== 1 · Portada ========== */
+    .portadaFondo {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1920px;
+      height: 1080px;
+      object-fit: cover;
+      image-rendering: auto;
+    }
+
+    .diapo.activa .portadaFondo {
+      animation: acercar 6s ease-out backwards;
+    }
+
+    @keyframes acercar {
+      from {
+        transform: scale(1.07);
+      }
+    }
+
+    .portadaFuego {
+      position: absolute;
+      left: 150px;
+      top: 190px;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background-image: radial-gradient(circle, rgba(255, 190, 90, 0.45) 0%, rgba(255, 150, 60, 0.2) 40%, rgba(255, 150, 60, 0) 70%);
+      animation: brillar 0.5s steps(2) infinite alternate;
+    }
+
+    .portadaSombra {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 420px;
+      background-image: linear-gradient(rgba(43, 26, 18, 0), rgba(43, 26, 18, 0.75));
+    }
+
+    .portadaTitulo {
+      position: absolute;
+      left: 0;
+      top: 742px;
+      width: 100%;
+      font-family: "Press Start 2P", monospace;
+      font-weight: 400;
+      font-size: 104px;
+      line-height: 1;
+      text-align: center;
+      text-transform: uppercase;
+      color: #ffd23f;
+      text-shadow: 6px 0 0 #2b1a12, -6px 0 0 #2b1a12, 0 6px 0 #2b1a12, 0 -6px 0 #2b1a12, 6px 6px 0 #2b1a12, -6px -6px 0 #2b1a12, 6px -6px 0 #2b1a12, -6px 6px 0 #2b1a12, 14px 15px 0 #2b1a12;
+    }
+
+    .diapo.activa .portadaTitulo {
+      animation: plantar 0.55s 0.5s backwards;
+    }
+
+    @keyframes plantar {
+      0% {
+        opacity: 0;
+        transform: scale(2.2);
+      }
+      70% {
+        opacity: 1;
+        transform: scale(0.96);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .portadaLema {
+      position: absolute;
+      left: 0;
+      top: 882px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .portadaLema span {
+      display: inline-block;
+      font-family: "Silkscreen", monospace;
+      font-weight: 700;
+      font-size: 30px;
+      text-transform: uppercase;
+      color: #fff8e7;
+      background-color: #2b1a12;
+      border: 4px solid #fff8e7;
+      box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.6);
+      padding: 10px 22px 12px;
+    }
+
+    .portadaNombres {
+      position: absolute;
+      left: 0;
+      top: 974px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+    }
+
+    .portadaCurso {
+      position: absolute;
+      left: 40px;
+      top: 34px;
+      font-family: "Press Start 2P", monospace;
+      font-size: 18px;
+      line-height: 1.7;
+      text-transform: uppercase;
+      color: #ffd23f;
+      text-shadow: -3px 0 0 #2b1a12, 3px 0 0 #2b1a12, 0 -3px 0 #2b1a12, 0 3px 0 #2b1a12, 5px 5px 0 #2b1a12;
+    }
+
+    /* ========== 2 · Briefing ========== */
+    .briefing {
+      display: flex;
+      gap: 44px;
+    }
+
+    .briefingEncargo {
+      width: 500px;
+    }
+
+    .briefingRequisitos {
+      flex: 1;
+    }
+
+    .briefingIdea {
+      width: 480px;
+      text-align: center;
+    }
+
+    .datoNombre {
+      font-family: "Silkscreen", monospace;
+      font-weight: 700;
+      font-size: 22px;
+      text-transform: uppercase;
+      color: #a85a1e;
+      margin-bottom: 10px;
+    }
+
+    .clienteNombre {
+      font-family: "Press Start 2P", monospace;
+      font-size: 30px;
+      line-height: 1.4;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .briefingEncargo .sello {
+      position: absolute;
+      right: 22px;
+      top: 26px;
+    }
+
+    .texto {
+      font-size: 31px;
+      line-height: 1.25;
+      margin-bottom: 22px;
+    }
+
+    .texto strong {
+      color: #c21f2b;
+    }
+
+    /* La típica ruleta, tachada (formas sencillas con CSS) */
+    .ruletaNo {
+      position: relative;
+      width: 190px;
+      height: 190px;
+      margin: 34px auto 0;
+    }
+
+    .ruleta {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      border: 8px solid #2b1a12;
+      background-image: conic-gradient(#e03c3c 0deg 60deg, #ffd23f 60deg 120deg, #3c6fe0 120deg 180deg, #4caf50 180deg 240deg, #e88ac0 240deg 300deg, #e07b28 300deg 360deg);
+      opacity: 0.55;
+    }
+
+    .diapo.activa .ruleta {
+      animation: girar 9s linear infinite;
+    }
+
+    .ruletaAspa {
+      position: absolute;
+      left: -20px;
+      top: 83px;
+      width: 230px;
+      height: 24px;
+      background-color: #c21f2b;
+      border: 5px solid #2b1a12;
+      transform: rotate(45deg);
+    }
+
+    .ruletaAspa2 {
+      transform: rotate(-45deg);
+    }
+
+    .ruletaPie {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .requisitos li {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 30px;
+      line-height: 1.15;
+      border-bottom: 3px solid #c9b48a;
+      padding: 10px 0;
+    }
+
+    .requisitos .numero {
+      width: 46px;
+      height: 46px;
+      font-size: 16px;
+    }
+
+    .bonus {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 28px;
+      margin-top: 22px;
+    }
+
+    .bonus .rol {
+      white-space: nowrap;
+      background-color: #2f4a42;
+    }
+
+    .ideaTitulo {
+      font-family: "Press Start 2P", monospace;
+      font-size: 30px;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #ffd23f;
+      text-shadow: 4px 4px 0 #2b1a12;
+      margin-bottom: 34px;
+    }
+
+    .ideaCaras {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .ideaCaras img {
+      width: 88px;
+      height: 88px;
+    }
+
+    .diapo.activa .ideaCaras img {
+      animation: bailar 0.4s steps(2) infinite alternate;
+    }
+
+    .ideaSillas {
+      display: flex;
+      justify-content: center;
+      gap: 34px;
+      margin-bottom: 20px;
+    }
+
+    .ideaSillas img {
+      width: 76px;
+      height: 76px;
+    }
+
+    .ideaCuenta {
+      display: inline-block;
+      font-family: "Press Start 2P", monospace;
+      font-size: 15px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: #2b1a12;
+      background-color: #ffd23f;
+      border: 4px solid #2b1a12;
+      box-shadow: 4px 4px 0 #2b1a12;
+      padding: 12px 12px 10px;
+      margin-bottom: 30px;
+    }
+
+    .ideaTexto {
+      font-size: 29px;
+      line-height: 1.25;
+    }
+
+    .ideaTexto strong {
+      color: #ffd23f;
+    }
+
+    /* ========== 3 · El equipo ========== */
+    .corcho {
+      height: 770px;
+      background-color: #a85a1e;
+      border: 8px solid #2b1a12;
+      box-shadow: 12px 12px 0 #2b1a12;
+      padding: 14px;
+    }
+
+    .corchoDentro {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+      background-color: #c99a5b;
+      background-image: radial-gradient(#dbb27a 2px, transparent 3px), radial-gradient(#b2834a 2px, transparent 3px);
+      background-size: 46px 38px, 58px 52px;
+      background-position: 0 0, 20px 14px;
+      border: 4px solid #7a4a22;
+      padding: 0 20px;
+    }
+
+    .fichaEquipo {
+      position: relative;
+      width: 378px;
+      height: 610px;
+      color: #2b1a12;
+      background-color: #fff8e7;
+      border: 5px solid #2b1a12;
+      box-shadow: 8px 8px 0 #2b1a12;
+      padding: 36px 20px 24px;
+      text-align: center;
+    }
+
+    .fichaChincheta {
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      margin-left: -20px;
+    }
+
+    .fichaCara {
+      display: block;
+      width: 208px;
+      height: 208px;
+      margin: 0 auto 6px;
+    }
+
+    .fichaNombre {
+      font-family: "Press Start 2P", monospace;
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .fichaLinea {
+      height: 4px;
+      background-color: #c9b48a;
+      margin: 20px 0 16px;
+    }
+
+    .fichaHizo {
+      font-family: "Silkscreen", monospace;
+      font-weight: 700;
+      font-size: 18px;
+      text-transform: uppercase;
+      color: #a85a1e;
+      margin-bottom: 8px;
+    }
+
+    .fichaPartes {
+      font-weight: 500;
+      font-size: 31px;
+      line-height: 1.2;
+    }
+
+    .fichaExtra {
+      display: inline-block;
+      font-family: "Silkscreen", monospace;
+      font-weight: 700;
+      font-size: 17px;
+      text-transform: uppercase;
+      color: #fff8e7;
+      background-color: #2f4a42;
+      border: 3px solid #2b1a12;
+      padding: 5px 9px;
+      margin-top: 12px;
+    }
+
+    /* ========== 4 · Cómo se juega ========== */
+    .pasos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 42px 46px;
+      padding-top: 8px;
+    }
+
+    .paso {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      height: 284px;
+      color: #2b1a12;
+      background-color: #fff8e7;
+      border: 5px solid #2b1a12;
+      box-shadow: 8px 8px 0 #2b1a12;
+      padding: 20px 18px 20px 22px;
+    }
+
+    .paso .numero {
+      position: absolute;
+      top: -22px;
+      left: -22px;
+      width: 56px;
+      height: 56px;
+      font-size: 20px;
+    }
+
+    .pasoFlecha {
+      position: absolute;
+      right: -38px;
+      top: 50%;
+      margin-top: -19px;
+    }
+
+    .pasoDibujo {
+      flex-shrink: 0;
+      width: 236px;
+      height: 187px;
+      border: 4px solid #2b1a12;
+    }
+
+    .pasoEscena {
+      position: relative;
+      flex-shrink: 0;
+      width: 236px;
+      height: 187px;
+      background-color: #e6d3aa;
+      border: 4px solid #2b1a12;
+      overflow: hidden;
+    }
+
+    .pasoTitulo {
+      font-family: "Press Start 2P", monospace;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1.4;
+      text-transform: uppercase;
+      color: #d33a2c;
+      margin-bottom: 12px;
+    }
+
+    .pasoTexto {
+      font-size: 26px;
+      line-height: 1.2;
+    }
+
+    .escenaSilla {
+      position: absolute;
+      left: 22px;
+      top: 58px;
+      width: 76px;
+      height: 76px;
+    }
+
+    .escenaFlecha {
+      position: absolute;
+      left: 108px;
+      top: 78px;
+      font-size: 34px;
+      color: #2b1a12;
+    }
+
+    .escenaRetirada {
+      position: absolute;
+      left: 146px;
+      top: 38px;
+      width: 76px;
+    }
+
+    .escenaMenos {
+      position: absolute;
+      left: 0;
+      bottom: 8px;
+      width: 100%;
+      font-family: "Press Start 2P", monospace;
+      font-size: 13px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #8a6040;
+    }
+
+    .retrato {
+      position: absolute;
+      left: 58px;
+      top: 26px;
+      width: 120px;
+      height: 120px;
+      background-color: #fff8e7;
+      border: 5px solid #2b1a12;
+      outline: 5px solid #ffd23f;
+    }
+
+    .retrato img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .retratoSello {
+      position: absolute;
+      left: -22px;
+      bottom: -14px;
+      font-family: "Press Start 2P", monospace;
+      font-size: 15px;
+      text-transform: uppercase;
+      color: #2b1a12;
+      background-color: #ffd23f;
+      border: 3px solid #fff8e7;
+      padding: 5px 7px;
+      transform: rotate(-12deg);
+    }
+
+    .reglas {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      gap: 30px;
+      color: #2b1a12;
+      background-color: #fff6e0;
+      border: 5px solid #2b1a12;
+      box-shadow: 8px 8px 0 #2b1a12;
+      padding: 34px 28px 22px;
+    }
+
+    .reglas .cinta {
+      font-size: 17px;
+      top: -24px;
+    }
+
+    .regla {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 26px;
+      line-height: 1.15;
+    }
+
+    /* ========== 5 · Demo ========== */
+    .demoCaptura {
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 1150px;
+      background-color: #2b1a12;
+      border: 10px solid #2b1a12;
+      box-shadow: 16px 16px 0 #2b1a12;
+    }
+
+    .demoCaptura img {
+      display: block;
+      width: 100%;
+      image-rendering: auto;
+    }
+
+    .demoPie {
+      position: absolute;
+      left: 0;
+      top: 706px;
+      width: 1150px;
+      font-family: "Silkscreen", monospace;
+      font-size: 22px;
+      text-align: center;
+      text-transform: uppercase;
+      color: #f3e3c0;
+      text-shadow: 3px 3px 0 #2b1a12;
+    }
+
+    .demoPanel {
+      position: absolute;
+      right: 0;
+      top: 14px;
+      width: 530px;
+      height: 716px;
+      text-align: center;
+      padding: 46px 36px 34px;
+    }
+
+    .enDirecto {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: "Press Start 2P", monospace;
+      font-size: 22px;
+      text-transform: uppercase;
+      color: #fff8e7;
+      background-color: #c21f2b;
+      border: 4px solid #2b1a12;
+      box-shadow: 5px 5px 0 #2b1a12;
+      padding: 12px 16px;
+      margin-bottom: 30px;
+    }
+
+    .enDirectoLuz {
+      width: 20px;
+      height: 20px;
+      background-color: #fff8e7;
+      animation: brillar 0.7s steps(2) infinite alternate;
+    }
+
+    .demoTexto {
+      font-size: 31px;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .demoTexto strong {
+      color: #ffd23f;
+    }
+
+    .tocadiscos {
+      position: relative;
+      width: 300px;
+      height: 244px;
+      margin: 0 auto 24px;
+      background-color: #3d2416;
+      border: 5px solid #2b1a12;
+      overflow: hidden;
+    }
+
+    .vinilo {
+      position: absolute;
+      left: 22px;
+      top: 22px;
+      width: 200px;
+      height: 200px;
+    }
+
+    .vinilo img {
+      display: block;
+      width: 100%;
+    }
+
+    .diapo.activa .vinilo {
+      animation: girar 2.5s linear infinite;
+    }
+
+    .viniloEtiqueta {
+      position: absolute;
+      left: 32%;
+      top: 32%;
+      width: 36%;
+      height: 36%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Press Start 2P", monospace;
+      font-size: 14px;
+      color: #2b1a12;
+      background-color: #ffd23f;
+      border: 3px solid #2b1a12;
+      border-radius: 50%;
+    }
+
+    .brazo {
+      position: absolute;
+      left: 190px;
+      top: 8px;
+      width: 96px;
+      transform-origin: 75% 12%;
+      transform: rotate(18deg);
+    }
+
+    .diapo.activa .brazo {
+      animation: bajarBrazo 0.9s 0.9s backwards;
+    }
+
+    @keyframes bajarBrazo {
+      from {
+        transform: rotate(-20deg);
+      }
+    }
+
+    .demoBoton {
+      display: block;
+      font-size: 21px;
+      white-space: nowrap;
+      padding: 18px 8px;
+      margin: 28px 0 0;
+    }
+
+    .diapo.activa .demoBoton {
+      animation: latir 1.2s steps(2) infinite alternate;
+    }
+
+    @keyframes latir {
+      from {
+        transform: translate(0, 0);
+        box-shadow: 6px 6px 0 #2b1a12;
+      }
+      to {
+        transform: translate(3px, 3px);
+        box-shadow: 3px 3px 0 #2b1a12;
+      }
+    }
+
+    .demoNota {
+      position: absolute;
+      width: 44px;
+    }
+
+    .demoNota1 {
+      left: 34px;
+      top: 250px;
+    }
+
+    .demoNota2 {
+      right: 34px;
+      top: 300px;
+    }
+
+    .diapo.activa .demoNota {
+      animation: bailar 0.8s steps(2) infinite alternate;
+    }
+
+    /* ========== 6 · Diseño ========== */
+    .aparatos {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      height: 500px;
+      padding: 0 10px;
+    }
+
+    .aparato {
+      text-align: center;
+    }
+
+    .aparatoMarco {
+      display: block;
+      background-color: #2b1a12;
+      border: 10px solid #2b1a12;
+      box-shadow: 10px 10px 0 rgba(29, 18, 12, 0.9);
+    }
+
+    .aparatoMarco img {
+      display: block;
+      height: 404px;
+      image-rendering: auto;
+    }
+
+    .aparatoMovil .aparatoMarco {
+      border-width: 12px 10px 20px;
+      border-radius: 14px;
+    }
+
+    .aparatoTablet .aparatoMarco {
+      border-width: 14px;
+      border-radius: 12px;
+    }
+
+    .aparatoEscritorio .aparatoMarco {
+      border-width: 12px 12px 26px;
+    }
+
+    .aparatoNombre {
+      font-family: "Press Start 2P", monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      color: #ffd23f;
+      text-shadow: 3px 3px 0 #2b1a12;
+      margin-top: 24px;
+    }
+
+    .salto {
+      align-self: center;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .saltoMedida {
+      display: block;
+      font-family: "Press Start 2P", monospace;
+      font-size: 20px;
+      color: #2b1a12;
+      background-color: #ffd23f;
+      border: 4px solid #2b1a12;
+      box-shadow: 4px 4px 0 #2b1a12;
+      padding: 10px 10px 8px;
+      margin-bottom: 14px;
+    }
+
+    .saltoTexto {
+      display: block;
+      font-family: "Silkscreen", monospace;
+      font-size: 19px;
+      text-transform: uppercase;
+      color: #f3e3c0;
+      text-shadow: 2px 2px 0 #2b1a12;
+      margin-bottom: 12px;
+    }
+
+    .disenoAbajo {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      gap: 40px;
+    }
+
+    .atomico {
+      flex: 1;
+      padding: 46px 26px 22px;
+    }
+
+    .atomicoFila {
+      display: flex;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    .atomo {
+      flex: 1;
+      background-color: #fff8e7;
+      border: 4px solid #2b1a12;
+      padding: 12px 10px 10px;
+      text-align: center;
+    }
+
+    .atomoNombre {
+      font-family: "Press Start 2P", monospace;
+      font-size: 16px;
+      text-transform: uppercase;
+      color: #d33a2c;
+      margin-bottom: 8px;
+    }
+
+    .atomoArchivo {
+      font-family: "VT323", monospace;
+      font-size: 28px;
+      line-height: 1;
+      color: #6b4a33;
+      margin-bottom: 6px;
+    }
+
+    .atomoEjemplos {
+      font-size: 23px;
+      line-height: 1.1;
+    }
+
+    .atomicoFlecha {
+      align-self: center;
+      font-size: 30px;
+      color: #2b1a12;
+      flex-shrink: 0;
+    }
+
+    .atomicoFlecha .fl {
+      margin: 0;
+    }
+
+    .figma {
+      width: 520px;
+      padding: 46px 28px 22px;
+    }
+
+    .figmaTexto {
+      font-size: 27px;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .figma .enlace {
+      font-size: 28px;
+    }
+
+    /* ========== 7 · Organización ========== */
+    .tablero {
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 1040px;
+      height: 560px;
+      background-color: #3a2418;
+      border: 6px solid #2b1a12;
+      box-shadow: 10px 10px 0 #2b1a12;
+      padding: 16px 18px;
+    }
+
+    .tableroBarra {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: "Press Start 2P", monospace;
+      font-size: 18px;
+      text-transform: uppercase;
+      color: #ffd23f;
+      margin-bottom: 16px;
+    }
+
+    .tableroBarra img {
+      width: 34px;
+      height: 34px;
+    }
+
+    .tableroBarra span {
+      margin-left: auto;
+      font-family: "Silkscreen", monospace;
+      font-size: 20px;
+      color: #d9c49a;
+    }
+
+    .columnas {
+      display: flex;
+      gap: 16px;
+    }
+
+    .columna {
+      width: 238px;
+      height: 462px;
+      background-color: #d9c49a;
+      border: 4px solid #2b1a12;
+      padding: 12px 12px 0;
+    }
+
+    .columnaTitulo {
+      font-family: "Silkscreen", monospace;
+      font-weight: 700;
+      font-size: 22px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: #2b1a12;
+      margin-bottom: 12px;
+    }
+
+    .tarea {
+      position: relative;
+      height: 88px;
+      background-color: #fff8e7;
+      border: 3px solid #2b1a12;
+      box-shadow: 3px 3px 0 #2b1a12;
+      padding: 10px 10px 0;
+      margin-bottom: 14px;
+    }
+
+    .tareaTalla {
+      display: inline-block;
+      font-family: "Press Start 2P", monospace;
+      font-size: 12px;
+      color: #2b1a12;
+      background-color: #ffd23f;
+      border: 2px solid #2b1a12;
+      padding: 4px 6px 3px;
+    }
+
+    .tareaRaya {
+      display: block;
+      width: 130px;
+      height: 10px;
+      background-color: #d9c49a;
+      margin-top: 10px;
+    }
+
+    .tareaRayaCorta {
+      width: 86px;
+      margin-top: 8px;
+    }
+
+    .tareaCara {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      width: 42px;
+      height: 42px;
+    }
+
+    .tareaViva {
+      position: absolute;
+      left: 792px;
+      top: 126px;
+      width: 208px;
+      height: 100px;
+      background-color: #ffd23f;
+      border: 4px solid #2b1a12;
+      box-shadow: 6px 6px 0 #2b1a12;
+      padding: 10px 10px 0;
+      transform: rotate(-3deg);
+    }
+
+    .tareaViva p {
+      font-family: "Silkscreen", monospace;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 1.2;
+      text-transform: uppercase;
+      color: #2b1a12;
+    }
+
+    .tareaViva img {
+      position: absolute;
+      right: 8px;
+      bottom: 6px;
+      width: 46px;
+      height: 46px;
+    }
+
+    .diapo.activa .tareaViva {
+      animation: moverTarea 5.5s 1.4s backwards;
+    }
+
+    @keyframes moverTarea {
+      0% {
+        left: 30px;
+      }
+      12% {
+        left: 30px;
+      }
+      24% {
+        left: 284px;
+      }
+      40% {
+        left: 284px;
+      }
+      52% {
+        left: 538px;
+      }
+      72% {
+        left: 538px;
+      }
+      86% {
+        left: 792px;
+      }
+      100% {
+        left: 792px;
+      }
+    }
+
+    .sprints {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 1040px;
+      display: flex;
+      align-items: stretch;
+      gap: 14px;
+      padding: 44px 24px 20px;
+    }
+
+    .sprint {
+      flex: 1;
+      background-color: #fff8e7;
+      border: 4px solid #2b1a12;
+      padding: 12px 14px;
+    }
+
+    .sprintNombre {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: "Press Start 2P", monospace;
+      font-size: 18px;
+      text-transform: uppercase;
+      color: #d33a2c;
+      margin-bottom: 12px;
+    }
+
+    .sprintNombre span {
+      font-family: "Silkscreen", monospace;
+      font-weight: 700;
+      font-size: 20px;
+      color: #2b1a12;
+    }
+
+    .sprintDias {
+      display: flex;
+      gap: 6px;
+    }
+
+    .sprintDias span {
+      flex: 1;
+      height: 24px;
+      background-color: #ffd23f;
+      border: 3px solid #2b1a12;
+    }
+
+    .sprintPie {
+      font-family: "Silkscreen", monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      color: #6b4a33;
+      margin-top: 8px;
+    }
+
+    .retro {
+      align-self: center;
+      flex-shrink: 0;
+      font-family: "Press Start 2P", monospace;
+      font-size: 13px;
+      text-transform: uppercase;
+      color: #fff8e7;
+      background-color: #2f4a42;
+      border: 3px solid #2b1a12;
+      padding: 10px 8px 8px;
+      transform: rotate(-4deg);
+    }
+
+    .scrum {
+      position: absolute;
+      right: 0;
+      top: 10px;
+      width: 650px;
+      height: 790px;
+      padding: 50px 30px 24px;
+    }
+
+    .scrumRoles {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .scrumRol {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background-color: #fff8e7;
+      border: 4px solid #2b1a12;
+      box-shadow: 4px 4px 0 #2b1a12;
+      padding: 8px 14px 8px 10px;
+    }
+
+    .scrumRol img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .scrumCaras {
+      display: flex;
+    }
+
+    .scrumRol .rol {
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .scrumQuien {
+      font-weight: 500;
+      font-size: 28px;
+      line-height: 1.1;
+    }
+
+    .scrumLista li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 27px;
+      line-height: 1.15;
+      border-top: 3px solid #c9b48a;
+      padding: 16px 0;
+    }
+
+    .scrumLista .chipCojin {
+      flex-shrink: 0;
+    }
+
+    .tallas {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+      margin: 2px 0 14px 30px;
+    }
+
+    .tallas span {
+      font-family: "Press Start 2P", monospace;
+      color: #2b1a12;
+      background-color: #ffd23f;
+      border: 3px solid #2b1a12;
+      box-shadow: 3px 3px 0 #2b1a12;
+      padding: 7px 8px 5px;
+    }
+
+    .scrum .enlace {
+      display: block;
+      font-size: 29px;
+      margin-top: 6px;
+    }
+
+    /* ========== 8 · Stack y estructura ========== */
+    .stack {
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 470px;
+      height: 780px;
+      padding: 50px 34px 30px;
+    }
+
+    .stackGrupo {
+      font-family: "Silkscreen", monospace;
+      font-weight: 700;
+      font-size: 20px;
+      text-transform: uppercase;
+      color: #d9c49a;
+      margin-bottom: 12px;
+    }
+
+    .stackEtiquetas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 14px;
+      margin-bottom: 20px;
+    }
+
+    .stackEtiquetas li {
+      font-family: "Press Start 2P", monospace;
+      font-size: 18px;
+      text-transform: uppercase;
+      color: #2b1a12;
+      background-color: #f7c63c;
+      border: 4px solid #2b1a12;
+      box-shadow: 4px 4px 0 #2b1a12;
+      padding: 11px 12px 9px;
+    }
+
+    .editor.arbol {
+      left: 514px;
+      top: 10px;
+      width: 660px;
+      height: 780px;
+    }
+
+    .arbolLista {
+      font-family: "VT323", monospace;
+      font-size: 35px;
+      line-height: 44px;
+      color: #fff8e7;
+      padding: 20px 26px;
+    }
+
+    .arbolLista li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      white-space: nowrap;
+    }
+
+    .arbolLista .nivel1 {
+      padding-left: 44px;
+    }
+
+    .arbolLista .nivel2 {
+      padding-left: 88px;
+    }
+
+    .carpeta,
+    .archivo {
+      flex-shrink: 0;
+      width: 26px;
+      height: 20px;
+      background-color: #ffd23f;
+      border: 3px solid #2b1a12;
+      box-shadow: inset 0 5px 0 #f7a63c;
+    }
+
+    .archivo {
+      width: 20px;
+      height: 24px;
+      margin: 0 3px;
+      background-color: #fff8e7;
+      box-shadow: inset 0 -5px 0 #d9c49a;
+    }
+
+    .arbolCarpeta {
+      color: #ffd23f;
+    }
+
+    .arbolNota {
+      color: #a08a6a;
+    }
+
+    .notas {
+      position: absolute;
+      right: 0;
+      top: 10px;
+      width: 520px;
+      display: flex;
+      flex-direction: column;
+      gap: 34px;
+      padding-top: 14px;
+    }
+
+    .nota {
+      position: relative;
+      color: #2b1a12;
+      background-color: #fff8e7;
+      border: 5px solid #2b1a12;
+      box-shadow: 7px 7px 0 #2b1a12;
+      padding: 30px 22px 18px;
+    }
+
+    .nota .fichaChincheta {
+      top: -20px;
+      width: 36px;
+      height: 36px;
+      margin-left: -18px;
+    }
+
+    .notaTitulo {
+      font-family: "Press Start 2P", monospace;
+      font-size: 17px;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #d33a2c;
+      margin-bottom: 8px;
+    }
+
+    .notaTexto {
+      font-size: 26px;
+      line-height: 1.17;
+    }
+
+    .repo {
+      position: absolute;
+      right: 0;
+      bottom: 10px;
+      width: 520px;
+      text-align: center;
+      background-color: #2b1a12;
+      border: 4px solid #ffd23f;
+      box-shadow: 7px 7px 0 rgba(0, 0, 0, 0.6);
+      padding: 12px 10px 14px;
+    }
+
+    .repoNombre {
+      font-family: "Silkscreen", monospace;
+      font-weight: 700;
+      font-size: 19px;
+      text-transform: uppercase;
+      color: #d9c49a;
+      margin-bottom: 4px;
+    }
+
+    .repo .enlace {
+      font-size: 31px;
+    }
+
+    /* ========== 9-12 · Código ========== */
+    .editor {
+      position: absolute;
+      left: 0;
+      top: -6px;
+      width: 1170px;
+      height: 816px;
+      background-color: #1c110c;
+      border: 6px solid #2b1a12;
+      box-shadow: 10px 10px 0 #2b1a12, inset 0 0 0 4px #4a2c1a;
+    }
+
+    .editorBarra {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      height: 50px;
+      background-color: #2b1a12;
+      padding: 0 16px;
+    }
+
+    .editorLuz {
+      width: 16px;
+      height: 16px;
+      background-color: #e03c3c;
+    }
+
+    .editorLuzAmarilla {
+      background-color: #ffd23f;
+    }
+
+    .editorLuzVerde {
+      background-color: #4caf50;
+    }
+
+    .editorPestana {
+      align-self: flex-end;
+      font-family: "VT323", monospace;
+      font-size: 32px;
+      line-height: 1;
+      color: #ffd23f;
+      background-color: #1c110c;
+      border: 4px solid #4a2c1a;
+      border-bottom: 0;
+      padding: 6px 18px 4px;
+      margin-left: 18px;
+    }
+
+    .editorCodigo {
+      font-family: "VT323", monospace;
+      font-size: 34px;
+      line-height: 33px;
+      color: #fff8e7;
+      padding: 14px 22px 0 10px;
+    }
+
+    .linea {
+      display: flex;
+      min-height: 33px;
+    }
+
+    .lineaNumero {
+      flex-shrink: 0;
+      width: 58px;
+      text-align: right;
+      color: #7a5a40;
+      padding-right: 18px;
+    }
+
+    .lineaTexto {
+      flex: 1;
+      white-space: pre-wrap;
+    }
+
+    .diapo.activa .linea {
+      animation: escribir 0.3s backwards;
+    }
+
+    @keyframes escribir {
+      from {
+        opacity: 0;
+        transform: translateX(-16px);
+      }
+    }
+
+    .k {
+      color: #ff8a7a;
+    }
+
+    .s {
+      color: #8be08e;
+    }
+
+    .n {
+      color: #ffd23f;
+    }
+
+    .c {
+      color: #a08a6a;
+    }
+
+    .f {
+      color: #7ab8ff;
+    }
+
+    .o {
+      color: #e88ac0;
+    }
+
+    .p {
+      color: #d9c49a;
+    }
+
+    .lado {
+      position: absolute;
+      right: 0;
+      top: -6px;
+      width: 530px;
+      height: 816px;
+    }
+
+    .autor {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      height: 172px;
+      color: #2b1a12;
+      background-color: #fff8e7;
+      border: 5px solid #2b1a12;
+      box-shadow: 8px 8px 0 #2b1a12;
+      padding: 12px;
+    }
+
+    .autorFoto {
+      flex-shrink: 0;
+      width: 138px;
+      height: 138px;
+      background-color: #e8d5a8;
+      border: 4px solid #2b1a12;
+    }
+
+    .autorFoto img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .autorNombre {
+      font-family: "Press Start 2P", monospace;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .archivos {
+      position: absolute;
+      left: 0;
+      top: 200px;
+      width: 100%;
+      background-color: #1c110c;
+      border: 5px solid #2b1a12;
+      box-shadow: 8px 8px 0 #2b1a12;
+      padding: 12px 18px 12px;
+    }
+
+    .archivosTitulo {
+      font-family: "Silkscreen", monospace;
+      font-weight: 700;
+      font-size: 20px;
+      text-transform: uppercase;
+      color: #ffd23f;
+      margin-bottom: 4px;
+    }
+
+    .archivos li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "VT323", monospace;
+      font-size: 31px;
+      line-height: 33px;
+      color: #fff8e7;
+    }
+
+    .archivos .archivo {
+      width: 16px;
+      height: 20px;
+      border-width: 2px;
+      box-shadow: inset 0 -4px 0 #d9c49a;
+    }
+
+    .archivos .archivoAhora {
+      color: #ffd23f;
+    }
+
+    .ideas {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .idea {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 92px;
+      font-size: 25px;
+      line-height: 1.14;
+      color: #2b1a12;
+      background-color: #f3e6c8;
+      border: 4px solid #2b1a12;
+      box-shadow: 5px 5px 0 #2b1a12;
+      padding: 8px 12px;
+    }
+
+    .idea .numero {
+      width: 42px;
+      height: 42px;
+      font-size: 15px;
+    }
+
+    .idea code {
+      font-family: "VT323", monospace;
+      font-size: 29px;
+      line-height: 1;
+      color: #a31420;
+    }
+
+    .avisoReal {
+      position: absolute;
+      right: 26px;
+      bottom: 40px;
+      width: 600px;
+      box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.6);
+      image-rendering: auto;
+    }
+
+    .avisoRealNota {
+      position: absolute;
+      right: 26px;
+      bottom: 202px;
+      font-family: "Silkscreen", monospace;
+      font-size: 20px;
+      text-transform: uppercase;
+      color: #a08a6a;
+    }
+
+    /* ========== 13 · Tests, Git y pull requests ========== */
+    .terminal {
+      position: absolute;
+      left: 0;
+      top: -6px;
+      width: 826px;
+      height: 816px;
+      background-color: #1c110c;
+      border: 6px solid #2b1a12;
+      box-shadow: 10px 10px 0 #2b1a12, inset 0 0 0 4px #4a2c1a;
+    }
+
+    .terminalCuerpo {
+      font-family: "VT323", monospace;
+      font-size: 33px;
+      line-height: 51px;
+      color: #fff8e7;
+      white-space: nowrap;
+      padding: 24px 22px 0;
+    }
+
+    .pasa {
+      display: inline-block;
+      line-height: 36px;
+      color: #1c110c;
+      background-color: #8be08e;
+      padding: 0 12px;
+      margin-right: 14px;
+    }
+
+    .test {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-left: 14px;
+      color: #d9c49a;
+    }
+
+    .diapo.activa .test {
+      animation: escribir 0.3s backwards;
+    }
+
+    .tic {
+      flex-shrink: 0;
+      width: 26px;
+      height: 22px;
+    }
+
+    .resumen {
+      margin-top: 26px;
+      border-top: 3px dashed #4a2c1a;
+      padding-top: 14px;
+      white-space: pre;
+    }
+
+    .verde {
+      color: #8be08e;
+    }
+
+    .gris {
+      color: #a08a6a;
+    }
+
+    .git {
+      position: absolute;
+      right: 0;
+      top: -6px;
+      width: 880px;
+      height: 816px;
+    }
+
+    .ramas {
+      position: relative;
+      height: 440px;
+      padding: 48px 20px 18px;
+    }
+
+    .ramasFila {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .rama {
+      display: inline-block;
+      font-family: "VT323", monospace;
+      font-size: 30px;
+      line-height: 1;
+      color: #2b1a12;
+      background-color: #fff8e7;
+      border: 3px solid #2b1a12;
+      box-shadow: 3px 3px 0 #2b1a12;
+      padding: 3px 9px 4px;
+    }
+
+    .ramaMain {
+      font-family: "Press Start 2P", monospace;
+      font-size: 22px;
+      color: #fff8e7;
+      background-color: #c21f2b;
+      border-width: 4px;
+      box-shadow: 5px 5px 0 #2b1a12;
+      padding: 16px 14px 13px;
+    }
+
+    .ramaDev {
+      font-family: "Press Start 2P", monospace;
+      font-size: 22px;
+      background-color: #ffd23f;
+      border-width: 4px;
+      box-shadow: 5px 5px 0 #2b1a12;
+      padding: 16px 14px 13px;
+    }
+
+    .ramasPaso {
+      flex-shrink: 0;
+      text-align: center;
+      font-family: "Silkscreen", monospace;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: #6b4a33;
+    }
+
+    .ramasPaso .fl {
+      display: block;
+      font-size: 40px;
+      color: #2b1a12;
+      margin: 0 auto 6px;
+    }
+
+    .ramasGrupos {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .ramasGrupo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #e8d5a8;
+      border: 3px solid #2b1a12;
+      padding: 8px 8px 10px;
+    }
+
+    .ramasGrupo img {
+      flex-shrink: 0;
+      width: 54px;
+      height: 54px;
+    }
+
+    .ramasChips {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .flujo {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 330px;
+      padding: 50px 26px 16px;
+    }
+
+    .flujoLista {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, auto);
+      grid-auto-flow: column;
+      gap: 15px 24px;
+    }
+
+    .flujoLista li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 28px;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    .flujoLista .numero {
+      width: 42px;
+      height: 42px;
+      font-size: 15px;
+    }
+
+    .flujoLista code {
+      font-family: "VT323", monospace;
+      font-size: 29px;
+      line-height: 1;
+      color: #2f4a42;
+    }
+
+    /* ========== 14 · Lo aprendido y próximos pasos ========== */
+    .aprendido {
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 940px;
+      height: 760px;
+      padding: 60px 40px 30px;
+    }
+
+    .aprendido li {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      min-height: 104px;
+      font-size: 32px;
+      line-height: 1.15;
+      border-bottom: 3px solid #c9b48a;
+    }
+
+    .aprendido li:last-child {
+      border-bottom: 0;
+    }
+
+    .aprendido li small {
+      display: block;
+      font-size: 25px;
+      color: #6b4a33;
+    }
+
+    .proximosCaja {
+      position: absolute;
+      right: 0;
+      top: 104px;
+      width: 730px;
+    }
+
+    .proximos {
+      height: 670px;
+      padding: 70px 50px 44px;
+    }
+
+    .proximos li {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      min-height: 102px;
+      font-size: 32px;
+      line-height: 1.15;
+      color: #fff8e7;
+    }
+
+    .proximos .triangulo {
+      flex-shrink: 0;
+      border-left-width: 22px;
+      border-top-width: 16px;
+      border-bottom-width: 16px;
+    }
+
+    .asomado {
+      position: absolute;
+      right: 70px;
+      top: 0;
+      width: 130px;
+      height: 130px;
+      transform: translateY(-78%);
+    }
+
+    .asomado2 {
+      right: 230px;
+      transform: translateY(-62%);
+    }
+
+    .diapo.activa .asomado {
+      animation: asomarse 7s 1.6s ease-in-out infinite backwards;
+    }
+
+    .diapo.activa .asomado2 {
+      animation: asomarse2 7s 3s ease-in-out infinite backwards;
+    }
+
+    @keyframes asomarse {
+      0% {
+        transform: translateY(0);
+      }
+      12% {
+        transform: translateY(-78%);
+      }
+      22% {
+        transform: translateY(-78%) rotate(-10deg);
+      }
+      32% {
+        transform: translateY(-78%) rotate(10deg);
+      }
+      42% {
+        transform: translateY(-78%);
+      }
+      100% {
+        transform: translateY(-78%);
+      }
+    }
+
+    @keyframes asomarse2 {
+      0% {
+        transform: translateY(0);
+      }
+      12% {
+        transform: translateY(-62%);
+      }
+      100% {
+        transform: translateY(-62%);
+      }
+    }
+
+    /* ========== 15 · Gracias ========== */
+    .suelo {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 170px;
+      background-color: #7a4e30;
+      background-image: linear-gradient(rgba(43, 26, 18, 0.5), rgba(43, 26, 18, 0)), url("assets/img/sueloCabana.png");
+      background-size: auto, 256px;
+      image-rendering: pixelated;
+    }
+
+    .rodapie {
+      position: absolute;
+      top: -26px;
+      left: 0;
+      width: 100%;
+      height: 26px;
+      background-image: url("assets/img/rodapie.svg");
+      background-size: auto 26px;
+      image-rendering: pixelated;
+    }
+
+    .planta {
+      position: absolute;
+      left: 44px;
+      bottom: 130px;
+      width: 140px;
+    }
+
+    .lena {
+      position: absolute;
+      right: 50px;
+      bottom: 130px;
+      width: 170px;
+    }
+
+    .lampara {
+      position: absolute;
+      top: 250px;
+      width: 96px;
+    }
+
+    .lamparaIzquierda {
+      left: 190px;
+    }
+
+    .lamparaDerecha {
+      right: 190px;
+    }
+
+    .lampara img {
+      position: relative;
+      display: block;
+      width: 100%;
+      filter: drop-shadow(0 0 6px rgba(255, 220, 140, 0.7));
+    }
+
+    .lamparaLuz {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      width: 400px;
+      height: 400px;
+      margin-left: -200px;
+      margin-top: -200px;
+      border-radius: 50%;
+      background-image: radial-gradient(circle, rgba(255, 236, 170, 0.75) 0%, rgba(255, 200, 100, 0.35) 30%, rgba(255, 200, 100, 0) 70%);
+      animation: iluminar 8s ease-in-out infinite;
+    }
+
+    .lamparaDerecha .lamparaLuz {
+      animation-delay: 4s;
+    }
+
+    @keyframes iluminar {
+      0% {
+        opacity: 0.6;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0.6;
+      }
+    }
+
+    .graciasTitulo {
+      position: absolute;
+      left: 0;
+      top: 150px;
+      width: 100%;
+      font-family: "Press Start 2P", monospace;
+      font-weight: 400;
+      font-size: 120px;
+      line-height: 1;
+      text-align: center;
+      text-transform: uppercase;
+      color: #ffd23f;
+      text-shadow: 6px 0 0 #2b1a12, -6px 0 0 #2b1a12, 0 6px 0 #2b1a12, 0 -6px 0 #2b1a12, 6px 6px 0 #2b1a12, -6px -6px 0 #2b1a12, 6px -6px 0 #2b1a12, -6px 6px 0 #2b1a12, 14px 15px 0 #2b1a12;
+    }
+
+    .diapo.activa .graciasTitulo {
+      animation: plantar 0.55s 0.5s backwards;
+    }
+
+    .dialogo {
+      position: absolute;
+      left: 480px;
+      top: 334px;
+      width: 960px;
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      background-color: #2b1a12;
+      border: 6px solid #ffd23f;
+      box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.6);
+      padding: 22px 28px;
+    }
+
+    .dialogoRetrato {
+      flex-shrink: 0;
+      width: 130px;
+      height: 130px;
+      background-color: #fff8e7;
+      border: 5px solid #2b1a12;
+      outline: 4px solid #ffd23f;
+    }
+
+    .dialogoRetrato img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .dialogoTitulo {
+      font-family: "Press Start 2P", monospace;
+      font-size: 42px;
+      line-height: 1.3;
+      text-transform: uppercase;
+      color: #ffd23f;
+      margin-bottom: 12px;
+    }
+
+    .dialogoTexto {
+      font-family: "VT323", monospace;
+      font-size: 40px;
+      line-height: 1;
+      color: #fff8e7;
+    }
+
+    .dialogoFlecha {
+      position: absolute;
+      right: 24px;
+      bottom: 18px;
+      width: 0;
+      height: 0;
+      border-top: 20px solid #ffd23f;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      animation: bailar 0.8s steps(2) infinite alternate;
+    }
+
+    .graciasNombres {
+      position: absolute;
+      left: 0;
+      top: 570px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+    }
+
+    .graciasEnlace {
+      position: absolute;
+      left: 0;
+      top: 640px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .graciasEnlace .enlace {
+      font-size: 34px;
+      text-shadow: 3px 3px 0 #2b1a12;
+    }
+
+    .fiesta {
+      position: absolute;
+      left: 210px;
+      bottom: 118px;
+      width: 1500px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .fiesta img {
+      width: 112px;
+      height: 112px;
+    }
+
+    .diapo.activa .fiesta img {
+      animation: celebrar 0.9s ease-in-out infinite;
+    }
+
+    @keyframes celebrar {
+      0% {
+        transform: translateY(0);
+      }
+      30% {
+        transform: translateY(-46px);
+      }
+      60% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    /* ---------- Modo estático (?estatico) y usuarios que piden menos movimiento ---------- */
+    .quieto *,
+    .quieto *::before,
+    .quieto *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="escenario" id="escenario">
+
+    <!-- Decorado fijo: la pared de la cabaña y las guirnaldas del menú -->
+    <div class="pared"></div>
+    <div class="guirnalda guirnaldaIzquierda">
+      <img class="guirnaldaCable" src="assets/img/cable.svg" alt="">
+      <img class="bombilla bombilla1 bombillaVerde" src="assets/img/bombillaVerde.svg" alt="">
+      <img class="bombilla bombilla2 bombillaRoja" src="assets/img/bombillaRoja.svg" alt="">
+      <img class="bombilla bombilla3 bombillaAzul" src="assets/img/bombillaAzul.svg" alt="">
+      <img class="bombilla bombilla4 bombillaAmarilla" src="assets/img/bombillaAmarilla.svg" alt="">
+    </div>
+    <div class="guirnalda guirnaldaDerecha">
+      <img class="guirnaldaCable" src="assets/img/cable.svg" alt="">
+      <img class="bombilla bombilla1 bombillaAzul" src="assets/img/bombillaAzul.svg" alt="">
+      <img class="bombilla bombilla2 bombillaVerde" src="assets/img/bombillaVerde.svg" alt="">
+      <img class="bombilla bombilla3 bombillaAmarilla" src="assets/img/bombillaAmarilla.svg" alt="">
+      <img class="bombilla bombilla4 bombillaRoja" src="assets/img/bombillaRoja.svg" alt="">
+    </div>
+
+    <!-- ========== 1 · Portada ========== -->
+    <section class="diapo" id="diapo1">
+      <img class="portadaFondo" src="assets/img/welcome.jpg" alt="La cabaña del juego con las doce caras de clase sentadas alrededor de la mesa">
+      <span class="portadaFuego"></span>
+      <div class="portadaSombra"></div>
+      <p class="portadaCurso entra" data-orden="6">2º DAW · Wheel of Doom</p>
+      <h1 class="portadaTitulo">Don't be Peter</h1>
+      <p class="portadaLema entra" data-orden="3"><span>El juego de las sillas. Quien se queda sin silla, es Peter.</span></p>
+      <ul class="portadaNombres">
+        <li class="chip entra" data-orden="5"><span class="chipCojin"></span>Alba Ruiz de la Vega</li>
+        <li class="chip entra" data-orden="6"><span class="chipCojin"></span>Manuel Vasco López</li>
+        <li class="chip entra" data-orden="7"><span class="chipCojin"></span>Diego José Alonso Arias</li>
+        <li class="chip entra" data-orden="8"><span class="chipCojin"></span>Brandon David Chusgo Paico</li>
+      </ul>
+    </section>
+
+    <!-- ========== 2 · Briefing ========== -->
+    <section class="diapo" id="diapo2">
+      <h2 class="titulo">Briefing</h2>
+      <div class="zona briefing">
+        <div class="hoja briefingEncargo entra" data-orden="1">
+          <span class="cinta">El encargo</span>
+          <span class="sello sella">Confidencial</span>
+          <p class="datoNombre">Cliente</p>
+          <p class="clienteNombre">Sacrificios S.A.</p>
+          <p class="texto">Necesita elegir <strong>de forma justa</strong> qué desarrollador se sacrifica.</p>
+          <p class="texto">Lo quiere <strong>divertido</strong>… y que <strong>no sea la típica ruleta</strong>.</p>
+          <div class="ruletaNo">
+            <div class="ruleta"></div>
+            <span class="ruletaAspa"></span>
+            <span class="ruletaAspa ruletaAspa2"></span>
+          </div>
+          <p class="ruletaPie"><span class="etiqueta">Ruleta descartada</span></p>
+        </div>
+
+        <div class="hoja briefingRequisitos entra" data-orden="2">
+          <span class="cinta">Lo que pidió</span>
+          <ol class="requisitos">
+            <li><span class="numero">1</span>Añadir y quitar nombres</li>
+            <li><span class="numero">2</span>Elegir uno al azar, sin repetir hasta reiniciar</li>
+            <li><span class="numero">3</span>Aviso con el elegido</li>
+            <li><span class="numero">4</span>Aviso cuando cae el último y vuelta a la pantalla de inicio</li>
+            <li><span class="numero">5</span>Pantalla de inicio y botón de reinicio</li>
+            <li><span class="numero">6</span>Animaciones, transiciones y sonido</li>
+            <li><span class="numero">7</span>Mobile first con 2 breakpoints (768 y 1024)</li>
+            <li><span class="numero">8</span>Tests con Jest</li>
+          </ol>
+          <p class="bonus"><span class="rol">Bonus hecho</span>Guardado con localStorage</p>
+        </div>
+
+        <div class="alfombra briefingIdea entra" data-orden="3">
+          <span class="cinta">Nuestra idea</span>
+          <p class="ideaTitulo">El juego<br>de las sillas</p>
+          <div class="ideaCaras">
+            <img src="assets/caras/juanjo.png" alt="Cara de Juanjo">
+            <img src="assets/caras/isabel.png" alt="Cara de Isabel" style="animation-delay: 0.2s">
+            <img src="assets/caras/rafa.png" alt="Cara de Rafa" style="animation-delay: 0.1s">
+            <img src="assets/caras/nerea.png" alt="Cara de Nerea" style="animation-delay: 0.3s">
+          </div>
+          <div class="ideaSillas">
+            <img src="assets/img/silla.svg" alt="">
+            <img src="assets/img/silla.svg" alt="">
+            <img src="assets/img/silla.svg" alt="">
+          </div>
+          <p class="ideaCuenta">4 jugadores · 3 sillas</p>
+          <p class="ideaTexto">Siempre hay una silla menos que jugadores. Cuando la música se para, alguien se queda de pie: <strong>ese es Peter</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 3 · El equipo ========== -->
+    <section class="diapo" id="diapo3">
+      <h2 class="titulo">El equipo</h2>
+      <div class="zona">
+        <div class="corcho entra" data-orden="0">
+          <div class="corchoDentro">
+            <div class="fichaEquipo clava" data-orden="2" style="transform: rotate(-1.5deg)">
+              <img class="fichaChincheta" src="assets/img/chinchetaRoja.svg" alt="">
+              <img class="fichaCara salta" data-orden="5" src="assets/caras/alba.png" alt="Cara de Alba">
+              <p class="fichaNombre">Alba Ruiz<br>de la Vega</p>
+              <span class="rol">Scrum Master</span>
+              <div class="fichaLinea"></div>
+              <p class="fichaHizo">Su parte</p>
+              <p class="fichaPartes">¿Quién juega hoy?<br>y Tutorial</p>
+            </div>
+            <div class="fichaEquipo clava" data-orden="3" style="transform: rotate(1deg)">
+              <img class="fichaChincheta" src="assets/img/chinchetaAzul.svg" alt="">
+              <img class="fichaCara salta" data-orden="6" src="assets/caras/manuel.png" alt="Cara de Manuel">
+              <p class="fichaNombre">Manuel Vasco<br>López</p>
+              <span class="rol">Desarrollo</span>
+              <div class="fichaLinea"></div>
+              <p class="fichaHizo">Su parte</p>
+              <p class="fichaPartes">Welcome<br>y Sala</p>
+            </div>
+            <div class="fichaEquipo clava" data-orden="4" style="transform: rotate(-1deg)">
+              <img class="fichaChincheta" src="assets/img/chinchetaVerde.svg" alt="">
+              <img class="fichaCara salta" data-orden="7" src="assets/caras/diego.png" alt="Cara de Diego">
+              <p class="fichaNombre">Diego José<br>Alonso Arias</p>
+              <span class="rol">Product Owner</span>
+              <div class="fichaLinea"></div>
+              <p class="fichaHizo">Su parte</p>
+              <p class="fichaPartes">Gramola<br>y avisos</p>
+            </div>
+            <div class="fichaEquipo clava" data-orden="5" style="transform: rotate(1.5deg)">
+              <img class="fichaChincheta" src="assets/img/chinchetaAmarilla.svg" alt="">
+              <img class="fichaCara salta" data-orden="8" src="assets/caras/brandon.png" alt="Cara de Brandon">
+              <p class="fichaNombre">Brandon David<br>Chusgo Paico</p>
+              <span class="rol">Desarrollo</span>
+              <div class="fichaLinea"></div>
+              <p class="fichaHizo">Su parte</p>
+              <p class="fichaPartes">Base común,<br>Menú y Créditos</p>
+              <span class="fichaExtra">Revisa las pull requests</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 4 · El proyecto: cómo se juega ========== -->
+    <section class="diapo" id="diapo4">
+      <h2 class="titulo">¿Cómo se juega?</h2>
+      <div class="zona">
+        <ol class="pasos">
+          <li class="paso entra" data-orden="1">
+            <span class="numero">1</span>
+            <img class="pasoDibujo" src="assets/img/paso1.png" alt="">
+            <div>
+              <h3 class="pasoTitulo">Invita</h3>
+              <p class="pasoTexto">Apunta de 2 a 12 jugadores en la hoja de reparto, sin repetir nombres.</p>
+            </div>
+            <span class="triangulo pasoFlecha"></span>
+          </li>
+          <li class="paso entra" data-orden="2">
+            <span class="numero">2</span>
+            <img class="pasoDibujo" src="assets/img/paso2.png" alt="">
+            <div>
+              <h3 class="pasoTitulo">Baila</h3>
+              <p class="pasoTexto">Suena la canción elegida en la gramola y todos bailan en corro.</p>
+            </div>
+            <span class="triangulo pasoFlecha"></span>
+          </li>
+          <li class="paso entra" data-orden="3">
+            <span class="numero">3</span>
+            <img class="pasoDibujo" src="assets/img/paso3.png" alt="">
+            <div>
+              <h3 class="pasoTitulo">¡Siéntate!</h3>
+              <p class="pasoTexto">«Parar música» o espacio: la música se frena hasta pararse.</p>
+            </div>
+          </li>
+          <li class="paso entra" data-orden="4">
+            <span class="numero">4</span>
+            <img class="pasoDibujo" src="assets/img/paso4.png" alt="">
+            <div>
+              <h3 class="pasoTitulo">No seas Peter</h3>
+              <p class="pasoTexto">El azar elige quién se queda sin silla y sale el aviso.</p>
+            </div>
+            <span class="triangulo pasoFlecha"></span>
+          </li>
+          <li class="paso entra" data-orden="5">
+            <span class="numero">5</span>
+            <div class="pasoEscena">
+              <img class="escenaSilla" src="assets/img/silla.svg" alt="">
+              <span class="escenaFlecha"><span class="fl"></span></span>
+              <img class="escenaRetirada" src="assets/img/sillaRetirada.png" alt="">
+              <p class="escenaMenos">Silla retirada</p>
+            </div>
+            <div>
+              <h3 class="pasoTitulo">Una silla menos</h3>
+              <p class="pasoTexto">Peter no vuelve a salir. Se retira una silla y empieza otra ronda.</p>
+            </div>
+            <span class="triangulo pasoFlecha"></span>
+          </li>
+          <li class="paso entra" data-orden="6">
+            <span class="numero">6</span>
+            <div class="pasoEscena">
+              <div class="retrato">
+                <img src="assets/caras/nerea.png" alt="Cara de Nerea">
+                <span class="retratoSello sella" data-orden="10">Gana</span>
+              </div>
+            </div>
+            <div>
+              <h3 class="pasoTitulo">Gana el último</h3>
+              <p class="pasoTexto">Aviso final, cuenta atrás de 10 segundos y vuelta al menú.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="reglas entra" data-orden="8">
+          <span class="cinta">Reglas</span>
+          <p class="regla"><span class="numero">!</span>Siempre hay una silla menos que jugadores.</p>
+          <p class="regla"><span class="numero">?</span>El que es Peter ya no vuelve a salir hasta reiniciar.</p>
+          <p class="regla"><span class="numero">*</span>Gana el último que queda sentado.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 5 · Demo ========== -->
+    <section class="diapo" id="diapo5">
+      <h2 class="titulo">¡Que suene la música!</h2>
+      <div class="zona">
+        <div class="demoCaptura entra" data-orden="1">
+          <img src="assets/capturas/salaEscritorio.png" alt="Captura real de la sala del juego con seis jugadores bailando alrededor de la mesa">
+        </div>
+        <p class="demoPie entra" data-orden="2">Captura real de la sala · Ronda 1</p>
+
+        <div class="panel demoPanel entra" data-orden="2">
+          <p class="enDirecto"><span class="enDirectoLuz"></span>En directo</p>
+          <p class="demoTexto">Vamos a jugar una partida <strong>aquí mismo</strong>.</p>
+          <div class="tocadiscos">
+            <div class="vinilo">
+              <img src="assets/img/vinilo.svg" alt="">
+              <p class="viniloEtiqueta">A1</p>
+            </div>
+            <img class="brazo" src="assets/img/brazo.svg" alt="">
+          </div>
+          <p class="demoTexto">La web está desplegada en <strong>Vercel</strong>.</p>
+          <span class="boton demoBoton">¡Que suene la música!</span>
+          <img class="demoNota demoNota1" src="assets/img/nota.svg" alt="">
+          <img class="demoNota demoNota2" src="assets/img/nota.svg" alt="" style="animation-delay: 0.4s">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 6 · Diseño ========== -->
+    <section class="diapo" id="diapo6">
+      <h2 class="titulo">Diseño</h2>
+      <div class="zona">
+        <div class="aparatos">
+          <div class="aparato aparatoMovil entra" data-orden="1">
+            <span class="aparatoMarco"><img src="assets/capturas/repartoMovil.png" alt="Captura real de la hoja de reparto en móvil"></span>
+            <p class="aparatoNombre">Móvil</p>
+          </div>
+          <div class="salto entra" data-orden="2">
+            <span class="saltoTexto">min-width</span>
+            <span class="saltoMedida">768 px</span>
+            <span class="triangulo"></span>
+          </div>
+          <div class="aparato aparatoTablet entra" data-orden="3">
+            <span class="aparatoMarco"><img src="assets/capturas/repartoTablet.png" alt="Captura real de la hoja de reparto en tablet"></span>
+            <p class="aparatoNombre">Tablet</p>
+          </div>
+          <div class="salto entra" data-orden="4">
+            <span class="saltoTexto">min-width</span>
+            <span class="saltoMedida">1024 px</span>
+            <span class="triangulo"></span>
+          </div>
+          <div class="aparato aparatoEscritorio entra" data-orden="5">
+            <span class="aparatoMarco"><img src="assets/capturas/repartoEscritorio.png" alt="Captura real de la pantalla ¿Quién juega hoy? en escritorio"></span>
+            <p class="aparatoNombre">Escritorio</p>
+          </div>
+        </div>
+
+        <div class="disenoAbajo">
+          <div class="hoja atomico entra" data-orden="6">
+            <span class="cinta">Atomic Design</span>
+            <div class="atomicoFila">
+              <div class="atomo">
+                <p class="atomoNombre">Átomos</p>
+                <p class="atomoArchivo">atomos.css</p>
+                <p class="atomoEjemplos">botón, campo, etiqueta</p>
+              </div>
+              <span class="atomicoFlecha"><span class="fl"></span></span>
+              <div class="atomo">
+                <p class="atomoNombre">Moléculas</p>
+                <p class="atomoArchivo">moleculas.css</p>
+                <p class="atomoEjemplos">ficha, chip, tarjeta</p>
+              </div>
+              <span class="atomicoFlecha"><span class="fl"></span></span>
+              <div class="atomo">
+                <p class="atomoNombre">Organismos</p>
+                <p class="atomoArchivo">organismos.css</p>
+                <p class="atomoEjemplos">barra, HUD, diálogo</p>
+              </div>
+              <span class="atomicoFlecha"><span class="fl"></span></span>
+              <div class="atomo">
+                <p class="atomoNombre">Pantallas</p>
+                <p class="atomoArchivo">pantallas/*.css</p>
+                <p class="atomoEjemplos">welcome, menú, sala…</p>
+              </div>
+            </div>
+          </div>
+          <div class="hoja figma entra" data-orden="7">
+            <span class="cinta">Mobile first · Figma</span>
+            <p class="figmaTexto">Primero el móvil y solo <strong>min-width</strong>. Las maquetas, en Figma:</p>
+            <a class="enlace" href="https://www.figma.com/design/UFAXnmeFKAYewnPKMSHZ3O/Don%C2%B4t-be-peter" target="_blank">figma.com/design/UFAXnmeF…</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 7 · Organización ========== -->
+    <section class="diapo" id="diapo7">
+      <h2 class="titulo">Organización</h2>
+      <div class="zona">
+        <div class="tablero entra" data-orden="1">
+          <p class="tableroBarra"><img src="assets/img/iconoSilla.svg" alt="">Kanban en Trello<span>Así viaja una tarea</span></p>
+          <div class="columnas">
+            <div class="columna">
+              <p class="columnaTitulo">Por hacer</p>
+              <div class="tarea"><span class="tareaTalla">XS</span><span class="tareaRaya"></span><span class="tareaRaya tareaRayaCorta"></span><img class="tareaCara" src="assets/caras/manuel.png" alt=""></div>
+              <div class="tarea"><span class="tareaTalla">L</span><span class="tareaRaya"></span><span class="tareaRaya tareaRayaCorta"></span><img class="tareaCara" src="assets/caras/alba.png" alt=""></div>
+            </div>
+            <div class="columna">
+              <p class="columnaTitulo">En proceso</p>
+              <div class="tarea"><span class="tareaTalla">M</span><span class="tareaRaya"></span><span class="tareaRaya tareaRayaCorta"></span><img class="tareaCara" src="assets/caras/diego.png" alt=""></div>
+              <div class="tarea"><span class="tareaTalla">S</span><span class="tareaRaya"></span><span class="tareaRaya tareaRayaCorta"></span><img class="tareaCara" src="assets/caras/brandon.png" alt=""></div>
+            </div>
+            <div class="columna">
+              <p class="columnaTitulo">En revisión</p>
+              <div class="tarea"><span class="tareaTalla">XL</span><span class="tareaRaya"></span><span class="tareaRaya tareaRayaCorta"></span><img class="tareaCara" src="assets/caras/manuel.png" alt=""></div>
+            </div>
+            <div class="columna">
+              <p class="columnaTitulo">Hecho</p>
+              <div class="tarea" style="visibility: hidden"></div>
+              <div class="tarea"><span class="tareaTalla">M</span><span class="tareaRaya"></span><span class="tareaRaya tareaRayaCorta"></span><img class="tareaCara" src="assets/caras/alba.png" alt=""></div>
+              <div class="tarea"><span class="tareaTalla">S</span><span class="tareaRaya"></span><span class="tareaRaya tareaRayaCorta"></span><img class="tareaCara" src="assets/caras/diego.png" alt=""></div>
+            </div>
+          </div>
+          <div class="tareaViva">
+            <p>Una<br>tarea</p>
+            <img src="assets/caras/brandon.png" alt="">
+          </div>
+        </div>
+
+        <div class="hoja sprints entra" data-orden="3">
+          <span class="cinta">2 sprints de 2 semanas</span>
+          <div class="sprint">
+            <p class="sprintNombre">Sprint 1<span>2 semanas</span></p>
+            <div class="sprintDias"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <p class="sprintPie">Con su daily</p>
+          </div>
+          <span class="retro">Retro</span>
+          <div class="sprint">
+            <p class="sprintNombre">Sprint 2<span>2 semanas</span></p>
+            <div class="sprintDias"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            <p class="sprintPie">Con su daily</p>
+          </div>
+          <span class="retro">Retro</span>
+        </div>
+
+        <div class="hoja scrum entra" data-orden="2">
+          <span class="cinta">Scrum</span>
+          <div class="scrumRoles">
+            <div class="scrumRol">
+              <img class="salta" data-orden="5" src="assets/caras/diego.png" alt="Cara de Diego">
+              <div>
+                <span class="rol">Product Owner</span>
+                <p class="scrumQuien">Diego</p>
+              </div>
+            </div>
+            <div class="scrumRol">
+              <img class="salta" data-orden="6" src="assets/caras/alba.png" alt="Cara de Alba">
+              <div>
+                <span class="rol">Scrum Master</span>
+                <p class="scrumQuien">Alba</p>
+              </div>
+            </div>
+            <div class="scrumRol">
+              <div class="scrumCaras">
+                <img class="salta" data-orden="7" src="assets/caras/manuel.png" alt="Cara de Manuel">
+                <img class="salta" data-orden="8" src="assets/caras/brandon.png" alt="Cara de Brandon">
+              </div>
+              <div>
+                <span class="rol">Desarrollo</span>
+                <p class="scrumQuien">Manuel y Brandon</p>
+              </div>
+            </div>
+          </div>
+          <ul class="scrumLista">
+            <li><span class="chipCojin"></span>Historias de usuario divididas en tareas</li>
+            <li><span class="chipCojin"></span>Cada tarea, con su talla:</li>
+          </ul>
+          <p class="tallas">
+            <span style="font-size: 14px">XS</span>
+            <span style="font-size: 17px">S</span>
+            <span style="font-size: 20px">M</span>
+            <span style="font-size: 24px">L</span>
+            <span style="font-size: 28px">XL</span>
+          </p>
+          <ul class="scrumLista">
+            <li><span class="chipCojin"></span>Daily y retrospectiva en cada sprint</li>
+            <li><span class="chipCojin"></span><a class="enlace" href="https://trello.com/b/Y2Lf474H/dont-be-peter" target="_blank">trello.com/b/Y2Lf474H/dont-be-peter</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 8 · Stack y estructura ========== -->
+    <section class="diapo" id="diapo8">
+      <h2 class="titulo">Stack y estructura</h2>
+      <div class="zona">
+        <div class="panel stack entra" data-orden="1">
+          <span class="cinta">Hecho con</span>
+          <p class="stackGrupo">La web</p>
+          <ul class="stackEtiquetas">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+          <p class="stackGrupo">Tests</p>
+          <ul class="stackEtiquetas">
+            <li>Jest</li>
+          </ul>
+          <p class="stackGrupo">Diseño</p>
+          <ul class="stackEtiquetas">
+            <li>Figma</li>
+            <li>Google Fonts</li>
+          </ul>
+          <p class="stackGrupo">Equipo</p>
+          <ul class="stackEtiquetas">
+            <li>Trello</li>
+            <li>Git y GitHub</li>
+          </ul>
+          <p class="stackGrupo">Herramientas</p>
+          <ul class="stackEtiquetas">
+            <li>Visual Studio Code</li>
+            <li>Cloudinary</li>
+          </ul>
+        </div>
+
+        <div class="editor arbol entra" data-orden="2">
+          <div class="editorBarra">
+            <span class="editorLuz"></span><span class="editorLuz editorLuzAmarilla"></span><span class="editorLuz editorLuzVerde"></span>
+            <span class="editorPestana">dont-be-peter/</span>
+          </div>
+          <ul class="arbolLista">
+            <li><span class="archivo"></span>index.html</li>
+            <li class="arbolCarpeta"><span class="carpeta"></span>css/</li>
+            <li class="nivel1"><span class="archivo"></span>atomos.css</li>
+            <li class="nivel1"><span class="archivo"></span>moleculas.css</li>
+            <li class="nivel1"><span class="archivo"></span>organismos.css</li>
+            <li class="nivel1 arbolCarpeta"><span class="carpeta"></span>pantallas/</li>
+            <li class="nivel2"><span class="archivo"></span>welcome.css · menu.css</li>
+            <li class="nivel2"><span class="archivo"></span>reparto.css · sala.css …</li>
+            <li class="arbolCarpeta"><span class="carpeta"></span>js/</li>
+            <li class="nivel1"><span class="archivo"></span>comun.js · juego.js</li>
+            <li class="nivel1"><span class="archivo"></span>welcome.js · menu.js</li>
+            <li class="nivel1"><span class="archivo"></span>reparto.js · sala.js …</li>
+            <li class="arbolCarpeta"><span class="carpeta"></span>tests/</li>
+            <li class="nivel1"><span class="archivo"></span>juego.test.js</li>
+            <li><span class="archivo"></span>README.md</li>
+          </ul>
+        </div>
+
+        <div class="notas">
+          <div class="nota clava" data-orden="4" style="transform: rotate(1deg)">
+            <img class="fichaChincheta" src="assets/img/chinchetaRoja.svg" alt="">
+            <p class="notaTitulo">Atomic Design</p>
+            <p class="notaTexto">Átomos, moléculas y organismos que comparten todas las pantallas.</p>
+          </div>
+          <div class="nota clava" data-orden="5" style="transform: rotate(-1deg)">
+            <img class="fichaChincheta" src="assets/img/chinchetaAzul.svg" alt="">
+            <p class="notaTitulo">Un CSS y un JS por pantalla</p>
+            <p class="notaTexto">Cada uno trabaja en su archivo sin pisar a los demás. Todo en camelCase.</p>
+          </div>
+          <div class="nota clava" data-orden="6" style="transform: rotate(1.5deg)">
+            <img class="fichaChincheta" src="assets/img/chinchetaVerde.svg" alt="">
+            <p class="notaTitulo">Cloudinary</p>
+            <p class="notaTexto">Las imágenes y la música están en Cloudinary y se cargan por su URL.</p>
+          </div>
+        </div>
+        <div class="repo entra" data-orden="7">
+          <p class="repoNombre">Repositorio</p>
+          <a class="enlace enlaceClaro" href="https://github.com/brandon03-cell/dont-be-peter" target="_blank">github.com/brandon03-cell/dont-be-peter</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 9 · Código de Brandon ========== -->
+    <section class="diapo" id="diapo9">
+      <h2 class="titulo">Código · Brandon</h2>
+      <div class="zona">
+        <div class="editor entra" data-orden="1">
+          <div class="editorBarra">
+            <span class="editorLuz"></span><span class="editorLuz editorLuzAmarilla"></span><span class="editorLuz editorLuzVerde"></span>
+            <span class="editorPestana">js/juego.js</span>
+          </div>
+          <div class="editorCodigo">
+<div class="linea"><span class="lineaNumero">53</span><span class="lineaTexto"><span class="k">function</span> <span class="f">validarNombre</span><span class="p">(</span>lista<span class="p">,</span> nombre<span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">54</span><span class="lineaTexto">  nombre <span class="p">=</span> <span class="f">limpiarNombre</span><span class="p">(</span>nombre<span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">55</span><span class="lineaTexto">  <span class="k">if</span> <span class="p">(</span>nombre <span class="p">=</span><span class="p">=</span> <span class="s">""</span><span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">56</span><span class="lineaTexto">    <span class="k">return</span> <span class="s">"Escribe un nombre."</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">57</span><span class="lineaTexto">  <span class="p">}</span></span></div>
+<div class="linea"><span class="lineaNumero">58</span><span class="lineaTexto">  <span class="k">if</span> <span class="p">(</span>nombre<span class="p">.</span>length <span class="p">&gt;</span> <span class="n">15</span><span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">59</span><span class="lineaTexto">    <span class="k">return</span> <span class="s">"El nombre es muy largo (máximo 15 letras)."</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">60</span><span class="lineaTexto">  <span class="p">}</span></span></div>
+<div class="linea"><span class="lineaNumero">61</span><span class="lineaTexto">  <span class="k">if</span> <span class="p">(</span><span class="f">estaRepetido</span><span class="p">(</span>lista<span class="p">,</span> nombre<span class="p">)</span><span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">62</span><span class="lineaTexto">    <span class="k">return</span> <span class="s">"Ese nombre ya está en la hoja."</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">63</span><span class="lineaTexto">  <span class="p">}</span></span></div>
+<div class="linea"><span class="lineaNumero">64</span><span class="lineaTexto">  <span class="k">if</span> <span class="p">(</span>lista<span class="p">.</span>length <span class="p">&gt;</span><span class="p">=</span> maximoJugadores<span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">65</span><span class="lineaTexto">    <span class="k">return</span> <span class="s">"Ya hay "</span> <span class="p">+</span> maximoJugadores <span class="p">+</span> <span class="s">" candidatos, no caben más."</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">66</span><span class="lineaTexto">  <span class="p">}</span></span></div>
+<div class="linea"><span class="lineaNumero">67</span><span class="lineaTexto">  <span class="k">return</span> <span class="s">""</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">68</span><span class="lineaTexto"><span class="p">}</span></span></div>
+<div class="linea"><span class="lineaNumero"></span><span class="lineaTexto"></span></div>
+<div class="linea"><span class="lineaNumero"></span><span class="lineaTexto"><span class="c">// ...</span></span></div>
+<div class="linea"><span class="lineaNumero"></span><span class="lineaTexto"></span></div>
+<div class="linea"><span class="lineaNumero">93</span><span class="lineaTexto"><span class="k">function</span> <span class="f">elegirPeter</span><span class="p">(</span>lista<span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">94</span><span class="lineaTexto">  <span class="k">return</span> <span class="o">Math</span><span class="p">.</span><span class="f">floor</span><span class="p">(</span><span class="o">Math</span><span class="p">.</span><span class="f">random</span><span class="p">(</span><span class="p">)</span> <span class="p">*</span> lista<span class="p">.</span>length<span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">95</span><span class="lineaTexto"><span class="p">}</span></span></div>
+          </div>
+        </div>
+        <div class="lado">
+          <div class="autor entra" data-orden="2">
+            <div class="autorFoto"><img class="salta" data-orden="4" src="assets/caras/brandon.png" alt="Cara de Brandon"></div>
+            <div>
+              <p class="autorNombre">Brandon David<br>Chusgo Paico</p>
+              <span class="rol">Desarrollo</span>
+            </div>
+          </div>
+          <div class="archivos entra" data-orden="3">
+            <p class="archivosTitulo">Sus archivos</p>
+            <ul>
+              <li class="archivoAhora"><span class="archivo"></span>js/juego.js</li>
+              <li><span class="archivo"></span>js/comun.js</li>
+              <li><span class="archivo"></span>js/menu.js</li>
+              <li><span class="archivo"></span>js/creditos.js</li>
+              <li><span class="archivo"></span>css/pantallas/menu.css</li>
+              <li><span class="archivo"></span>tests/juego.test.js</li>
+            </ul>
+          </div>
+          <ol class="ideas">
+            <li class="idea entra" data-orden="5"><span class="numero">1</span><p><code>validarNombre</code> no deja pasar un nombre vacío, muy largo o repetido, ni más de 12.</p></li>
+            <li class="idea entra" data-orden="6"><span class="numero">2</span><p><code>elegirPeter</code> saca una posición al azar con <code>Math.random</code>.</p></li>
+            <li class="idea entra" data-orden="7"><span class="numero">3</span><p>No tocan el DOM: por eso se pueden probar con Jest.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 10 · Código de Alba ========== -->
+    <section class="diapo" id="diapo10">
+      <h2 class="titulo">Código · Alba</h2>
+      <div class="zona">
+        <div class="editor entra" data-orden="1">
+          <div class="editorBarra">
+            <span class="editorLuz"></span><span class="editorLuz editorLuzAmarilla"></span><span class="editorLuz editorLuzVerde"></span>
+            <span class="editorPestana">js/reparto.js</span>
+          </div>
+          <div class="editorCodigo">
+<div class="linea"><span class="lineaNumero">10</span><span class="lineaTexto"><span class="k">function</span> <span class="f">pintarReparto</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">11</span><span class="lineaTexto">    <span class="k">var</span> lista <span class="p">=</span> <span class="o">document</span><span class="p">.</span><span class="f">getElementById</span><span class="p">(</span><span class="s">"listaFichas"</span><span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">12</span><span class="lineaTexto">    lista<span class="p">.</span>innerHTML <span class="p">=</span> <span class="s">""</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">14</span><span class="lineaTexto"><span class="k">for</span> <span class="p">(</span><span class="k">var</span> i <span class="p">=</span> <span class="n">0</span><span class="p">;</span> i <span class="p">&lt;</span> jugadores<span class="p">.</span>length<span class="p">;</span> i<span class="p">+</span><span class="p">+</span><span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">15</span><span class="lineaTexto">    <span class="k">var</span> ficha <span class="p">=</span> <span class="o">document</span><span class="p">.</span><span class="f">createElement</span><span class="p">(</span><span class="s">"li"</span><span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">16</span><span class="lineaTexto">    ficha<span class="p">.</span>className <span class="p">=</span> <span class="s">"ficha"</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero"></span><span class="lineaTexto">    <span class="c">// ... chincheta, número y color</span></span></div>
+<div class="linea"><span class="lineaNumero">38</span><span class="lineaTexto">    <span class="k">var</span> cara <span class="p">=</span> <span class="o">document</span><span class="p">.</span><span class="f">createElement</span><span class="p">(</span><span class="s">"img"</span><span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">39</span><span class="lineaTexto">    cara<span class="p">.</span>className <span class="p">=</span> <span class="s">"fichaCara"</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">40</span><span class="lineaTexto">    cara<span class="p">.</span>src <span class="p">=</span> <span class="f">caraDe</span><span class="p">(</span>jugadores<span class="p">[</span>i<span class="p">]</span><span class="p">,</span> i<span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">41</span><span class="lineaTexto">    cara<span class="p">.</span>alt <span class="p">=</span> <span class="s">"Cara de "</span> <span class="p">+</span> jugadores<span class="p">[</span>i<span class="p">]</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">42</span><span class="lineaTexto">    ficha<span class="p">.</span><span class="f">appendChild</span><span class="p">(</span>cara<span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">43</span><span class="lineaTexto"></span></div>
+<div class="linea"><span class="lineaNumero">44</span><span class="lineaTexto">    <span class="k">var</span> nombre <span class="p">=</span> <span class="o">document</span><span class="p">.</span><span class="f">createElement</span><span class="p">(</span><span class="s">"p"</span><span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">45</span><span class="lineaTexto">    nombre<span class="p">.</span>className <span class="p">=</span> <span class="s">"etiqueta"</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">46</span><span class="lineaTexto">    nombre<span class="p">.</span>textContent <span class="p">=</span> jugadores<span class="p">[</span>i<span class="p">]</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">47</span><span class="lineaTexto">    ficha<span class="p">.</span><span class="f">appendChild</span><span class="p">(</span>nombre<span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero"></span><span class="lineaTexto">    <span class="c">// ... botón de quitar</span></span></div>
+<div class="linea"><span class="lineaNumero">62</span><span class="lineaTexto">    lista<span class="p">.</span><span class="f">appendChild</span><span class="p">(</span>ficha<span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">63</span><span class="lineaTexto"><span class="p">}</span></span></div>
+<div class="linea"><span class="lineaNumero"></span><span class="lineaTexto"><span class="c">// ...</span></span></div>
+<div class="linea"><span class="lineaNumero">96</span><span class="lineaTexto"><span class="p">}</span></span></div>
+          </div>
+        </div>
+        <div class="lado">
+          <div class="autor entra" data-orden="2">
+            <div class="autorFoto"><img class="salta" data-orden="4" src="assets/caras/alba.png" alt="Cara de Alba"></div>
+            <div>
+              <p class="autorNombre">Alba Ruiz<br>de la Vega</p>
+              <span class="rol">Scrum Master</span>
+            </div>
+          </div>
+          <div class="archivos entra" data-orden="3">
+            <p class="archivosTitulo">Sus archivos</p>
+            <ul>
+              <li><span class="archivo"></span>index.html</li>
+              <li class="archivoAhora"><span class="archivo"></span>js/reparto.js</li>
+              <li><span class="archivo"></span>js/tutorial.js</li>
+              <li><span class="archivo"></span>css/pantallas/reparto.css</li>
+              <li><span class="archivo"></span>css/pantallas/tutorial.css</li>
+            </ul>
+          </div>
+          <ol class="ideas">
+            <li class="idea entra" data-orden="5"><span class="numero">1</span><p>Crea una ficha por jugador con <code>createElement</code>.</p></li>
+            <li class="idea entra" data-orden="6"><span class="numero">2</span><p>Cada ficha lleva chincheta, color, cara y botón de quitar.</p></li>
+            <li class="idea entra" data-orden="7"><span class="numero">3</span><p>Al añadir o quitar, guarda en <code>localStorage</code> y vuelve a pintar.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 11 · Código de Manuel ========== -->
+    <section class="diapo" id="diapo11">
+      <h2 class="titulo">Código · Manuel</h2>
+      <div class="zona">
+        <div class="editor entra" data-orden="1">
+          <div class="editorBarra">
+            <span class="editorLuz"></span><span class="editorLuz editorLuzAmarilla"></span><span class="editorLuz editorLuzVerde"></span>
+            <span class="editorPestana">js/sala.js</span>
+          </div>
+          <div class="editorCodigo">
+<div class="linea"><span class="lineaNumero">149</span><span class="lineaTexto"><span class="k">function</span> <span class="f">pararYElegir</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">150</span><span class="lineaTexto">  <span class="k">if</span> <span class="p">(</span><span class="p">!</span>musicaSonando<span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">151</span><span class="lineaTexto">    <span class="f">ponerMusica</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">152</span><span class="lineaTexto">    <span class="k">return</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">153</span><span class="lineaTexto">  <span class="p">}</span></span></div>
+<div class="linea"><span class="lineaNumero">154</span><span class="lineaTexto"></span></div>
+<div class="linea"><span class="lineaNumero">155</span><span class="lineaTexto">  <span class="o">document</span><span class="p">.</span><span class="f">getElementById</span><span class="p">(</span><span class="s">"botonParar"</span><span class="p">)</span><span class="p">.</span>disabled <span class="p">=</span> <span class="n">true</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">156</span><span class="lineaTexto">  <span class="o">document</span><span class="p">.</span><span class="f">getElementById</span><span class="p">(</span><span class="s">"botonCambiarDisco"</span><span class="p">)</span><span class="p">.</span>disabled <span class="p">=</span> <span class="n">true</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">157</span><span class="lineaTexto">  <span class="o">document</span><span class="p">.</span><span class="f">getElementById</span><span class="p">(</span><span class="s">"textoBanner"</span><span class="p">)</span><span class="p">.</span>textContent <span class="p">=</span> <span class="s">"¡A tu silla!"</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">158</span><span class="lineaTexto"></span></div>
+<div class="linea"><span class="lineaNumero">159</span><span class="lineaTexto">  <span class="c">// La música va cada vez más lenta y luego se para</span></span></div>
+<div class="linea"><span class="lineaNumero">160</span><span class="lineaTexto">  relojFreno <span class="p">=</span> <span class="f">setInterval</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">161</span><span class="lineaTexto">    <span class="o">musica</span><span class="p">.</span>playbackRate <span class="p">=</span> <span class="o">musica</span><span class="p">.</span>playbackRate <span class="p">-</span> <span class="n">0.1</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">162</span><span class="lineaTexto">    <span class="k">if</span> <span class="p">(</span><span class="o">musica</span><span class="p">.</span>playbackRate <span class="p">&lt;</span><span class="p">=</span> <span class="n">0.4</span><span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">163</span><span class="lineaTexto">      <span class="f">clearInterval</span><span class="p">(</span>relojFreno<span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">164</span><span class="lineaTexto">      <span class="f">pararMusica</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">165</span><span class="lineaTexto">      <span class="f">elegirYSentar</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">166</span><span class="lineaTexto">    <span class="p">}</span></span></div>
+<div class="linea"><span class="lineaNumero">167</span><span class="lineaTexto">  <span class="p">}</span><span class="p">,</span> <span class="n">120</span><span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">168</span><span class="lineaTexto"><span class="p">}</span></span></div>
+          </div>
+        </div>
+        <div class="lado">
+          <div class="autor entra" data-orden="2">
+            <div class="autorFoto"><img class="salta" data-orden="4" src="assets/caras/manuel.png" alt="Cara de Manuel"></div>
+            <div>
+              <p class="autorNombre">Manuel Vasco<br>López</p>
+              <span class="rol">Desarrollo</span>
+            </div>
+          </div>
+          <div class="archivos entra" data-orden="3">
+            <p class="archivosTitulo">Sus archivos</p>
+            <ul>
+              <li><span class="archivo"></span>index.html</li>
+              <li><span class="archivo"></span>js/welcome.js</li>
+              <li class="archivoAhora"><span class="archivo"></span>js/sala.js</li>
+              <li><span class="archivo"></span>css/pantallas/welcome.css</li>
+              <li><span class="archivo"></span>css/pantallas/sala.css</li>
+            </ul>
+          </div>
+          <ol class="ideas">
+            <li class="idea entra" data-orden="5"><span class="numero">1</span><p>Al parar, bloquea los botones y avisa: «¡A tu silla!».</p></li>
+            <li class="idea entra" data-orden="6"><span class="numero">2</span><p>Un <code>setInterval</code> baja <code>playbackRate</code> cada 120 ms: la música se frena.</p></li>
+            <li class="idea entra" data-orden="7"><span class="numero">3</span><p>Cuando llega a <code>0.4</code>, detiene la música y llama a <code>elegirYSentar</code>.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 12 · Código de Diego ========== -->
+    <section class="diapo" id="diapo12">
+      <h2 class="titulo">Código · Diego</h2>
+      <div class="zona">
+        <div class="editor entra" data-orden="1">
+          <div class="editorBarra">
+            <span class="editorLuz"></span><span class="editorLuz editorLuzAmarilla"></span><span class="editorLuz editorLuzVerde"></span>
+            <span class="editorPestana">js/aviso.js</span>
+          </div>
+          <div class="editorCodigo">
+<div class="linea"><span class="lineaNumero">22</span><span class="lineaTexto"><span class="k">function</span> <span class="f">cerrarDialogo</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">23</span><span class="lineaTexto">  <span class="o">document</span><span class="p">.</span><span class="f">getElementById</span><span class="p">(</span><span class="s">"dialogo"</span><span class="p">)</span><span class="p">.</span>classList<span class="p">.</span><span class="f">remove</span><span class="p">(</span><span class="s">"abierto"</span><span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">24</span><span class="lineaTexto">  <span class="f">clearInterval</span><span class="p">(</span>relojFinal<span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">25</span><span class="lineaTexto"><span class="p">}</span></span></div>
+<div class="linea"><span class="lineaNumero">26</span><span class="lineaTexto"></span></div>
+<div class="linea"><span class="lineaNumero">27</span><span class="lineaTexto"><span class="k">function</span> <span class="f">empezarCuentaAtras</span><span class="p">(</span><span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">28</span><span class="lineaTexto">  cuentaAtras <span class="p">=</span> <span class="n">10</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">29</span><span class="lineaTexto" style="padding-left: 6ch; text-indent: -6ch">  <span class="o">document</span><span class="p">.</span><span class="f">getElementById</span><span class="p">(</span><span class="s">"dialogoCuenta"</span><span class="p">)</span><span class="p">.</span>textContent <span class="p">=</span> <span class="s">"Volviendo al inicio en "</span> <span class="p">+</span> cuentaAtras<span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">30</span><span class="lineaTexto">  relojFinal <span class="p">=</span> <span class="f">setInterval</span><span class="p">(</span><span class="k">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">31</span><span class="lineaTexto">    cuentaAtras <span class="p">=</span> cuentaAtras <span class="p">-</span> <span class="n">1</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">32</span><span class="lineaTexto" style="padding-left: 8ch; text-indent: -8ch">    <span class="o">document</span><span class="p">.</span><span class="f">getElementById</span><span class="p">(</span><span class="s">"dialogoCuenta"</span><span class="p">)</span><span class="p">.</span>textContent <span class="p">=</span> <span class="s">"Volviendo al inicio en "</span> <span class="p">+</span> cuentaAtras<span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">33</span><span class="lineaTexto">    <span class="k">if</span> <span class="p">(</span>cuentaAtras <span class="p">=</span><span class="p">=</span> <span class="n">0</span><span class="p">)</span> <span class="p">{</span></span></div>
+<div class="linea"><span class="lineaNumero">34</span><span class="lineaTexto">      <span class="f">cerrarDialogo</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">35</span><span class="lineaTexto">      <span class="f">irAlMenu</span><span class="p">(</span><span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">36</span><span class="lineaTexto">    <span class="p">}</span></span></div>
+<div class="linea"><span class="lineaNumero">37</span><span class="lineaTexto">  <span class="p">}</span><span class="p">,</span> <span class="n">1000</span><span class="p">)</span><span class="p">;</span></span></div>
+<div class="linea"><span class="lineaNumero">38</span><span class="lineaTexto"><span class="p">}</span></span></div>
+          </div>
+          <p class="avisoRealNota">Así se ve en el juego (captura real)</p>
+          <img class="avisoReal" src="assets/capturas/avisoFinal.png" alt="Captura real del aviso de fin de partida con la cuenta atrás">
+        </div>
+        <div class="lado">
+          <div class="autor entra" data-orden="2">
+            <div class="autorFoto"><img class="salta" data-orden="4" src="assets/caras/diego.png" alt="Cara de Diego"></div>
+            <div>
+              <p class="autorNombre">Diego José<br>Alonso Arias</p>
+              <span class="rol">Product Owner</span>
+            </div>
+          </div>
+          <div class="archivos entra" data-orden="3">
+            <p class="archivosTitulo">Sus archivos</p>
+            <ul>
+              <li><span class="archivo"></span>index.html</li>
+              <li><span class="archivo"></span>js/gramola.js</li>
+              <li class="archivoAhora"><span class="archivo"></span>js/aviso.js</li>
+              <li><span class="archivo"></span>css/pantallas/gramola.css</li>
+              <li><span class="archivo"></span>css/pantallas/aviso.css</li>
+            </ul>
+          </div>
+          <ol class="ideas">
+            <li class="idea entra" data-orden="5"><span class="numero">1</span><p>Al acabar la partida empieza una cuenta atrás de 10 segundos.</p></li>
+            <li class="idea entra" data-orden="6"><span class="numero">2</span><p>Un <code>setInterval</code> resta 1 cada segundo y cambia el texto del aviso.</p></li>
+            <li class="idea entra" data-orden="7"><span class="numero">3</span><p>Al llegar a 0 cierra el aviso, detiene el reloj y vuelve al menú.</p></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 13 · Tests, Git y pull requests ========== -->
+    <section class="diapo" id="diapo13">
+      <h2 class="titulo">Tests, Git y pull requests</h2>
+      <div class="zona">
+        <div class="terminal entra" data-orden="1">
+          <div class="editorBarra">
+            <span class="editorLuz"></span><span class="editorLuz editorLuzAmarilla"></span><span class="editorLuz editorLuzVerde"></span>
+            <span class="editorPestana">Jest</span>
+          </div>
+          <div class="terminalCuerpo">
+            <p><span class="pasa">PASS</span>tests/juego.test.js</p>
+            <p class="test"><svg class="tic" viewBox="0 0 14 10" shape-rendering="crispEdges"><path fill="#8be08e" d="M12 0h2v2h-2zM10 2h2v2h-2zM8 4h2v2H8zM6 6h2v2H6zM4 8h2v2H4zM2 6h2v2H2zM0 4h2v2H0z"/></svg>no deja añadir un nombre vacío</p>
+            <p class="test"><svg class="tic" viewBox="0 0 14 10" shape-rendering="crispEdges"><path fill="#8be08e" d="M12 0h2v2h-2zM10 2h2v2h-2zM8 4h2v2H8zM6 6h2v2H6zM4 8h2v2H4zM2 6h2v2H2zM0 4h2v2H0z"/></svg>no deja añadir nombres repetidos</p>
+            <p class="test"><svg class="tic" viewBox="0 0 14 10" shape-rendering="crispEdges"><path fill="#8be08e" d="M12 0h2v2h-2zM10 2h2v2h-2zM8 4h2v2H8zM6 6h2v2H6zM4 8h2v2H4zM2 6h2v2H2zM0 4h2v2H0z"/></svg>deja añadir un nombre nuevo</p>
+            <p class="test"><svg class="tic" viewBox="0 0 14 10" shape-rendering="crispEdges"><path fill="#8be08e" d="M12 0h2v2h-2zM10 2h2v2h-2zM8 4h2v2H8zM6 6h2v2H6zM4 8h2v2H4zM2 6h2v2H2zM0 4h2v2H0z"/></svg>no deja pasar de 12 jugadores</p>
+            <p class="test"><svg class="tic" viewBox="0 0 14 10" shape-rendering="crispEdges"><path fill="#8be08e" d="M12 0h2v2h-2zM10 2h2v2h-2zM8 4h2v2H8zM6 6h2v2H6zM4 8h2v2H4zM2 6h2v2H2zM0 4h2v2H0z"/></svg>quitar un nombre lo borra de la lista</p>
+            <p class="test"><svg class="tic" viewBox="0 0 14 10" shape-rendering="crispEdges"><path fill="#8be08e" d="M12 0h2v2h-2zM10 2h2v2h-2zM8 4h2v2H8zM6 6h2v2H6zM4 8h2v2H4zM2 6h2v2H2zM0 4h2v2H0z"/></svg>hacen falta 2 jugadores para empezar</p>
+            <p class="test"><svg class="tic" viewBox="0 0 14 10" shape-rendering="crispEdges"><path fill="#8be08e" d="M12 0h2v2h-2zM10 2h2v2h-2zM8 4h2v2H8zM6 6h2v2H6zM4 8h2v2H4zM2 6h2v2H2zM0 4h2v2H0z"/></svg>siempre hay una silla menos que jugadores</p>
+            <p class="test"><svg class="tic" viewBox="0 0 14 10" shape-rendering="crispEdges"><path fill="#8be08e" d="M12 0h2v2h-2zM10 2h2v2h-2zM8 4h2v2H8zM6 6h2v2H6zM4 8h2v2H4zM2 6h2v2H2zM0 4h2v2H0z"/></svg>elegirPeter devuelve una posición que existe</p>
+            <p class="test"><svg class="tic" viewBox="0 0 14 10" shape-rendering="crispEdges"><path fill="#8be08e" d="M12 0h2v2h-2zM10 2h2v2h-2zM8 4h2v2H8zM6 6h2v2H6zM4 8h2v2H4zM2 6h2v2H2zM0 4h2v2H0z"/></svg>avisa de la última ronda y del final</p>
+            <p class="test"><svg class="tic" viewBox="0 0 14 10" shape-rendering="crispEdges"><path fill="#8be08e" d="M12 0h2v2h-2zM10 2h2v2h-2zM8 4h2v2H8zM6 6h2v2H6zM4 8h2v2H4zM2 6h2v2H2zM0 4h2v2H0z"/></svg>los del equipo tienen su cara y los demás una genérica</p>
+            <p class="resumen"><span class="gris">Test Suites:</span> <span class="verde">1 passed</span>, 1 total
+<span class="gris">Tests:</span>       <span class="verde">10 passed</span>, 10 total</p>
+          </div>
+        </div>
+
+        <div class="git">
+          <div class="hoja ramas entra" data-orden="2">
+            <span class="cinta">Las ramas</span>
+            <div class="ramasFila">
+              <span class="rama ramaMain">main</span>
+              <p class="ramasPaso"><span class="fl flIzquierda"></span>fin de<br>sprint</p>
+              <span class="rama ramaDev">dev</span>
+              <p class="ramasPaso"><span class="fl flIzquierda"></span>pull<br>request</p>
+              <div class="ramasGrupos">
+                <div class="ramasGrupo">
+                  <img src="assets/caras/brandon.png" alt="Cara de Brandon">
+                  <div class="ramasChips"><span class="rama">base</span><span class="rama">menu</span><span class="rama">credits</span></div>
+                </div>
+                <div class="ramasGrupo">
+                  <img src="assets/caras/alba.png" alt="Cara de Alba">
+                  <div class="ramasChips"><span class="rama">players</span><span class="rama">tutorial</span></div>
+                </div>
+                <div class="ramasGrupo">
+                  <img src="assets/caras/manuel.png" alt="Cara de Manuel">
+                  <div class="ramasChips"><span class="rama">welcome</span><span class="rama">room</span></div>
+                </div>
+                <div class="ramasGrupo">
+                  <img src="assets/caras/diego.png" alt="Cara de Diego">
+                  <div class="ramasChips"><span class="rama">jukebox</span><span class="rama">alerts</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hoja flujo entra" data-orden="3">
+            <span class="cinta">El camino de un cambio</span>
+            <ol class="flujoLista">
+              <li><span class="numero">1</span><p>Rama propia desde dev</p></li>
+              <li><span class="numero">2</span><p>Commits: <code>feat(menu): …</code></p></li>
+              <li><span class="numero">3</span><p>Push a GitHub</p></li>
+              <li><span class="numero">4</span><p>Pull request a dev</p></li>
+              <li><span class="numero">5</span><p>Brandon la revisa</p></li>
+              <li><span class="numero">6</span><p>Merge en dev</p></li>
+              <li><span class="numero">7</span><p>Fin de sprint: dev<span class="fl"></span>main</p></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 14 · Lo aprendido y próximos pasos ========== -->
+    <section class="diapo" id="diapo14">
+      <h2 class="titulo">Aprendido y próximos pasos</h2>
+      <div class="zona">
+        <div class="hoja aprendido entra" data-orden="1">
+          <span class="cinta">Lo aprendido</span>
+          <ul>
+            <li class="entra" data-orden="2"><span class="numero">1</span><p>Trabajo en equipo con Git<small>ramas, pull requests y conflictos</small></p></li>
+            <li class="entra" data-orden="3"><span class="numero">2</span><p>Scrum y Trello</p></li>
+            <li class="entra" data-orden="4"><span class="numero">3</span><p>Diseño en Figma con Atomic Design</p></li>
+            <li class="entra" data-orden="5"><span class="numero">4</span><p>Responsive mobile first</p></li>
+            <li class="entra" data-orden="6"><span class="numero">5</span><p>DOM y eventos en JavaScript</p></li>
+            <li class="entra" data-orden="7"><span class="numero">6</span><p>Una base común para que el código de todos encaje</p></li>
+          </ul>
+        </div>
+
+        <div class="proximosCaja entra" data-orden="3">
+          <img class="asomado asomado2" src="assets/caras/joseLuis.png" alt="Cara de José Luis">
+          <img class="asomado" src="assets/caras/daniel.png" alt="Cara de Daniel">
+          <div class="alfombra proximos">
+            <span class="cinta">Próximos pasos</span>
+            <ul>
+              <li class="entra" data-orden="5"><span class="triangulo"></span>Elegir tu propio personaje</li>
+              <li class="entra" data-orden="6"><span class="triangulo"></span>Ranking de quién ha sido Peter más veces</li>
+              <li class="entra" data-orden="7"><span class="triangulo"></span>Más canciones en la gramola</li>
+              <li class="entra" data-orden="8"><span class="triangulo"></span>Elegir el escenario</li>
+              <li class="entra" data-orden="9"><span class="triangulo"></span>Más personajes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 15 · Gracias ========== -->
+    <section class="diapo" id="diapo15">
+      <div class="lampara lamparaIzquierda">
+        <span class="lamparaLuz"></span>
+        <img src="assets/img/lampara.svg" alt="">
+      </div>
+      <div class="lampara lamparaDerecha">
+        <span class="lamparaLuz"></span>
+        <img src="assets/img/lampara.svg" alt="">
+      </div>
+
+      <h2 class="graciasTitulo">¡Gracias!</h2>
+
+      <div class="dialogo entra" data-orden="4">
+        <div class="dialogoRetrato"><img src="assets/caras/paloma.png" alt="Cara de Paloma"></div>
+        <div>
+          <p class="dialogoTitulo">¿Preguntas?</p>
+          <p class="dialogoTexto">Es vuestro turno. Nadie se queda sin silla.</p>
+        </div>
+        <span class="dialogoFlecha"></span>
+      </div>
+
+      <ul class="graciasNombres">
+        <li class="chip entra" data-orden="6"><span class="chipCojin"></span>Alba Ruiz de la Vega</li>
+        <li class="chip entra" data-orden="7"><span class="chipCojin"></span>Manuel Vasco López</li>
+        <li class="chip entra" data-orden="8"><span class="chipCojin"></span>Diego José Alonso Arias</li>
+        <li class="chip entra" data-orden="9"><span class="chipCojin"></span>Brandon David Chusgo Paico</li>
+      </ul>
+      <p class="graciasEnlace entra" data-orden="10"><a class="enlace enlaceClaro" href="https://github.com/brandon03-cell/dont-be-peter" target="_blank">github.com/brandon03-cell/dont-be-peter</a></p>
+
+      <div class="suelo">
+        <div class="rodapie"></div>
+      </div>
+      <img class="planta" src="assets/img/planta.svg" alt="">
+      <img class="lena" src="assets/img/lena.svg" alt="">
+      <div class="fiesta">
+        <img src="assets/caras/paloma.png" alt="Cara de Paloma">
+        <img src="assets/caras/juanjo.png" alt="Cara de Juanjo">
+        <img src="assets/caras/rafa.png" alt="Cara de Rafa">
+        <img src="assets/caras/joseLuis.png" alt="Cara de José Luis">
+        <img src="assets/caras/daniel.png" alt="Cara de Daniel">
+        <img src="assets/caras/julian.png" alt="Cara de Julián">
+        <img src="assets/caras/diego.png" alt="Cara de Diego">
+        <img src="assets/caras/alba.png" alt="Cara de Alba">
+        <img src="assets/caras/manuel.png" alt="Cara de Manuel">
+        <img src="assets/caras/brandon.png" alt="Cara de Brandon">
+        <img src="assets/caras/isabel.png" alt="Cara de Isabel">
+        <img src="assets/caras/nerea.png" alt="Cara de Nerea">
+      </div>
+    </section>
+
+    <!-- Pie y cortina -->
+    <p class="pieLogo" id="pieLogo">Don't be Peter</p>
+    <p class="contador" id="contador">1 / 15</p>
+    <div class="progreso"><div class="progresoRelleno" id="progresoRelleno"></div></div>
+    <div class="cortina" id="cortina"></div>
+  </div>
+
+  <script>
+    // Presentación de Don't be Peter
+    // Teclas: flechas, espacio, Inicio, Fin y F (pantalla completa). También clic y rueda.
+    // En la URL: #5 abre la diapositiva 5 y ?estatico quita las animaciones.
+
+    var total = 15;
+    var actual = 0;
+    var destino = 0;
+    var ocupado = false;
+    var relojCortina = null;
+    var relojFin = null;
+    var ultimaRueda = 0;
+    var hashPropios = 0;
+    var relojRaton = null;
+
+    var escenario = document.getElementById("escenario");
+    var cortina = document.getElementById("cortina");
+
+    var quieto = (location.search + location.hash).indexOf("estatico") != -1;
+    var hashConEstatico = location.hash.indexOf("estatico") != -1;
+    var pocoMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (quieto) {
+      document.body.classList.add("quieto");
+    }
+
+    // El escenario mide 1920x1080 y se encoge o agranda para caber entero en la ventana
+    function ajustar() {
+      var escalaAncho = window.innerWidth / 1920;
+      var escalaAlto = window.innerHeight / 1080;
+      var escala = Math.min(escalaAncho, escalaAlto);
+      escenario.style.transform = "scale(" + escala + ")";
+    }
+
+    function leerHash() {
+      var numero = parseInt(location.hash.replace("#", ""));
+      if (isNaN(numero) || numero < 1) {
+        return 1;
+      }
+      if (numero > total) {
+        return total;
+      }
+      return numero;
+    }
+
+    function ponerHash(numero) {
+      var nuevo = "#" + numero;
+      if (hashConEstatico) {
+        nuevo = nuevo + "?estatico";
+      }
+      if (location.hash == nuevo) {
+        return;
+      }
+      try {
+        history.replaceState(null, "", nuevo);
+      } catch (error) {
+        // Si el navegador no deja, se cambia el hash a mano (y se apunta para no hacerle caso luego)
+        hashPropios = hashPropios + 1;
+        location.hash = nuevo;
+      }
+    }
+
+    // Quita la diapositiva que hay y enseña la nueva
+    function cambiar(numero) {
+      if (actual > 0) {
+        document.getElementById("diapo" + actual).classList.remove("activa");
+      }
+      actual = numero;
+      document.getElementById("diapo" + actual).classList.add("activa");
+      document.getElementById("contador").textContent = actual + " / " + total;
+      document.getElementById("progresoRelleno").style.width = (actual / total) * 100 + "%";
+
+      // En la portada y en la despedida el título ya dice el nombre del juego
+      if (actual == 1 || actual == total) {
+        document.getElementById("pieLogo").style.display = "none";
+      } else {
+        document.getElementById("pieLogo").style.display = "block";
+      }
+      ponerHash(actual);
+    }
+
+    // La cortina son 144 cuadrados (16 x 9) que crecen en diagonal hasta tapar la pantalla
+    function crearCortina() {
+      for (var fila = 0; fila < 9; fila++) {
+        for (var columna = 0; columna < 16; columna++) {
+          var bloque = document.createElement("span");
+          bloque.className = "bloque";
+          if ((fila + columna) % 2 == 0) {
+            bloque.className = "bloque bloqueClaro";
+          }
+          bloque.style.left = columna * 120 + "px";
+          bloque.style.top = fila * 120 + "px";
+          bloque.dataset.fila = fila;
+          bloque.dataset.columna = columna;
+          cortina.appendChild(bloque);
+        }
+      }
+    }
+
+    function prepararCortina(haciaDelante) {
+      var bloques = cortina.querySelectorAll(".bloque");
+      for (var i = 0; i < bloques.length; i++) {
+        var columna = Number(bloques[i].dataset.columna);
+        var fila = Number(bloques[i].dataset.fila);
+        if (!haciaDelante) {
+          columna = 15 - columna;
+        }
+        bloques[i].style.transitionDelay = (columna + fila) * 11 + "ms";
+      }
+    }
+
+    function irA(numero) {
+      if (numero < 1) {
+        numero = 1;
+      }
+      if (numero > total) {
+        numero = total;
+      }
+      if (numero == destino) {
+        return;
+      }
+      var haciaDelante = numero > destino;
+      destino = numero;
+
+      clearTimeout(relojCortina);
+      clearTimeout(relojFin);
+
+      // Sin animaciones, o si ya hay una cortina a medias, se cambia directamente
+      if (quieto || pocoMovimiento || ocupado) {
+        cortina.classList.remove("tapando");
+        ocupado = false;
+        cambiar(numero);
+        return;
+      }
+
+      ocupado = true;
+      prepararCortina(haciaDelante);
+      cortina.classList.add("tapando");
+
+      relojCortina = setTimeout(function () {
+        cambiar(numero);
+        cortina.classList.remove("tapando");
+        relojFin = setTimeout(function () {
+          ocupado = false;
+        }, 450);
+      }, 450);
+    }
+
+    // Se cuenta desde "destino" y no desde "actual" para que pulsar varias veces seguidas no se salte ninguna
+    function siguiente() {
+      irA(destino + 1);
+    }
+
+    function anterior() {
+      irA(destino - 1);
+    }
+
+    function pantallaCompleta() {
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+      } else {
+        document.documentElement.requestFullscreen();
+      }
+    }
+
+    // Cada elemento con data-orden entra un poco más tarde que el anterior
+    function repartirRetrasos() {
+      var conOrden = document.querySelectorAll("[data-orden]");
+      for (var i = 0; i < conOrden.length; i++) {
+        conOrden[i].style.animationDelay = 0.45 + Number(conOrden[i].dataset.orden) * 0.13 + "s";
+      }
+
+      var editores = document.querySelectorAll(".editorCodigo, .terminalCuerpo");
+      for (var j = 0; j < editores.length; j++) {
+        var lineas = editores[j].querySelectorAll(".linea, .test");
+        for (var k = 0; k < lineas.length; k++) {
+          lineas[k].style.animationDelay = 0.9 + k * 0.05 + "s";
+        }
+      }
+
+      var caras = document.querySelectorAll(".fiesta img");
+      for (var m = 0; m < caras.length; m++) {
+        caras[m].style.animationDelay = m * 0.12 + "s";
+      }
+    }
+
+    document.addEventListener("keydown", function (evento) {
+      var tecla = evento.key;
+      if (tecla == "ArrowRight" || tecla == "ArrowDown" || tecla == "PageDown" || tecla == " " || tecla == "Enter") {
+        evento.preventDefault();
+        siguiente();
+      } else if (tecla == "ArrowLeft" || tecla == "ArrowUp" || tecla == "PageUp" || tecla == "Backspace") {
+        evento.preventDefault();
+        anterior();
+      } else if (tecla == "Home") {
+        evento.preventDefault();
+        irA(1);
+      } else if (tecla == "End") {
+        evento.preventDefault();
+        irA(total);
+      } else if (tecla == "f" || tecla == "F") {
+        pantallaCompleta();
+      }
+    });
+
+    // Clic: avanza. Si el clic es en el borde izquierdo de la pantalla, retrocede
+    document.addEventListener("click", function (evento) {
+      if (evento.target.closest("a")) {
+        return;
+      }
+      if (evento.clientX < window.innerWidth * 0.12) {
+        anterior();
+      } else {
+        siguiente();
+      }
+    });
+
+    document.addEventListener("wheel", function (evento) {
+      var ahora = Date.now();
+      if (ahora - ultimaRueda < 700) {
+        return;
+      }
+      ultimaRueda = ahora;
+      if (evento.deltaY > 0) {
+        siguiente();
+      } else if (evento.deltaY < 0) {
+        anterior();
+      }
+    });
+
+    // Si alguien escribe otro número en la URL, se va a esa diapositiva
+    window.addEventListener("hashchange", function () {
+      if (hashPropios > 0) {
+        hashPropios = hashPropios - 1;
+        return;
+      }
+      irA(leerHash());
+    });
+
+    // El puntero se esconde si el ratón lleva 3 segundos quieto
+    document.addEventListener("mousemove", function () {
+      document.body.style.cursor = "default";
+      clearTimeout(relojRaton);
+      relojRaton = setTimeout(function () {
+        document.body.style.cursor = "none";
+      }, 3000);
+    });
+
+    window.addEventListener("resize", ajustar);
+
+    ajustar();
+    crearCortina();
+    repartirRetrasos();
+    destino = leerHash();
+    cambiar(destino);
+  </script>
+</body>
+</html>
