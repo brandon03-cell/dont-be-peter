@@ -1,5 +1,5 @@
 
-var canciones = [
+let canciones = [
   { titulo: "Stage Select", autor: "Juhani Junkala", archivo: "https://res.cloudinary.com/dmonwbtuz/video/upload/v1795529256/stageSelect_1_ifkskc.ogg", color: "#ffd23f" },
   { titulo: "Stage 1", autor: "Juhani Junkala", archivo: "https://res.cloudinary.com/dmonwbtuz/video/upload/v1795528862/stage1_jvhgfp.ogg", color: "#e03c3c" },
   { titulo: "Stage 2", autor: "Juhani Junkala", archivo: "https://res.cloudinary.com/dmonwbtuz/video/upload/v1795528867/stage2_htmrft.ogg", color: "#4caf50" },
@@ -11,17 +11,17 @@ var canciones = [
   { titulo: "Ending", autor: "Juhani Junkala", archivo: "https://res.cloudinary.com/dmonwbtuz/video/upload/v1795528865/ending_jraxde.ogg", color: "#4caf50" }
 ];
 
-var cancionesPorPagina = 4;
-var cancionActual = 0;
-var paginaDiscos = 0;
-var sonandoGramola = false;
-var vengoDeLaSala = false;
+let cancionesPorPagina = 4;
+let cancionActual = 0;
+let paginaDiscos = 0;
+let sonandoGramola = false;
+let vengoDeLaSala = false;
 
-var letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 function codigoCancion(posicion, porPagina) {
-  var letra = letras[Math.floor(posicion / porPagina)];
-  var numero = (posicion % porPagina) + 1;
+  let letra = letras[Math.floor(posicion / porPagina)];
+  let numero = (posicion % porPagina) + 1;
   return letra + numero;
 }
 
@@ -48,8 +48,8 @@ function formatearTiempo(segundos) {
   if (!isFinite(segundos)) {
     return "0:00";
   }
-  var minutos = Math.floor(segundos / 60);
-  var resto = Math.floor(segundos % 60);
+  let minutos = Math.floor(segundos / 60);
+  let resto = Math.floor(segundos % 60);
   if (resto < 10) {
     resto = "0" + resto;
   }
@@ -57,13 +57,13 @@ function formatearTiempo(segundos) {
 }
 
 function pintarCancion() {
-  var cancion = canciones[cancionActual];
+  let cancion = canciones[cancionActual];
   document.getElementById("tituloCancion").textContent = cancion.titulo;
   document.getElementById("autorCancion").textContent = cancion.autor;
   document.getElementById("etiquetaDisco").textContent = codigoCancion(cancionActual, cancionesPorPagina);
   document.getElementById("etiquetaDisco").style.backgroundColor = cancion.color;
 
-  var info = document.getElementById("ahoraSuena");
+  let info = document.getElementById("ahoraSuena");
   info.classList.remove("aparecer");
   setTimeout(function () {
     info.classList.add("aparecer");
@@ -71,33 +71,33 @@ function pintarCancion() {
 }
 
 function pintarDiscos() {
-  var lista = document.getElementById("listaCanciones");
+  let lista = document.getElementById("listaCanciones");
   lista.innerHTML = "";
 
-  var desde = paginaDiscos * cancionesPorPagina;
-  for (var i = desde; i < desde + cancionesPorPagina; i++) {
-    var hueco = document.createElement("li");
+  let desde = paginaDiscos * cancionesPorPagina;
+  for (let i = desde; i < desde + cancionesPorPagina; i++) {
+    let hueco = document.createElement("li");
 
     if (i < canciones.length) {
-      var ficha = document.createElement("button");
+      let ficha = document.createElement("button");
       ficha.className = "fichaDisco";
       if (i == cancionActual) {
         ficha.className = "fichaDisco fichaDiscoElegida";
       }
 
-      var codigo = document.createElement("span");
+      let codigo = document.createElement("span");
       codigo.className = "fichaDiscoCodigo";
       codigo.textContent = codigoCancion(i, cancionesPorPagina);
       ficha.appendChild(codigo);
 
-      var titulo = document.createElement("span");
+      let titulo = document.createElement("span");
       titulo.textContent = canciones[i].titulo;
       ficha.appendChild(titulo);
 
       ficha.dataset.cancion = i;
       ficha.addEventListener("click", function () {
         sonar("clic");
-        var elegida = Number(this.dataset.cancion);
+        let elegida = Number(this.dataset.cancion);
         if (elegida == cancionActual) {
           pausarOSeguir();
         } else {
@@ -113,7 +113,7 @@ function pintarDiscos() {
     lista.appendChild(hueco);
   }
 
-  var paginas = totalPaginas(canciones.length, cancionesPorPagina);
+  let paginas = totalPaginas(canciones.length, cancionesPorPagina);
   document.getElementById("textoPagina").textContent =
     "Página " + letras[paginaDiscos] + " · " + (paginaDiscos + 1) + " de " + paginas;
 }
@@ -167,13 +167,13 @@ function anteriorCancion() {
 }
 
 function cambiarPaginaDiscos(salto) {
-  var paginas = totalPaginas(canciones.length, cancionesPorPagina);
+  let paginas = totalPaginas(canciones.length, cancionesPorPagina);
   paginaDiscos = (paginaDiscos + salto + paginas) % paginas;
   pintarDiscos();
 }
 
 function pintarTiempo() {
-  var porcentaje = 0;
+  let porcentaje = 0;
   if (musica.duration > 0) {
     porcentaje = (musica.currentTime / musica.duration) * 100;
   }
@@ -183,7 +183,7 @@ function pintarTiempo() {
 }
 
 function cargarCancionGuardada() {
-  var guardada = localStorage.getItem("gramolaCancion");
+  let guardada = localStorage.getItem("gramolaCancion");
   if (guardada != null && Number(guardada) < canciones.length) {
     cancionActual = Number(guardada);
   }
@@ -257,7 +257,7 @@ function prepararGramola() {
   });
 
   document.addEventListener("keydown", function (evento) {
-    var enGramola = document.getElementById("pantallaGramola").classList.contains("activa");
+    let enGramola = document.getElementById("pantallaGramola").classList.contains("activa");
     if (!enGramola) {
       return;
     }
