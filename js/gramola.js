@@ -1,18 +1,17 @@
 
 var canciones = [
-  { titulo: "Stage Select", autor: "Juhani Junkala", archivo: "stageSelect.ogg", color: "#ffd23f" },
-  { titulo: "Stage 1", autor: "Juhani Junkala", archivo: "stage1.ogg", color: "#e03c3c" },
-  { titulo: "Stage 2", autor: "Juhani Junkala", archivo: "stage2.ogg", color: "#4caf50" },
-  { titulo: "Boss Fight", autor: "Juhani Junkala", archivo: "bossFight.ogg", color: "#3c6fe0" },
-  { titulo: "Title Screen", autor: "Juhani Junkala", archivo: "titleScreen.ogg", color: "#e88bb0" },
-  { titulo: "Level 1", autor: "Juhani Junkala", archivo: "level1.ogg", color: "#e07b28" },
-  { titulo: "Level 2", autor: "Juhani Junkala", archivo: "level2.ogg", color: "#ffd23f" },
-  { titulo: "Level 3", autor: "Juhani Junkala", archivo: "level3.ogg", color: "#e03c3c" },
-  { titulo: "Ending", autor: "Juhani Junkala", archivo: "ending.ogg", color: "#4caf50" }
+  { titulo: "Stage Select", autor: "Juhani Junkala", archivo: "https://res.cloudinary.com/dmonwbtuz/video/upload/v1795529256/stageSelect_1_ifkskc.ogg", color: "#ffd23f" },
+  { titulo: "Stage 1", autor: "Juhani Junkala", archivo: "https://res.cloudinary.com/dmonwbtuz/video/upload/v1795528862/stage1_jvhgfp.ogg", color: "#e03c3c" },
+  { titulo: "Stage 2", autor: "Juhani Junkala", archivo: "https://res.cloudinary.com/dmonwbtuz/video/upload/v1795528867/stage2_htmrft.ogg", color: "#4caf50" },
+  { titulo: "Boss Fight", autor: "Juhani Junkala", archivo: "https://res.cloudinary.com/dmonwbtuz/video/upload/v1795528869/bossFight_dfam1f.ogg", color: "#3c6fe0" },
+  { titulo: "Title Screen", autor: "Juhani Junkala", archivo: "https://res.cloudinary.com/dmonwbtuz/video/upload/v1795529254/titleScreen_1_bpwbwc.ogg", color: "#e88bb0" },
+  { titulo: "Level 1", autor: "Juhani Junkala", archivo: "https://res.cloudinary.com/dmonwbtuz/video/upload/v1795528860/level1_uvm1aq.ogg", color: "#e07b28" },
+  { titulo: "Level 2", autor: "Juhani Junkala", archivo: "https://res.cloudinary.com/dmonwbtuz/video/upload/v1795528861/level2_lwte8c.ogg", color: "#ffd23f" },
+  { titulo: "Level 3", autor: "Juhani Junkala", archivo: "https://res.cloudinary.com/dmonwbtuz/video/upload/v1795528863/level3_n17tq8.ogg", color: "#e03c3c" },
+  { titulo: "Ending", autor: "Juhani Junkala", archivo: "https://res.cloudinary.com/dmonwbtuz/video/upload/v1795528865/ending_jraxde.ogg", color: "#4caf50" }
 ];
 
 var cancionesPorPagina = 4;
-var carpetaCanciones = "sonidos/canciones/";
 var cancionActual = 0;
 var paginaDiscos = 0;
 var sonandoGramola = false;
@@ -122,7 +121,7 @@ function pintarDiscos() {
 function cargarCancion(posicion) {
   cancionActual = posicion;
   paginaDiscos = paginaDe(cancionActual, cancionesPorPagina);
-  musica.src = carpetaCanciones + canciones[cancionActual].archivo;
+  musica.src = canciones[cancionActual].archivo;
   localStorage.setItem("gramolaCancion", cancionActual);
   pintarCancion();
   pintarDiscos();
