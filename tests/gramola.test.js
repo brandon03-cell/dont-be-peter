@@ -1,4 +1,4 @@
-var gramola = require("../js/gramola.js");
+let gramola = require("../js/gramola.js");
 
 test("los códigos van por páginas de 4", function () {
   expect(gramola.codigoCancion(0, 4)).toBe("A1");

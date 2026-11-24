@@ -1,6 +1,6 @@
-var modoDialogo = "";
-var cuentaAtras = 0;
-var relojFinal = null;
+let modoDialogo = "";
+let cuentaAtras = 0;
+let relojFinal = null;
 
 function abrirDialogo(titulo, texto, boton, final, cara) {
   document.getElementById("dialogoTitulo").textContent = titulo;
