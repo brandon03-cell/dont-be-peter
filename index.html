@@ -151,7 +151,101 @@
     </section>
 
     <!-- ========== GRAMOLA (Diego) ========== -->
-    <section class="pantalla pantallaGramola" id="pantallaGramola">
+    <section class="pantalla pantallaGramola gramolaJukebox" id="pantallaGramola">
+      <div class="guirnalda guirnaldaIzquierda">
+        <img class="guirnaldaCable" src="img/decoracion/cable.svg" alt="">
+        <img class="bombilla bombilla1 bombillaAmarilla" src="img/decoracion/bombillaAmarilla.svg" alt="">
+        <img class="bombilla bombilla2 bombillaAzul" src="img/decoracion/bombillaAzul.svg" alt="">
+        <img class="bombilla bombilla3 bombillaRoja" src="img/decoracion/bombillaRoja.svg" alt="">
+        <img class="bombilla bombilla4 bombillaVerde" src="img/decoracion/bombillaVerde.svg" alt="">
+      </div>
+      <div class="guirnalda guirnaldaDerecha">
+        <img class="guirnaldaCable" src="img/decoracion/cable.svg" alt="">
+        <img class="bombilla bombilla1 bombillaRoja" src="img/decoracion/bombillaRoja.svg" alt="">
+        <img class="bombilla bombilla2 bombillaAmarilla" src="img/decoracion/bombillaAmarilla.svg" alt="">
+        <img class="bombilla bombilla3 bombillaVerde" src="img/decoracion/bombillaVerde.svg" alt="">
+        <img class="bombilla bombilla4 bombillaAzul" src="img/decoracion/bombillaAzul.svg" alt="">
+      </div>
+
+      <div class="lampara lamparaIzquierda">
+        <span class="lamparaLuz"></span>
+        <img class="lamparaDibujo" src="img/decoracion/lampara.svg" alt="">
+      </div>
+      <div class="lampara lamparaDerecha">
+        <span class="lamparaLuz"></span>
+        <img class="lamparaDibujo" src="img/decoracion/lampara.svg" alt="">
+      </div>
+
+      <div class="gramolaTitulo">
+        <h2 class="tituloSombra tituloSombraGramola">Boombox</h2>
+      </div>
+
+      <div class="gramolaEscena" id="escenaGramola">
+
+        <!-- Luces de los tubos de la gramola -->
+        <span class="tubo tuboAzul"></span>
+        <span class="tubo tuboVerde"></span>
+
+        <div class="tocadiscos">
+          <p class="notaGramola notaGramola1">♫</p>
+          <p class="notaGramola notaGramola2">♪</p>
+          <p class="notaGramola notaGramola3">♪</p>
+          <p class="notaGramola notaGramola4">♫</p>
+
+          <div class="tocadiscosArriba">
+            <div class="plato">
+              <div class="disco" id="disco" title="Pausar / seguir">
+                <img class="discoVinilo" src="img/gramola/vinilo.svg" alt="">
+                <p class="discoEtiqueta" id="etiquetaDisco">A1</p>
+              </div>
+              <img class="brazo" src="img/gramola/brazo.svg" alt="">
+            </div>
+
+            <div class="ahoraSuena" id="ahoraSuena">
+              <p class="ahoraSuenaEtiqueta">Ahora suena</p>
+              <p class="ahoraSuenaTitulo" id="tituloCancion">Stage Select</p>
+              <p class="ahoraSuenaAutor" id="autorCancion">Juhani Junkala</p>
+              <p class="ahoraSuenaEstado" id="estadoCancion">En pausa</p>
+              <div class="progreso" id="barraProgreso" title="Pulsa para avanzar o retroceder">
+                <div class="progresoRelleno" id="rellenoProgreso"></div>
+              </div>
+              <div class="ahoraSuenaAbajo">
+                <p class="ahoraSuenaTiempo" id="tiempoCancion">0:00 / 0:00</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tocadiscosFrente">
+            <span class="perilla"></span>
+            <span class="rejilla"></span>
+            <span class="perilla perillaVolumen"></span>
+          </div>
+          <span class="tocadiscosPata tocadiscosPataIzquierda"></span>
+          <span class="tocadiscosPata tocadiscosPataDerecha"></span>
+        </div>
+
+        <div class="discos">
+          <div class="discosCabecera">
+            <button class="flecha" id="paginaAnterior" aria-label="Página anterior">◀</button>
+            <p class="discosPagina" id="textoPagina">Página A · 1 de 1</p>
+            <button class="flecha" id="paginaSiguiente" aria-label="Página siguiente">▶</button>
+          </div>
+          <ul class="discosLista" id="listaCanciones"></ul>
+
+          <div class="gramolaLado">
+            <p class="gramolaLadoTexto">Pulsa un disco para ponerlo y el vinilo para pausar</p>
+            <p class="gramolaLadoTeclas">Espacio: pausa · Flechas: otra canción</p>
+            <button class="boton botonAmarillo botonAncho" id="botonVolverPartida">Volver a la partida</button>
+            <button class="boton botonCrema botonAncho" id="botonVolverGramola">Volver al menú</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="suelo">
+        <div class="rodapie"></div>
+      </div>
+      <img class="planta" src="img/decoracion/planta.svg" alt="">
+      <img class="lena" src="img/decoracion/lena.svg" alt="">
     </section>
 
     <!-- ========== TUTORIAL (Alba) ========== -->
