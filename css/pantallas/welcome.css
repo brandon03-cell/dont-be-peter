@@ -1,0 +1,9 @@
+.pantalla.activa {
+  display: block;
+  animation: aparecer 0.3s;
+}
+
+.pantallaWelcome {
+  background-image: url("../../img/fondos/welcomeVertical.jpg");
+  background-position: center top;
+}
