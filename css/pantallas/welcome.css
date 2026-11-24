@@ -17,7 +17,7 @@
 
 @media (min-width: 1024px) {
   .pantallaWelcome {
-    background-image: url("../../img/fondos/welcome.jpg");
+    background-image: url("https://res.cloudinary.com/divgcktiw/image/upload/v1795522910/welcome_nnlmha.jpg");
     background-position: center;
   }
 
