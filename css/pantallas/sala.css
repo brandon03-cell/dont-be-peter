@@ -1,0 +1,14 @@
+.pantallaSala {
+  background-size: 1024px;
+  background-position: center top;
+  image-rendering: pixelated;
+  background-image: url("https://res.cloudinary.com/do4k9fww6/image/upload/v1795462143/pared.png");
+}
+
+.sala {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
