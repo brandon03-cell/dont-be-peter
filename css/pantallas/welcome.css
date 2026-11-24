@@ -7,3 +7,22 @@
   background-image: url("../../img/fondos/welcomeVertical.jpg");
   background-position: center top;
 }
+
+.pantallaWelcome.activa {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+@media (min-width: 1024px) {
+  .pantallaWelcome {
+    background-image: url("../../img/fondos/welcome.jpg");
+    background-position: center;
+  }
+
+  .pantallaWelcome.activa {
+    align-items: flex-end;
+    padding-bottom: 40px;
+  }
+}
