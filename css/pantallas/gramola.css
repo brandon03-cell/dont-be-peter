@@ -1,9 +1,7 @@
-/* ========== Gramola · Diego ========== */
-
 .pantallaGramola {
   background-size: auto, 1024px;
   background-position: center top;
-  background-image: radial-gradient(ellipse at center, rgba(43, 26, 18, 0) 45%, rgba(43, 26, 18, 0.55) 100%), url("../../img/fondos/pared.png");
+  background-image: radial-gradient(ellipse at center, rgba(43, 26, 18, 0) 45%, rgba(43, 26, 18, 0.55) 100%), url("https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528337/pared_j1dyam.png");
   image-rendering: pixelated;
   overflow: hidden;
   padding-top: 26px;
@@ -21,7 +19,6 @@
 }
 
 @media (min-width: 768px) {
-  /* ---------- Boombox en tablet ---------- */
   .pantallaGramola {
     padding-bottom: 170px;
   }
@@ -58,7 +55,6 @@
 }
 
 @media (min-width: 1024px) {
-  /* ---------- Boombox en escritorio: tocadiscos a la izquierda y discos a la derecha ---------- */
   .pantallaGramola {
     padding-top: 16px;
     padding-bottom: 120px;
@@ -152,7 +148,6 @@
 }
 
 @media (min-width: 1300px) {
-  /* Pantallas grandes: hay sitio para las lámparas a los lados */
   .pantallaGramola .lampara {
     display: block;
     top: 300px;
@@ -190,9 +185,6 @@
   }
 }
 
-/* ========== Boombox, versión 2: gramola arcoíris ========== */
-/* En la pantalla, 1em es el 1% del ancho (móvil) o el 1% del alto
-   (pantallas más anchas), así todo cabe sin hacer scroll */
 .pantallaGramola.gramolaJukebox {
   height: 100vh;
   padding: 0 0 3.5em;
@@ -216,8 +208,6 @@
   text-shadow: 0.12em 0.12em 0 #2b1a12;
 }
 
-/* La gramola es una imagen (img/gramola/jukebox.png, 1180 x 1710).
-   Dentro de ella, 1em es el 1% de su ancho */
 .gramolaJukebox .gramolaEscena {
   display: block;
   width: 100em;
@@ -225,13 +215,12 @@
   max-width: none;
   margin: 3em 0 0;
   font-size: 0.58em;
-  background-image: url("../../img/gramola/jukebox.png");
+  background-image: url("https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528277/jukebox_eh6j7n.png");
   background-size: 100% 100%;
   image-rendering: auto;
   filter: drop-shadow(0 0 3em rgba(255, 190, 80, 0.35));
 }
 
-/* Las piezas del tocadiscos se colocan sobre la imagen */
 .gramolaJukebox .tocadiscos {
   position: static;
   background-color: transparent;
@@ -250,7 +239,6 @@
   display: none;
 }
 
-/* Hueco del plato */
 .gramolaJukebox .plato {
   position: absolute;
   left: 14em;
@@ -281,7 +269,6 @@
   margin: 0;
 }
 
-/* Hueco de la pantalla */
 .gramolaJukebox .ahoraSuena {
   position: absolute;
   left: 47.9em;
@@ -296,7 +283,6 @@
   padding: 1.8em 2.2em;
 }
 
-/* En móvil la letra va más grande para que se lea */
 .gramolaJukebox .ahoraSuenaEtiqueta,
 .gramolaJukebox .ahoraSuenaAutor,
 .gramolaJukebox .ahoraSuenaEstado,
@@ -318,7 +304,6 @@
   gap: 1em;
 }
 
-/* Hueco crema con los discos y los botones */
 .gramolaJukebox .discos {
   position: absolute;
   left: 14em;
@@ -394,7 +379,6 @@
   padding: 0 0.5em;
 }
 
-/* Luz de los tubos: se enciende cuando suena */
 .gramolaJukebox .tubo {
   display: block;
   position: absolute;
@@ -422,7 +406,6 @@
   animation: brillar 1.2s ease-in-out infinite alternate;
 }
 
-/* Suelo y adornos de la cabaña, también en em */
 .gramolaJukebox .suelo {
   height: 7em;
 }
@@ -440,7 +423,6 @@
 }
 
 @media (min-aspect-ratio: 64/100) {
-  /* Pantalla más ancha: la medida pasa a ser el alto */
   .pantallaGramola.gramolaJukebox {
     font-size: 1vh;
   }
@@ -466,7 +448,6 @@
 }
 
 @media (min-aspect-ratio: 1/1) {
-  /* Pantalla cuadrada o apaisada: notas, planta y leña a los lados */
   .gramolaJukebox .notaGramola {
     display: block;
     font-size: 6em;
@@ -510,7 +491,6 @@
 }
 
 @media (min-aspect-ratio: 5/4) {
-  /* Pantalla bien apaisada: también caben las lámparas */
   .gramolaJukebox .lampara {
     display: block;
     top: 28em;
