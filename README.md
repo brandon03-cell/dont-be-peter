@@ -1,77 +1,77 @@
 # Don't be Peter
 
-El juego de las sillas para decidir a quién le toca sacrificarse. Se apuntan los nombres, suena la música y cuando se para todos corren a una silla. El que se queda de pie es Peter. Gana el último que queda sentado.
+Musical chairs to decide who has to take one for the team. Add the names, the music plays, and when it stops everyone runs for a chair. Whoever is left standing is Peter. The last one sitting wins.
 
-Proyecto de la Tarea 1 (Wheel of doom) de 2º DAW, hecho con HTML, CSS y JavaScript sin librerías.
+Project for Task 1 (Wheel of doom) of the 2nd year of Web Application Development (DAW), built with HTML, CSS and JavaScript, no libraries.
 
-**Jugar online:** https://dont-be-peter.vercel.app
+**Play online:** https://dont-be-peter.vercel.app
 
-<img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795556241/salaEscritorio.png" alt="La sala con los jugadores alrededor de la mesa" width="700">
+<img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795556241/salaEscritorio.png" alt="The room with the players around the table" width="700">
 
 ## Briefing
 
-**Cliente:** Sacrificios S.A.
+**Client:** Sacrificios S.A.
 
-**Qué nos pidieron:** una web para elegir de forma justa qué desarrollador se sacrifica, a partir de una lista de nombres. Que fuera divertida y que no fuera la típica ruleta.
+**What they asked for:** a website to fairly choose which developer gets sacrificed, from a list of names. It had to be fun and not the typical wheel.
 
-**Nuestra idea:** el juego de las sillas en una cabaña. Siempre hay una silla menos que jugadores, así que en cada ronda alguien se queda sin sitio.
+**Our idea:** musical chairs in a cabin. There is always one chair fewer than players, so in every round someone is left without a seat.
 
-Lo que tenía que hacer la web:
+What the website had to do:
 
-- Añadir y quitar nombres.
-- Elegir uno al azar, sin que repita hasta reiniciar.
-- Avisar con el nombre del elegido.
-- Avisar cuando cae el último y volver al inicio.
-- Pantalla de inicio y botón de reiniciar.
-- Animaciones, transiciones y sonido.
-- Mobile first, con puntos de quiebre en 768px y 1024px.
+- Add and remove names.
+- Pick one at random, with no repeats until reset.
+- Show the name of the chosen player.
+- Show a notice when the last one falls and go back to the start.
+- Start screen and reset button.
+- Animations, transitions and sound.
+- Mobile first, with breakpoints at 768px and 1024px.
 - Tests.
 
-## Cómo se juega
+## How to play
 
-1. En **¿Quién juega hoy?** se apuntan de 2 a 12 nombres (no se pueden repetir).
-2. En la **gramola** se elige la canción.
-3. En la **sala** suena la música y se pulsa **Parar música** (o la barra espaciadora).
-4. La música se frena, todos se sientan y el que se queda sin silla es Peter. Peter ya no vuelve a salir.
-5. Se quita una silla y se repite hasta que solo queda uno.
+1. In **¿Quién juega hoy?** (Who plays today?) add between 2 and 12 names (no repeats).
+2. In the **jukebox**, choose the song.
+3. In the **room**, the music plays and you press **Parar música** (Stop music), or the space bar.
+4. The music stops, everyone sits down, and whoever is left without a chair is Peter. Peter doesn't come back.
+5. One chair is removed and it repeats until only one player is left.
 
-La lista se guarda en el navegador (localStorage) y **Reiniciar** la borra.
+The list is saved in the browser (localStorage) and **Reiniciar** (Reset) clears it.
 
-## Maquetas
+## Mockups
 
-El diseño lo hicimos primero en Figma, en móvil, tablet y escritorio:
+We designed it first in Figma, for mobile, tablet and desktop:
 https://www.figma.com/design/UFAXnmeFKAYewnPKMSHZ3O/Don%C2%B4t-be-peter
 
-<img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795556241/repartoMovil.png" alt="¿Quién juega hoy? en móvil" height="380"> <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795556242/repartoEscritorio.png" alt="¿Quién juega hoy? en escritorio" height="380">
+<img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795556241/repartoMovil.png" alt="Who plays today? on mobile" height="380"> <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795556242/repartoEscritorio.png" alt="Who plays today? on desktop" height="380">
 
-## Equipo
+## Team
 
-| | Nombre | Rol | Parte |
+| | Name | Role | Part |
 | --- | --- | --- | --- |
-| <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462138/alba.png" width="40"> | Alba Ruiz de la Vega | Scrum Master | ¿Quién juega hoy? y Tutorial |
-| <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462142/manuel.png" width="40"> | Manuel Vasco López | Desarrollo | Welcome y Sala |
-| <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462141/diego.png" width="40"> | Diego José Alonso Arias | Product Owner | Gramola y avisos |
-| <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462140/brandon.png" width="40"> | Brandon David Chusgo Paico | Desarrollo | Base común, Menú y Créditos |
+| <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462138/alba.png" width="40"> | Alba Ruiz de la Vega | Scrum Master | Who plays today? and Tutorial |
+| <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462142/manuel.png" width="40"> | Manuel Vasco López | Developer | Welcome and Room |
+| <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462141/diego.png" width="40"> | Diego José Alonso Arias | Product Owner | Jukebox and alerts |
+| <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462140/brandon.png" width="40"> | Brandon David Chusgo Paico | Developer | Shared base, Menu and Credits |
 
-## Cómo trabajamos
+## How we worked
 
-- Scrum en 2 sprints de 2 semanas, con el tablero en Trello: https://trello.com/b/Y2Lf474H/dont-be-peter
-- Cada uno trabaja en su rama, que sale de `dev`: `base`, `menu`, `credits`, `players`, `tutorial`, `welcome`, `room`, `jukebox` y `alerts`.
-- Los cambios entran en `dev` por pull request, y Brandon las revisa antes de juntarlas. Al final de cada sprint, `dev` pasa a `main`.
-- Commits en inglés, por ejemplo `feat(menu): add menu html`.
+- Scrum in 2 sprints of 2 weeks, with the board in Trello: https://trello.com/b/Y2Lf474H/dont-be-peter
+- Everyone works on their own branch, created from `dev`: `base`, `menu`, `credits`, `players`, `tutorial`, `welcome`, `room`, `jukebox` and `alerts`.
+- Changes go into `dev` through pull requests, which Brandon reviews before merging. At the end of each sprint, `dev` is merged into `main`.
+- Commits in English, for example `feat(menu): add menu html`.
 
-## Tecnologías
+## Technologies
 
-HTML, CSS y JavaScript · Jest · Figma · Trello · Git y GitHub · Visual Studio Code · Cloudinary (imágenes y sonidos) · Google Fonts
+HTML, CSS and JavaScript · Jest · Figma · Trello · Git and GitHub · Visual Studio Code · Cloudinary (images and sounds) · Google Fonts
 
-## Carpetas
+## Folders
 
 ```
-index.html          todas las pantallas
-css/                atomos.css, moleculas.css y organismos.css (lo común)
-css/pantallas/      un CSS por pantalla
-js/                 un JS por pantalla, más juego.js (la lógica) y comun.js
-tests/              tests de Jest
+index.html          all the screens
+css/                atomos.css, moleculas.css and organismos.css (shared styles)
+css/pantallas/      one CSS file per screen
+js/                 one JS file per screen, plus juego.js (game logic) and comun.js
+tests/              Jest tests
 ```
 
 ## Tests
@@ -81,17 +81,17 @@ npm install
 npm test
 ```
 
-Son 16 tests: 10 de la lógica del juego (`juego.test.js`) y 6 de la gramola (`gramola.test.js`).
+There are 16 tests: 10 for the game logic (`juego.test.js`) and 6 for the jukebox (`gramola.test.js`).
 
-## Abrirlo
+## Running it
 
-Está publicado en Vercel: https://dont-be-peter.vercel.app
+It is deployed on Vercel: https://dont-be-peter.vercel.app
 
-Para abrirlo en local, abrir `index.html` en el navegador. Hace falta internet porque las imágenes y los sonidos están en Cloudinary.
+To run it locally, open `index.html` in the browser. An internet connection is needed because the images and sounds are hosted on Cloudinary.
 
-## Créditos
+## Credits
 
-- Música: Juhani Junkala, "Chiptune Adventures" y "Retro Game Music Pack" (CC0).
-- Efectos: Juhani Junkala, "512 Sound Effects (8-bit style)" (CC0).
+- Music: Juhani Junkala, "Chiptune Adventures" and "Retro Game Music Pack" (CC0).
+- Sound effects: Juhani Junkala, "512 Sound Effects (8-bit style)" (CC0).
 - Jingles: Kenney, "Music Jingles" (CC0).
-- Fuentes: Press Start 2P, Silkscreen, Pixelify Sans y VT323 (Google Fonts).
+- Fonts: Press Start 2P, Silkscreen, Pixelify Sans and VT323 (Google Fonts).
