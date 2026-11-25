@@ -4,6 +4,8 @@ El juego de las sillas para decidir a quién le toca sacrificarse. Se apuntan lo
 
 Proyecto de la Tarea 1 (Wheel of doom) de 2º DAW, hecho con HTML, CSS y JavaScript sin librerías.
 
+**Jugar online:** https://dont-be-peter.vercel.app
+
 <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795556241/salaEscritorio.png" alt="La sala con los jugadores alrededor de la mesa" width="700">
 
 ## Briefing
@@ -83,7 +85,9 @@ Son 16 tests: 10 de la lógica del juego (`juego.test.js`) y 6 de la gramola (`g
 
 ## Abrirlo
 
-Abrir `index.html` en el navegador. Hace falta internet porque las imágenes y los sonidos están en Cloudinary.
+Está publicado en Vercel: https://dont-be-peter.vercel.app
+
+Para abrirlo en local, abrir `index.html` en el navegador. Hace falta internet porque las imágenes y los sonidos están en Cloudinary.
 
 ## Créditos
 
