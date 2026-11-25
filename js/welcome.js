@@ -1,4 +1,4 @@
-document.getElementById("botonInicio").addEventListener("click", function () {
-  sonar("clic");
-  irAlMenu();
+document.getElementById("enterButton").addEventListener("click", function () {
+  playSound("click");
+  goToMenu();
 });

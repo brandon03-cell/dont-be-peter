@@ -1,11 +1,11 @@
-.pantallaSala {
+.roomScreen {
   background-size: 1024px;
   background-position: center top;
   image-rendering: pixelated;
   background-image: url("https://res.cloudinary.com/divgcktiw/image/upload/v1795549601/pared_ggbs8f.png");
 }
 
-.sala {
+.room {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -14,11 +14,11 @@
 }
 
 @media (min-width: 768px) {
-  .hudRonda {
+  .hudRound {
     font-size: 22px;
   }
 
-  .hudTexto {
+  .hudText {
     font-size: 22px;
   }
 
@@ -29,12 +29,12 @@
     column-gap: 20px;
   }
 
-  .hudRonda,
-  .hudTexto {
+  .hudRound,
+  .hudText {
     grid-column: 1;
   }
 
-  .hudTexto {
+  .hudText {
     margin-bottom: 0;
   }
 
@@ -44,7 +44,7 @@
     justify-content: flex-end;
   }
 
-  .escena {
+  .scene {
     font-size: calc((100vw - 60px) / 100);
   }
 }
@@ -53,21 +53,21 @@
     display: block;
   }
 
-  .hudTexto {
+  .hudText {
     margin-bottom: 10px;
   }
 
-  .hudEtiqueta {
+  .hudLabel {
     display: block;
   }
 
-  .sala {
+  .room {
     flex-direction: row;
     align-items: flex-start;
     gap: 60px;
   }
 
-  .lado {
+  .side {
     display: block;
     order: 1;
     width: 380px;
@@ -97,24 +97,24 @@
     justify-items: start;
   }
 
-  .acciones {
+  .actions {
     flex-direction: column;
     gap: 20px;
   }
 
-  .escenario {
+  .stage {
     flex: 1;
     max-width: 878px;
   }
 
-  .escena {
+  .scene {
     font-size: calc((100vw - 500px) / 100);
     box-shadow: 22px 22px 0 #2b1a12;
   }
 }
 
 @media (min-width: 1380px) {
-  .escena {
+  .scene {
     font-size: 8.78px;
   }
 }

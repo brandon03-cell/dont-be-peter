@@ -68,9 +68,9 @@ HTML, CSS and JavaScript · Jest · Figma · Trello · Git and GitHub · Visual 
 
 ```
 index.html          all the screens
-css/                atomos.css, moleculas.css and organismos.css (shared styles)
-css/pantallas/      one CSS file per screen
-js/                 one JS file per screen, plus juego.js (game logic) and comun.js
+css/                atoms.css, molecules.css and organisms.css (shared styles)
+css/screens/        one CSS file per screen
+js/                 one JS file per screen, plus game.js (game logic) and common.js
 tests/              Jest tests
 ```
 

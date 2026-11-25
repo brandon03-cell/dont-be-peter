@@ -1,9 +1,9 @@
-document.getElementById("botonEmpezarTutorial").addEventListener("click", function () {
-    sonar("clic");
-    irAlReparto();
+document.getElementById("tutorialStartButton").addEventListener("click", function () {
+    playSound("click");
+    goToRoster();
 });
 
-document.getElementById("botonVolverTutorial").addEventListener("click", function () {
-    sonar("clic");
-    irAlMenu();
+document.getElementById("tutorialBackButton").addEventListener("click", function () {
+    playSound("click");
+    goToMenu();
 });

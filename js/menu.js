@@ -1,25 +1,25 @@
-function irAlMenu() {
-    mostrarPantalla("pantallaMenu");
+function goToMenu() {
+    showScreen("menuScreen");
 }
 
-document.getElementById("botonEmpezar").addEventListener("click", function () {
-    sonar("clic");
-    irAlReparto();
+document.getElementById("startButton").addEventListener("click", function () {
+    playSound("click");
+    goToRoster();
 });
 
-document.getElementById("botonMusica").addEventListener("click", function () {
-    sonar("clic");
-    irAGramola();
+document.getElementById("musicButton").addEventListener("click", function () {
+    playSound("click");
+    goToJukebox();
 });
 
-document.getElementById("botonTutorial").addEventListener("click", function () {
-    sonar("clic");
-    mostrarPantalla("pantallaTutorial");
+document.getElementById("tutorialButton").addEventListener("click", function () {
+    playSound("click");
+    showScreen("tutorialScreen");
 });
 
-document.getElementById("botonCreditos").addEventListener("click", function () {
-    sonar("clic");
-    mostrarPantalla("pantallaCreditos");
+document.getElementById("creditsButton").addEventListener("click", function () {
+    playSound("click");
+    showScreen("creditsScreen");
 });
 
-document.getElementById("botonSonidoMenu").addEventListener("click", cambiarSonido);
+document.getElementById("menuSoundButton").addEventListener("click", toggleSound);

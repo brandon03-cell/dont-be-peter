@@ -1,15 +1,15 @@
-/* En móvil la ficha es una fila de la hoja. En escritorio es una tarjeta del corcho (ver css/pantallas/reparto.css) */
-.ficha {
+/* On mobile the card is a row of the sheet. On desktop it is a card on the corkboard (see css/screens/roster.css) */
+.card {
   position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
   border-bottom: 2px solid #c9b48a;
   padding: 4px 4px 4px 0;
-  animation: clavar 0.3s;
+  animation: pinIn 0.3s;
 }
 
-.fichaNumero {
+.cardNumber {
   width: 26px;
   font-family: "Press Start 2P", monospace;
   font-size: 9px;
@@ -17,13 +17,13 @@
   color: #a85a1e;
 }
 
-.fichaColor {
+.cardColor {
   width: 20px;
   height: 20px;
   border: 3px solid #2b1a12;
 }
 
-.fichaChincheta {
+.cardPin {
   position: absolute;
   top: -12px;
   left: 50%;
@@ -32,14 +32,14 @@
   margin-left: -10px;
 }
 
-.fichaCara {
+.cardFace {
   display: block;
   width: 70%;
   max-width: 147px;
   margin: 0 auto;
 }
 
-.ficha .etiqueta {
+.card .label {
   flex: 1;
   font-family: "Pixelify Sans", sans-serif;
   font-weight: 400;
@@ -51,7 +51,7 @@
   padding: 0;
 }
 
-.quitar {
+.removeButton {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -68,11 +68,11 @@
   transition: background-color 0.2s;
 }
 
-.quitar:hover {
+.removeButton:hover {
   background-color: #ffe9df;
 }
 
-.quitar img {
+.removeButton img {
   display: block;
   width: 16px;
   height: 16px;
@@ -92,25 +92,25 @@
   padding: 4px 10px 4px 6px;
 }
 
-.chipCojin {
+.chipCushion {
   width: 10px;
   height: 10px;
   background-color: #e03c3c;
   border: 2px solid #2b1a12;
 }
 
-.chipFuera {
+.chipOut {
   color: #7a2e20;
   text-decoration: line-through;
   background-color: #d9c49a;
   box-shadow: none;
 }
 
-.chipFuera .chipCojin {
+.chipOut .chipCushion {
   background-color: #9a8b76;
 }
 
-.contadorHud {
+.hudCounter {
   display: flex;
   flex-direction: column;
   gap: 1.25em;
@@ -118,18 +118,18 @@
   text-shadow: 0.62em 0.62em 0 #2b1a12;
 }
 
-.contadorHudNombre {
+.hudCounterName {
   font-size: 2em;
   text-transform: uppercase;
   color: #ffd23f;
 }
 
-.contadorHudValor {
+.hudCounterValue {
   font-size: 3.4em;
   color: #fff8e7;
 }
 
-.jugador {
+.player {
   position: absolute;
   width: 19.4%;
   margin-left: -9.7%;
@@ -138,29 +138,29 @@
   transition: left 0.6s ease-out, top 0.6s ease-out;
 }
 
-.jugadorDentro {
+.playerInner {
   transition: transform 0.6s;
 }
 
-.jugador.sentado .jugadorDentro {
+.player.seated .playerInner {
   transform: scale(0.75);
 }
 
-.jugadorDentro .etiqueta {
+.playerInner .label {
   font-size: 2.4em;
   letter-spacing: 0.125em;
   padding: 0.31em 0.5em;
 }
 
-.jugador.peter .jugadorDentro {
-  animation: temblar 0.3s 3;
+.player.peter .playerInner {
+  animation: shake 0.3s 3;
 }
 
-.jugador.peter .etiqueta {
+.player.peter .label {
   background-color: #c21f2b;
 }
 
-.retrato {
+.portrait {
   position: relative;
   flex-shrink: 0;
   width: 60px;
@@ -170,12 +170,12 @@
   outline: 3px solid #c21f2b;
 }
 
-.retratoCara {
+.portraitFace {
   width: 100%;
   height: 100%;
 }
 
-.retratoSello {
+.portraitStamp {
   position: absolute;
   left: -10px;
   bottom: -8px;
@@ -187,32 +187,32 @@
   border: 2px solid #fff8e7;
   padding: 3px 4px;
   transform: rotate(-12deg);
-  animation: sellar 0.4s 0.3s backwards;
+  animation: stampIn 0.4s 0.3s backwards;
 }
 
-.dialogoFinal .retrato {
+.dialogFinal .portrait {
   outline-color: #ffd23f;
 }
 
-.dialogoFinal .retratoSello {
+.dialogFinal .portraitStamp {
   color: #2b1a12;
   background-color: #ffd23f;
 }
 
-.silla {
+.chair {
   position: absolute;
   width: 8.25%;
   margin-left: -4.1%;
   margin-top: -4.1%;
 }
 
-.sillaRetirada {
+.chairRemoved {
   width: 10%;
   margin-left: -5%;
   margin-top: -9.5%;
 }
 
-.paso {
+.step {
   position: relative;
   display: flex;
   gap: 14px;
@@ -223,11 +223,11 @@
   color: #2b1a12;
 }
 
-.pasoNumero {
+.stepNumber {
   display: none;
 }
 
-.pasoDibujo {
+.stepDrawing {
   width: 80px;
   height: 80px;
   object-fit: cover;
@@ -235,7 +235,7 @@
   flex-shrink: 0;
 }
 
-.pasoTitulo {
+.stepTitle {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   font-size: 11px;
@@ -244,13 +244,13 @@
   margin-bottom: 8px;
 }
 
-.pasoTexto {
+.stepText {
   font-family: "Press Start 2P", monospace;
   font-size: 9px;
   line-height: 1.8;
 }
 
-.regla {
+.rule {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -260,7 +260,7 @@
   color: #2b1a12;
 }
 
-.reglaIcono {
+.ruleIcon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -274,7 +274,7 @@
   font-size: 13px;
 }
 
-.tarjeta {
+.teamCard {
   display: flex;
   gap: 12px;
   align-items: center;
@@ -285,26 +285,26 @@
   color: #2b1a12;
 }
 
-.tarjetaFoto {
+.teamCardPhoto {
   background-color: #e8d5a8;
   border: 2px solid #2b1a12;
   flex-shrink: 0;
   width: 72px;
 }
 
-.tarjetaFoto img {
+.teamCardPhoto img {
   display: block;
   width: 100%;
 }
 
-.tarjetaNombre {
+.teamCardName {
   font-family: "Press Start 2P", monospace;
   font-size: 9px;
   line-height: 1.8;
   margin-bottom: 6px;
 }
 
-.fichaDisco {
+.recordTile {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -325,21 +325,21 @@
   transition: background-color 0.2s, transform 0.1s, box-shadow 0.1s;
 }
 
-.fichaDisco:hover {
+.recordTile:hover {
   background-color: #fff2c8;
 }
 
-.fichaDisco:active {
+.recordTile:active {
   transform: translate(4px, 4px);
   box-shadow: none;
 }
 
-.fichaDiscoElegida,
-.fichaDiscoElegida:hover {
+.recordTileSelected,
+.recordTileSelected:hover {
   background-color: #ffd23f;
 }
 
-.fichaDiscoVacia {
+.recordTileEmpty {
   justify-content: center;
   color: #a08a6a;
   background-color: transparent;
@@ -349,7 +349,7 @@
   cursor: default;
 }
 
-.fichaDiscoCodigo {
+.recordTileCode {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   font-size: 10px;
@@ -359,103 +359,103 @@
   padding: 6px 4px;
 }
 
-.guirnalda {
+.garland {
   position: absolute;
   top: 0;
   width: 50%;
   max-width: 560px;
 }
 
-.guirnaldaIzquierda {
+.garlandLeft {
   left: 0;
 }
 
-.guirnaldaDerecha {
+.garlandRight {
   right: 0;
   transform: scaleX(-1);
 }
 
-.guirnaldaCable {
+.garlandCable {
   display: block;
   width: 100%;
 }
 
-.bombilla {
+.bulb {
   position: absolute;
   width: 2.6%;
   margin-left: -1.3%;
   transform-origin: top center;
   transform: rotate(-8deg);
-  animation: parpadear 1.6s steps(2) infinite;
+  animation: blink 1.6s steps(2) infinite;
 }
 
-.bombilla1,
-.bombilla3 {
+.bulb1,
+.bulb3 {
   transform: rotate(8deg);
 }
 
-.bombilla1 {
+.bulb1 {
   left: 50.1%;
   top: 16.3%;
 }
 
-.bombilla2 {
+.bulb2 {
   left: 34.4%;
   top: 32.7%;
 }
 
-.bombilla3 {
+.bulb3 {
   left: 19.6%;
   top: 43.1%;
 }
 
-.bombilla4 {
+.bulb4 {
   left: 6.7%;
   top: 47.3%;
 }
 
-.bombillaRoja {
+.bulbRed {
   filter: drop-shadow(0 0 3px #ff6b6b) drop-shadow(0 0 8px rgba(224, 60, 60, 0.8));
 }
 
-.bombillaAzul {
+.bulbBlue {
   filter: drop-shadow(0 0 3px #7ab8ff) drop-shadow(0 0 8px rgba(60, 140, 224, 0.8));
   animation-delay: 0.4s;
 }
 
-.bombillaAmarilla {
+.bulbYellow {
   filter: drop-shadow(0 0 3px #ffe58a) drop-shadow(0 0 8px rgba(255, 210, 63, 0.8));
   animation-delay: 0.8s;
 }
 
-.bombillaVerde {
+.bulbGreen {
   filter: drop-shadow(0 0 3px #8be08e) drop-shadow(0 0 8px rgba(76, 175, 80, 0.8));
   animation-delay: 1.2s;
 }
 
-.lampara {
+.lamp {
   display: none;
   position: absolute;
   top: 400px;
   width: 48px;
 }
 
-.lamparaIzquierda {
+.lampLeft {
   left: 3%;
 }
 
-.lamparaDerecha {
+.lampRight {
   right: 3%;
 }
 
-.lamparaDibujo {
+.lampDrawing {
   position: relative;
   display: block;
   width: 100%;
   filter: drop-shadow(0 0 6px rgba(255, 220, 140, 0.7));
 }
 
-.lamparaLuz {
+.lampLight {
   position: absolute;
   left: 50%;
   top: 40%;
@@ -465,20 +465,20 @@
   margin-top: -90px;
   border-radius: 50%;
   background-image: radial-gradient(circle, rgba(255, 236, 170, 0.75) 0%, rgba(255, 200, 100, 0.35) 30%, rgba(255, 200, 100, 0) 70%);
-  animation: iluminar 8s ease-in-out infinite;
+  animation: lightUp 8s ease-in-out infinite;
 }
 
-.lamparaDerecha .lamparaLuz {
+.lampRight .lampLight {
   animation-delay: 4s;
 }
 
-/* ---------- Decoración del menú ---------- */
-.ventanaCabana {
+/* ---------- Menu decoration ---------- */
+.cabinWindow {
   position: absolute;
   width: 80px;
 }
 
-.suelo {
+.floor {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -490,7 +490,7 @@
   image-rendering: pixelated;
 }
 
-.rodapie {
+.baseboard {
   position: absolute;
   top: -18px;
   left: 0;
@@ -501,24 +501,24 @@
   image-rendering: pixelated;
 }
 
-.planta,
-.lena {
+.plant,
+.firewood {
   position: absolute;
 }
 
-.planta {
+.plant {
   left: 2%;
   bottom: 40px;
   width: 48px;
 }
 
-.lena {
+.firewood {
   right: 3%;
   bottom: 40px;
   width: 64px;
 }
 
-@keyframes brillar {
+@keyframes shine {
   from {
     opacity: 1;
   }
@@ -527,7 +527,7 @@
   }
 }
 
-@keyframes parpadear {
+@keyframes blink {
   from {
     opacity: 1;
   }
@@ -536,7 +536,7 @@
   }
 }
 
-@keyframes iluminar {
+@keyframes lightUp {
   0% {
     opacity: 0.6;
   }
@@ -548,7 +548,7 @@
   }
 }
 
-@keyframes clavar {
+@keyframes pinIn {
   from {
     opacity: 0;
     margin-top: -20px;
@@ -559,7 +559,7 @@
   }
 }
 
-@keyframes sellar {
+@keyframes stampIn {
   from {
     opacity: 0;
     transform: rotate(-12deg) scale(3);
@@ -570,7 +570,7 @@
   }
 }
 
-@keyframes temblar {
+@keyframes shake {
   0% {
     transform: translateX(0);
   }

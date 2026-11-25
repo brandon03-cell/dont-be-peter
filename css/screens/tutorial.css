@@ -1,40 +1,40 @@
 
-.botoneraHoja .botonEmpezar {
+.buttonBarSheet .startButton {
     width: 100%;
     max-width: none;
 }
 
-.botonEmpezar {
+.startButton {
     flex: 1;
     max-width: 320px;
 }
 
 @media (min-width: 768px) {
-.pasos {
+.steps {
     grid-template-columns: 1fr 1fr;
 }
 
-.reglas {
+.rules {
     flex-direction: row;
 }
 
-.regla {
+.rule {
     flex: 1;
 }
 
-.botoneraHoja .botonEmpezar {
+.buttonBarSheet .startButton {
     width: auto;
     max-width: 320px;
 }
 }
 
 @media (min-width: 1024px) {
-.pasos {
+.steps {
     grid-template-columns: repeat(4, 1fr);
     gap: 32px;
 }
 
-.paso {
+.step {
     flex-direction: column;
     gap: 0;
     padding: 56px 14px 18px;
@@ -42,7 +42,7 @@
     box-shadow: 4px 4px 0 #2b1a12;
 }
 
-.pasoNumero {
+.stepNumber {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,7 +58,7 @@
     font-size: 14px;
 }
 
-.paso::after {
+.step::after {
     content: "";
     position: absolute;
     right: -26px;
@@ -68,11 +68,11 @@
     border-bottom: 11px solid transparent;
 }
 
-.paso:last-child::after {
+.step:last-child::after {
     display: none;
 }
 
-.pasoDibujo {
+.stepDrawing {
     width: 100%;
     height: auto;
     aspect-ratio: 190 / 150;
@@ -80,18 +80,18 @@
     margin-bottom: 20px;
 }
 
-.pasoTitulo {
+.stepTitle {
     font-size: 13px;
     margin-bottom: 14px;
 }
 
-.pasoTexto {
+.stepText {
     font-size: 12px;
     line-height: 1.7;
 }
 
-.pasoTexto,
-.regla {
+.stepText,
+.rule {
     font-size: 11px;
 }
 }

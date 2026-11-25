@@ -1,21 +1,21 @@
 @media (min-width: 768px) {
-  .retrato {
+  .portrait {
     width: 84px;
     height: 84px;
   }
 
-  .retratoSello {
+  .portraitStamp {
     font-size: 11px;
     padding: 4px 6px;
   }
 
-  .fondoDialogo {
+  .dialogBackdrop {
     padding: 16px 51px 66px;
   }
 }
 
 @media (min-width: 1024px) {
-  .fondoDialogo {
+  .dialogBackdrop {
     padding-bottom: 30px;
   }
 }

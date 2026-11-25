@@ -1,42 +1,42 @@
-/* ========== Créditos · Brandon ========== */
+/* ========== Credits · Brandon ========== */
 
-.caritas {
+.smallFaces {
     display: none;
     gap: 4px;
 }
 
-.caritas img {
+.smallFaces img {
     width: 44px;
     height: 44px;
 }
 
 @media (min-width: 768px) {
-    .tarjetas {
+    .teamCards {
         grid-template-columns: 1fr 1fr;
     }
 
-    .cajas {
+    .boxes {
         grid-template-columns: 1fr 1fr;
     }
 
-    .caritas {
+    .smallFaces {
         display: flex;
     }
 }
 
 @media (min-width: 1024px) {
-    .tarjetas {
+    .teamCards {
         grid-template-columns: repeat(4, 1fr);
         gap: 24px;
     }
 
-    .tarjeta {
+    .teamCard {
         flex-direction: column;
         text-align: center;
         padding: 14px 14px 20px;
     }
 
-    .tarjetaFoto {
+    .teamCardPhoto {
         width: 100%;
         height: 120px;
         display: flex;
@@ -44,33 +44,33 @@
         align-items: flex-end;
     }
 
-    .tarjetaFoto img {
+    .teamCardPhoto img {
         width: 112px;
     }
 
-    .tarjetaNombre {
+    .teamCardName {
         font-size: 13px;
         margin: 8px 0 14px;
     }
 
-    .datos li {
+    .facts li {
         font-size: 11px;
         margin-bottom: 16px;
     }
 
-    .tarjetaNombre {
+    .teamCardName {
         font-size: 11px;
     }
 
-    .rol {
+    .role {
         font-size: 10px;
     }
 
-    .etiquetas li {
+    .tags li {
         font-size: 12px;
     }
 
-    .cajas {
+    .boxes {
         gap: 30px;
     }
 }

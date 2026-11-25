@@ -1,7 +1,7 @@
-/* ========== Menú · Brandon ========== */
+/* ========== Menu · Brandon ========== */
 
-/* Pared de tablas: un azulejo pequeño que se repite ampliado x4 (pixel art nítido) */
-.pantallaMenu {
+/* Plank wall: a small tile repeated and scaled x4 (crisp pixel art) */
+.menuScreen {
     background-size: 1024px;
     background-position: center top;
     image-rendering: pixelated;
@@ -12,18 +12,18 @@
     padding-bottom: 250px;
 }
 
-.pantallaMenu .alfombra {
+.menuScreen .rug {
     position: relative;
     z-index: 1;
 }
 
-.pantallaMenu.activa {
+.menuScreen.active {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.tituloSombraMenu {
+.shadowTitleMenu {
     position: relative;
     z-index: 1;
     margin: 28px 0 26px;
@@ -33,11 +33,11 @@
     text-shadow: 3px 3px 0 #2b1a12;
 }
 
-.pantallaMenu .menuCentro {
+.menuScreen .menuCenter {
     margin-top: 64px;
 }
 
-.pantallaMenu .botonSonido {
+.menuScreen .soundButton {
     position: absolute;
     top: 8px;
     right: 8px;
@@ -47,23 +47,23 @@
     padding: 5px;
 }
 
-.pantallaMenu .ventanaCabana {
+.menuScreen .cabinWindow {
     right: 5%;
     bottom: 100px;
     width: 72px;
 }
 
-.persecucion {
+.chase {
     z-index: 1;
 }
 
 @media (min-width: 768px) {
-    .pantallaMenu {
+    .menuScreen {
         padding-top: 30px;
         padding-bottom: 300px;
     }
 
-    .pantallaMenu .botonSonido {
+    .menuScreen .soundButton {
         top: 12px;
         right: 12px;
         width: 44px;
@@ -71,49 +71,49 @@
         padding: 6px;
     }
 
-    .tituloSombraMenu {
+    .shadowTitleMenu {
         margin: 52px 0;
         font-size: 36px;
         text-shadow: 5px 5px 0 #2b1a12;
     }
 
-    .pantallaMenu .menuCentro {
+    .menuScreen .menuCenter {
         margin-top: 90px;
     }
 
-    .alfombra {
+    .rug {
         gap: 22px;
         padding: 32px 36px;
     }
 
-    .pantallaMenu .ventanaCabana {
+    .menuScreen .cabinWindow {
         right: 7%;
         bottom: 180px;
         width: 104px;
     }
 
-    .persecucion {
+    .chase {
         bottom: 18px;
     }
 
-    .persecucionCabeza,
-    .profeCara {
+    .chaseHead,
+    .teacherFace {
         height: 90px;
     }
 
-    .profeBoli {
+    .teacherPen {
         height: 18px;
     }
 
-    .asomado {
+    .peeking {
         height: 90px;
     }
 
-    .persecucionSilla {
+    .chaseChair {
         height: 70px;
     }
 
-    .botonMenu {
+    .menuButton {
         max-width: 354px;
         font-size: 22px;
         padding: 18px 12px;
@@ -121,112 +121,112 @@
 }
 
 @media (min-width: 1024px) {
-    /* Menú: los adornos van a los lados de la alfombra, centrados en el hueco que queda */
-    .pantallaMenu {
+    /* Menu: the decorations go on both sides of the rug, centered in the remaining space */
+    .menuScreen {
         padding-top: 16px;
         padding-bottom: 100px;
     }
 
-    .tituloSombraMenu {
+    .shadowTitleMenu {
         margin: 58px 0;
         font-size: 44px;
         text-shadow: 6px 6px 0 #2b1a12;
     }
 
-    .pantallaMenu .menuCentro {
+    .menuScreen .menuCenter {
         margin-top: 70px;
     }
 
-    .alfombra {
+    .rug {
         gap: 18px;
         padding: 28px 90px;
     }
 
-    .botonMenu {
+    .menuButton {
         font-size: 20px;
         padding: 16px 12px;
     }
 
-    .pantallaMenu .ventanaCabana {
+    .menuScreen .cabinWindow {
         top: 320px;
         bottom: auto;
         right: calc((100% - 576px) / 4 - 70px);
         width: 140px;
     }
 
-    .persecucion {
+    .chase {
         animation-duration: 16s;
     }
 
-    .persecucionVuelta {
+    .chaseFlipped {
         animation-duration: 0.3s, 16s;
     }
 
-    .profe {
+    .teacher {
         animation-duration: 48s;
     }
 
-    .persecucionCabeza,
-    .profeCara {
+    .chaseHead,
+    .teacherFace {
         height: 120px;
     }
 
-    .profeBoli {
+    .teacherPen {
         height: 24px;
     }
 
-    .persecucionSilla {
+    .chaseChair {
         height: 95px;
     }
 }
 
 @media (min-width: 1600px) {
-    /* Pantallas muy grandes: el menú y sus adornos crecen para no quedarse pequeños */
-    .pantallaMenu {
+    /* Very large screens: the menu and its decorations grow so they don't look small */
+    .menuScreen {
         padding-top: 24px;
         padding-bottom: 170px;
     }
 
-    .tituloSombraMenu {
+    .shadowTitleMenu {
         margin: 82px 0;
         font-size: 60px;
         text-shadow: 8px 8px 0 #2b1a12;
     }
 
-    .pantallaMenu .menuCentro {
+    .menuScreen .menuCenter {
         max-width: 760px;
         margin-top: 110px;
     }
 
-    .pantallaMenu .alfombra {
+    .menuScreen .rug {
         max-width: 760px;
         gap: 26px;
         padding: 40px 120px;
     }
 
-    .botonMenu {
+    .menuButton {
         max-width: 480px;
         font-size: 28px;
         padding: 22px 12px;
     }
 
-    .asomado {
+    .peeking {
         height: 120px;
     }
 
-    .pantallaMenu .ventanaCabana {
+    .menuScreen .cabinWindow {
         top: 450px;
         right: calc((100% - 760px) / 4 - 100px);
         width: 200px;
     }
 
-    .botonSonido {
+    .soundButton {
         width: 56px;
         height: 56px;
         padding: 8px;
     }
 
-    .pantallaMenu .botonSonido {
+    .menuScreen .soundButton {
         top: 16px;
         right: 16px;
         width: 56px;
@@ -234,20 +234,20 @@
         padding: 8px;
     }
 
-    .persecucion {
+    .chase {
         bottom: 26px;
     }
 
-    .persecucionCabeza,
-    .profeCara {
+    .chaseHead,
+    .teacherFace {
         height: 150px;
     }
 
-    .persecucionSilla {
+    .chaseChair {
         height: 120px;
     }
 
-    .profeBoli {
+    .teacherPen {
         height: 30px;
     }
 }

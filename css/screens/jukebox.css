@@ -1,4 +1,4 @@
-.pantallaGramola {
+.jukeboxScreen {
   background-size: auto, 1024px;
   background-position: center top;
   background-image: radial-gradient(ellipse at center, rgba(43, 26, 18, 0) 45%, rgba(43, 26, 18, 0.55) 100%), url("https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528337/pared_j1dyam.png");
@@ -8,207 +8,207 @@
   padding-bottom: 140px;
 }
 
-.pantallaGramola .gramolaTitulo {
+.jukeboxScreen .jukeboxTitle {
   margin: 40px 0 50px;
 }
 
-.tituloSombraGramola {
+.shadowTitleJukebox {
   font-size: 22px;
   text-align: center;
   text-shadow: 3px 3px 0 #2b1a12;
 }
 
 @media (min-width: 768px) {
-  .pantallaGramola {
+  .jukeboxScreen {
     padding-bottom: 170px;
   }
 
-  .pantallaGramola .gramolaTitulo {
+  .jukeboxScreen .jukeboxTitle {
     gap: 30px;
     margin: 52px 0 60px;
   }
 
-  .tituloSombraGramola {
+  .shadowTitleJukebox {
     font-size: 36px;
     text-shadow: 5px 5px 0 #2b1a12;
   }
 
-  .gramolaEscena {
+  .jukeboxScene {
     max-width: 560px;
   }
 
-  .notaGramola {
+  .jukeboxNote {
     font-size: 30px;
   }
 
-  .ahoraSuenaTitulo {
+  .nowPlayingTitle {
     font-size: 44px;
   }
 
-  .discosLista {
+  .recordsList {
     gap: 14px;
   }
 
-  .gramolaLado {
+  .jukeboxSide {
     flex-direction: row;
   }
 }
 
 @media (min-width: 1024px) {
-  .pantallaGramola {
+  .jukeboxScreen {
     padding-top: 16px;
     padding-bottom: 120px;
   }
 
-  .pantallaGramola .gramolaTitulo {
+  .jukeboxScreen .jukeboxTitle {
     margin: 20px 0 40px;
   }
 
-  .tituloSombraGramola {
+  .shadowTitleJukebox {
     font-size: 40px;
     text-shadow: 6px 6px 0 #2b1a12;
   }
 
-  .pantallaGramola .planta {
+  .jukeboxScreen .plant {
     width: 64px;
   }
 
-  .pantallaGramola .lena {
+  .jukeboxScreen .firewood {
     width: 80px;
   }
 
-  .gramolaEscena {
+  .jukeboxScene {
     flex-direction: row;
     align-items: center;
     gap: 40px;
     max-width: 960px;
   }
 
-  .tocadiscos {
+  .turntable {
     flex: 1;
     padding: 16px;
   }
 
-  .tocadiscosArriba {
+  .turntableTop {
     flex-direction: row;
     gap: 16px;
   }
 
-  .plato {
+  .platter {
     width: 280px;
     height: 280px;
   }
 
-  .disco {
+  .record {
     width: 230px;
     height: 230px;
     margin-left: -125px;
     margin-top: -115px;
   }
 
-  .discoEtiqueta {
+  .recordLabel {
     font-size: 16px;
   }
 
-  .brazo {
+  .tonearm {
     width: 80px;
     margin-left: 40px;
   }
 
-  .ahoraSuena {
+  .nowPlaying {
     flex: 1;
     justify-content: center;
   }
 
-  .tocadiscosFrente {
+  .turntableFront {
     margin-top: 16px;
   }
 
-  .discos {
+  .records {
     width: 380px;
   }
 
-  .discosLista {
+  .recordsList {
     grid-template-columns: 1fr;
     gap: 12px;
   }
 
-  .gramolaLado {
+  .jukeboxSide {
     flex-direction: column;
   }
 
-  .gramolaLadoTexto,
-  .gramolaLadoTeclas {
+  .jukeboxSideText,
+  .jukeboxSideKeys {
     display: block;
   }
 
-  .pantallaGramola .lampara {
+  .jukeboxScreen .lamp {
     display: none;
   }
 }
 
 @media (min-width: 1300px) {
-  .pantallaGramola .lampara {
+  .jukeboxScreen .lamp {
     display: block;
     top: 300px;
     width: 72px;
   }
 
-  .pantallaGramola .lamparaIzquierda {
+  .jukeboxScreen .lampLeft {
     left: 4%;
   }
 
-  .pantallaGramola .lamparaDerecha {
+  .jukeboxScreen .lampRight {
     right: 4%;
   }
 
-  .pantallaGramola .planta {
+  .jukeboxScreen .plant {
     width: 100px;
   }
 
-  .pantallaGramola .lena {
+  .jukeboxScreen .firewood {
     width: 120px;
   }
 }
 
 @media (min-width: 1600px) {
-  .pantallaGramola .lampara {
+  .jukeboxScreen .lamp {
     width: 100px;
   }
 
-  .pantallaGramola .lamparaIzquierda {
+  .jukeboxScreen .lampLeft {
     left: 6%;
   }
 
-  .pantallaGramola .lamparaDerecha {
+  .jukeboxScreen .lampRight {
     right: 6%;
   }
 }
 
-.pantallaGramola.gramolaJukebox {
+.jukeboxScreen.jukeboxMode {
   height: 100vh;
   padding: 0 0 3.5em;
   font-size: 1.55vw;
 }
 
-.pantallaGramola.gramolaJukebox.activa {
+.jukeboxScreen.jukeboxMode.active {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.gramolaJukebox .gramolaTitulo {
+.jukeboxMode .jukeboxTitle {
   gap: 2.5em;
   margin: auto 0 0;
   padding-top: 2.5em;
 }
 
-.gramolaJukebox .tituloSombraGramola {
+.jukeboxMode .shadowTitleJukebox {
   font-size: 4em;
   text-shadow: 0.12em 0.12em 0 #2b1a12;
 }
 
-.gramolaJukebox .gramolaEscena {
+.jukeboxMode .jukeboxScene {
   display: block;
   width: 100em;
   height: 144.9em;
@@ -221,7 +221,7 @@
   filter: drop-shadow(0 0 3em rgba(255, 190, 80, 0.35));
 }
 
-.gramolaJukebox .tocadiscos {
+.jukeboxMode .turntable {
   position: static;
   background-color: transparent;
   border: 0;
@@ -229,17 +229,17 @@
   padding: 0;
 }
 
-.gramolaJukebox .tocadiscosArriba {
+.jukeboxMode .turntableTop {
   display: block;
 }
 
-.gramolaJukebox .tocadiscosFrente,
-.gramolaJukebox .tocadiscosPata,
-.gramolaJukebox .notaGramola {
+.jukeboxMode .turntableFront,
+.jukeboxMode .turntableLeg,
+.jukeboxMode .jukeboxNote {
   display: none;
 }
 
-.gramolaJukebox .plato {
+.jukeboxMode .platter {
   position: absolute;
   left: 14em;
   top: 39em;
@@ -250,7 +250,7 @@
   border: 0;
 }
 
-.gramolaJukebox .disco {
+.jukeboxMode .record {
   left: 1.3em;
   top: 2.4em;
   width: 26.6em;
@@ -258,18 +258,18 @@
   margin: 0;
 }
 
-.gramolaJukebox .discoEtiqueta {
+.jukeboxMode .recordLabel {
   font-size: 3em;
 }
 
-.gramolaJukebox .brazo {
+.jukeboxMode .tonearm {
   left: 18em;
   top: 0.9em;
   width: 12.8em;
   margin: 0;
 }
 
-.gramolaJukebox .ahoraSuena {
+.jukeboxMode .nowPlaying {
   position: absolute;
   left: 47.9em;
   top: 40.3em;
@@ -283,28 +283,28 @@
   padding: 1.8em 2.2em;
 }
 
-.gramolaJukebox .ahoraSuenaEtiqueta,
-.gramolaJukebox .ahoraSuenaAutor,
-.gramolaJukebox .ahoraSuenaEstado,
-.gramolaJukebox .ahoraSuenaTiempo {
+.jukeboxMode .nowPlayingLabel,
+.jukeboxMode .nowPlayingAuthor,
+.jukeboxMode .nowPlayingStatus,
+.jukeboxMode .nowPlayingTime {
   font-size: 2.7em;
 }
 
-.gramolaJukebox .ahoraSuenaTitulo {
+.jukeboxMode .nowPlayingTitle {
   font-size: 5.3em;
   white-space: nowrap;
 }
 
-.gramolaJukebox .progreso {
+.jukeboxMode .progress {
   height: 1.7em;
   margin-top: 0;
 }
 
-.gramolaJukebox .ahoraSuenaAbajo {
+.jukeboxMode .nowPlayingBottom {
   gap: 1em;
 }
 
-.gramolaJukebox .discos {
+.jukeboxMode .records {
   position: absolute;
   left: 14em;
   top: 74.6em;
@@ -318,28 +318,28 @@
   padding: 2.4em;
 }
 
-.gramolaJukebox .discosCabecera {
+.jukeboxMode .recordsHeader {
   gap: 1.5em;
 }
 
-.gramolaJukebox .discosCabecera .flecha {
+.jukeboxMode .recordsHeader .arrow {
   width: 3.2em;
   height: 2.6em;
   font-size: 2.4em;
 }
 
-.gramolaJukebox .discosPagina {
+.jukeboxMode .recordsPage {
   font-size: 2.6em;
   color: #2b1a12;
 }
 
-.gramolaJukebox .discosLista {
+.jukeboxMode .recordsList {
   flex: 1;
   grid-template-columns: 1fr 1fr;
   gap: 1.5em;
 }
 
-.gramolaJukebox .fichaDisco {
+.jukeboxMode .recordTile {
   height: 100%;
   gap: 0.6em;
   font-size: 2.6em;
@@ -350,26 +350,26 @@
   padding: 0 0.6em;
 }
 
-.gramolaJukebox .fichaDiscoVacia {
+.jukeboxMode .recordTileEmpty {
   box-shadow: none;
 }
 
-.gramolaJukebox .fichaDiscoCodigo {
+.jukeboxMode .recordTileCode {
   font-size: 1.05em;
   padding: 0.35em 0.3em;
 }
 
-.gramolaJukebox .gramolaLado {
+.jukeboxMode .jukeboxSide {
   flex-direction: row;
   gap: 1.5em;
 }
 
-.gramolaJukebox .gramolaLadoTexto,
-.gramolaJukebox .gramolaLadoTeclas {
+.jukeboxMode .jukeboxSideText,
+.jukeboxMode .jukeboxSideKeys {
   display: none;
 }
 
-.gramolaJukebox .gramolaLado .boton {
+.jukeboxMode .jukeboxSide .button {
   flex: 1;
   height: 4em;
   font-size: 2.5em;
@@ -379,7 +379,7 @@
   padding: 0 0.5em;
 }
 
-.gramolaJukebox .tubo {
+.jukeboxMode .tube {
   display: block;
   position: absolute;
   top: 51.7em;
@@ -389,120 +389,120 @@
   transition: opacity 0.6s;
 }
 
-.tuboAzul {
+.tubeBlue {
   left: 9.3em;
   background-color: #3c6fe0;
   box-shadow: 0 0 2em 0.6em #3c6fe0;
 }
 
-.tuboVerde {
+.tubeGreen {
   left: 88.6em;
   background-color: #4caf50;
   box-shadow: 0 0 2em 0.6em #4caf50;
 }
 
-.sonando .tubo {
+.playing .tube {
   opacity: 1;
-  animation: brillar 1.2s ease-in-out infinite alternate;
+  animation: shine 1.2s ease-in-out infinite alternate;
 }
 
-.gramolaJukebox .suelo {
+.jukeboxMode .floor {
   height: 7em;
 }
 
-.gramolaJukebox .rodapie {
+.jukeboxMode .baseboard {
   top: -1.8em;
   height: 1.8em;
   background-size: auto 1.8em;
 }
 
-.gramolaJukebox .planta,
-.gramolaJukebox .lena,
-.gramolaJukebox .lampara {
+.jukeboxMode .plant,
+.jukeboxMode .firewood,
+.jukeboxMode .lamp {
   display: none;
 }
 
 @media (min-aspect-ratio: 64/100) {
-  .pantallaGramola.gramolaJukebox {
+  .jukeboxScreen.jukeboxMode {
     font-size: 1vh;
   }
 
-  .gramolaJukebox .ahoraSuenaEtiqueta,
-  .gramolaJukebox .ahoraSuenaAutor,
-  .gramolaJukebox .ahoraSuenaEstado,
-  .gramolaJukebox .ahoraSuenaTiempo {
+  .jukeboxMode .nowPlayingLabel,
+  .jukeboxMode .nowPlayingAuthor,
+  .jukeboxMode .nowPlayingStatus,
+  .jukeboxMode .nowPlayingTime {
     font-size: 2.2em;
   }
 
-  .gramolaJukebox .discosPagina {
+  .jukeboxMode .recordsPage {
     font-size: 2.2em;
   }
 
-  .gramolaJukebox .fichaDisco {
+  .jukeboxMode .recordTile {
     font-size: 2.1em;
   }
 
-  .gramolaJukebox .gramolaLado .boton {
+  .jukeboxMode .jukeboxSide .button {
     font-size: 2.1em;
   }
 }
 
 @media (min-aspect-ratio: 1/1) {
-  .gramolaJukebox .notaGramola {
+  .jukeboxMode .jukeboxNote {
     display: block;
     font-size: 6em;
   }
 
-  .gramolaJukebox .notaGramola1 {
+  .jukeboxMode .jukeboxNote1 {
     left: -2.4em;
     top: 4em;
   }
 
-  .gramolaJukebox .notaGramola2 {
+  .jukeboxMode .jukeboxNote2 {
     left: -2em;
     top: 11em;
   }
 
-  .gramolaJukebox .notaGramola3 {
+  .jukeboxMode .jukeboxNote3 {
     right: -2.4em;
     top: 3.4em;
   }
 
-  .gramolaJukebox .notaGramola4 {
+  .jukeboxMode .jukeboxNote4 {
     right: -2em;
     top: 10.4em;
   }
 
-  .gramolaJukebox .planta,
-  .gramolaJukebox .lena {
+  .jukeboxMode .plant,
+  .jukeboxMode .firewood {
     display: block;
     bottom: 4em;
   }
 
-  .gramolaJukebox .planta {
+  .jukeboxMode .plant {
     left: 4%;
     width: 9em;
   }
 
-  .gramolaJukebox .lena {
+  .jukeboxMode .firewood {
     right: 4%;
     width: 11em;
   }
 }
 
 @media (min-aspect-ratio: 5/4) {
-  .gramolaJukebox .lampara {
+  .jukeboxMode .lamp {
     display: block;
     top: 28em;
     width: 7em;
   }
 
-  .gramolaJukebox .lamparaIzquierda {
+  .jukeboxMode .lampLeft {
     left: 50%;
     margin-left: -50em;
   }
 
-  .gramolaJukebox .lamparaDerecha {
+  .jukeboxMode .lampRight {
     left: 50%;
     right: auto;
     margin-left: 43em;

@@ -1,4 +1,4 @@
-.barra {
+.topBar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -12,7 +12,7 @@
   z-index: 5;
 }
 
-.barraTitulo {
+.topBarTitle {
   font-family: "Press Start 2P", monospace;
   font-size: 10px;
   text-transform: uppercase;
@@ -20,12 +20,12 @@
   width: 100%;
 }
 
-.barraBotones {
+.topBarButtons {
   display: flex;
   gap: 12px;
 }
 
-.botonBarra {
+.barButton {
   font-size: 13px;
   padding: 12px 16px;
 }
@@ -36,7 +36,7 @@
   text-align: center;
 }
 
-.welcomeTitulo {
+.welcomeTitle {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   font-size: 26px;
@@ -47,11 +47,11 @@
   margin-bottom: 20px;
 }
 
-#botonInicio {
+#enterButton {
   padding: 12px 48px;
 }
 
-.alfombra {
+.rug {
   display: flex;
   flex-direction: column;
   gap: 18px;
@@ -65,62 +65,62 @@
   padding: 26px 36px;
 }
 
-.persecucion {
+.chase {
   position: absolute;
   bottom: 20px;
   left: -800px;
   display: flex;
   align-items: flex-end;
   gap: 30px;
-  animation: perseguir 12s linear infinite;
+  animation: chaseRun 12s linear infinite;
 }
 
-.persecucionCabeza {
+.chaseHead {
   height: 60px;
-  animation: bailar 0.3s steps(2) infinite;
+  animation: dance 0.3s steps(2) infinite;
 }
 
-.persecucionVuelta {
-  animation: bailar 0.3s steps(2) 0.1s infinite, soloVuelta 12s steps(1) infinite;
+.chaseFlipped {
+  animation: dance 0.3s steps(2) 0.1s infinite, flipOnly 12s steps(1) infinite;
 }
 
-.persecucionSilla {
+.chaseChair {
   height: 45px;
-  animation: bailar 0.3s steps(2) 0.15s infinite;
+  animation: dance 0.3s steps(2) 0.15s infinite;
 }
 
-.profe {
+.teacher {
   display: flex;
   align-items: center;
-  animation: soloProfe 36s steps(1) infinite;
+  animation: teacherOnly 36s steps(1) infinite;
 }
 
-.profeBoli {
+.teacherPen {
   height: 12px;
   margin-right: -6px;
   transform: rotate(20deg);
 }
 
-.profeCara {
+.teacherFace {
   height: 60px;
-  animation: bailar 0.3s steps(2) 0.2s infinite;
+  animation: dance 0.3s steps(2) 0.2s infinite;
 }
 
-.menuCentro {
+.menuCenter {
   position: relative;
   width: 100%;
   max-width: 576px;
 }
 
-.asomado {
+.peeking {
   position: absolute;
   top: 0;
   right: 40px;
   height: 60px;
-  animation: asomarse 9s ease-in-out infinite;
+  animation: peekOut 9s ease-in-out infinite;
 }
 
-.botonMenu {
+.menuButton {
   display: block;
   width: 100%;
   max-width: 210px;
@@ -131,16 +131,16 @@
   transform: rotate(0.58deg);
 }
 
-.botonMenu:hover {
+.menuButton:hover {
   transform: rotate(0.58deg) scale(1.04);
 }
 
-.botonMenu:active {
+.menuButton:active {
   transform: rotate(0.58deg) translate(4px, 4px);
 }
 
-/* El corcho y el panel oscuro solo se ven en escritorio (ver css/pantallas/reparto.css) */
-.corchoVacio {
+/* The corkboard and the dark panel are only shown on desktop (see css/screens/roster.css) */
+.corkboardEmpty {
   font-family: "Silkscreen", monospace;
   font-size: 12px;
   color: #2b1a12;
@@ -150,7 +150,7 @@
   padding: 16px 10px;
 }
 
-.sello {
+.stamp {
   display: inline-block;
   font-family: "Silkscreen", monospace;
   font-size: 12px;
@@ -162,7 +162,7 @@
   transform: rotate(4deg);
 }
 
-.hojaTitulo {
+.sheetTitle {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   font-size: 13px;
@@ -170,33 +170,33 @@
   margin-bottom: 10px;
 }
 
-.hojaNota {
+.sheetNote {
   font-size: 14px;
   color: #a85a1e;
   margin-bottom: 10px;
 }
 
-.pieHoja {
+.sheetFooter {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
 }
 
-.pieHojaTexto {
+.sheetFooterText {
   font-family: "Silkscreen", monospace;
   font-size: 10px;
   text-transform: uppercase;
   white-space: nowrap;
 }
 
-.pieHoja .boton {
+.sheetFooter .button {
   font-size: 13px;
   padding: 12px 10px;
   white-space: nowrap;
 }
 
-.panelTitulo {
+.panelTitle {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   font-size: 16px;
@@ -205,62 +205,62 @@
   margin-bottom: 16px;
 }
 
-.panelTituloPequeno {
+.panelTitleSmall {
   font-size: 14px;
 }
 
-.formulario {
+.form {
   display: flex;
   gap: 8px;
 }
 
-.formulario .campo {
+.form .field {
   flex: 1;
   height: 40px;
   min-width: 0;
 }
 
-.botonAnadir {
+.addButton {
   width: auto;
   flex-shrink: 0;
 }
 
-.panelNota {
+.panelNote {
   font-size: 18px;
   color: #d9c49a;
   margin-bottom: 20px;
 }
 
-.panelLinea {
+.panelLine {
   height: 3px;
   background-color: rgba(255, 210, 63, 0.35);
   margin-bottom: 24px;
 }
 
-.contador {
+.counter {
   display: flex;
   align-items: center;
   gap: 24px;
   margin-bottom: 18px;
 }
 
-.contadorNumero {
+.counterNumber {
   font-family: "Press Start 2P", monospace;
   font-size: 64px;
   color: #fff8e7;
 }
 
-.contadorTexto {
+.counterText {
   font-weight: 500;
   font-size: 24px;
 }
 
-.contadorSillas {
+.counterChairs {
   font-size: 22px;
   color: #d9c49a;
 }
 
-.sillasFila {
+.chairsRow {
   display: flex;
   flex-wrap: wrap;
   gap: 18px;
@@ -268,12 +268,12 @@
   margin-bottom: 12px;
 }
 
-.sillasFila img {
+.chairsRow img {
   width: 35px;
   height: 35px;
 }
 
-.lado {
+.side {
   display: contents;
 }
 
@@ -287,7 +287,7 @@
   padding: 18px 20px;
 }
 
-.hudRonda {
+.hudRound {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   font-size: 16px;
@@ -296,12 +296,12 @@
   margin-bottom: 10px;
 }
 
-.hudTexto {
+.hudText {
   font-size: 16px;
   margin-bottom: 10px;
 }
 
-.hudEtiqueta {
+.hudLabel {
   display: none;
   font-family: "Silkscreen", monospace;
   font-weight: 700;
@@ -317,20 +317,20 @@
   gap: 8px;
 }
 
-.acciones {
+.actions {
   order: 3;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.escenario {
+.stage {
   order: 2;
   width: 100%;
 }
 
-/* 1em = 1% del ancho de la escena (se cambia en cada media query) */
-.escena {
+/* 1em = 1% of the scene width (changed in each media query) */
+.scene {
   position: relative;
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -343,7 +343,7 @@
   box-shadow: 10px 10px 0 #2b1a12;
 }
 
-.foco {
+.spotlight {
   position: absolute;
   top: 0;
   right: 0;
@@ -356,11 +356,11 @@
   pointer-events: none;
 }
 
-.foco.encendido {
+.spotlight.lit {
   opacity: 1;
 }
 
-.marco {
+.frame {
   position: absolute;
   top: 0;
   right: 0;
@@ -370,7 +370,7 @@
   pointer-events: none;
 }
 
-.escenaHud {
+.sceneHud {
   position: absolute;
   top: 2.5%;
   left: 3%;
@@ -381,7 +381,7 @@
   z-index: 3;
 }
 
-.escenaBanner {
+.sceneBanner {
   flex-shrink: 0;
   white-space: nowrap;
   font-family: "Press Start 2P", monospace;
@@ -392,28 +392,28 @@
   padding: 0.21em 0.36em 0.36em 0.21em;
 }
 
-.escenaDerecha {
+.sceneRight {
   display: flex;
   gap: 2em;
   overflow: hidden;
   min-width: 0;
 }
 
-.mesa {
+.table {
   position: absolute;
   left: 26.56%;
   top: 32.5%;
   width: 46.88%;
 }
 
-.mesaBrillo {
+.tableShine {
   position: absolute;
   left: 32.81%;
   top: 36.88%;
   width: 34.38%;
 }
 
-.mesaTexto {
+.tableText {
   position: absolute;
   left: 25%;
   width: 50%;
@@ -426,7 +426,7 @@
   color: #8a6040;
 }
 
-.sillas {
+.chairs {
   position: absolute;
   top: 0;
   right: 0;
@@ -434,7 +434,7 @@
   left: 0;
 }
 
-.corro {
+.ring {
   position: absolute;
   top: 0;
   right: 0;
@@ -443,15 +443,15 @@
   z-index: 2;
 }
 
-.corro.girando {
-  animation: girar 9s linear infinite;
+.ring.spinning {
+  animation: spin 9s linear infinite;
 }
 
-.corro.girando .jugadorDentro {
-  animation: girar 9s linear infinite reverse;
+.ring.spinning .playerInner {
+  animation: spin 9s linear infinite reverse;
 }
 
-.notaMusical {
+.musicNote {
   position: absolute;
   font-family: "VT323", monospace;
   font-size: 8.1em;
@@ -460,48 +460,48 @@
   text-shadow: 0.08em 0.08em 0 #2b1a12;
 }
 
-.notaMusical1 {
+.musicNote1 {
   left: 8.1%;
   top: 17.5%;
 }
 
-.notaMusical2 {
+.musicNote2 {
   left: 71.9%;
   top: 18.75%;
 }
 
-.notaMusical3 {
+.musicNote3 {
   left: 81.9%;
   top: 73.75%;
 }
 
-.iconoNota {
+.noteIcon {
   position: absolute;
   width: 5%;
 }
 
-.iconoNota1 {
+.noteIcon1 {
   left: 13.1%;
   top: 14.4%;
 }
 
-.iconoNota2 {
+.noteIcon2 {
   left: 76.9%;
   top: 15.6%;
 }
 
-.iconoNota3 {
+.noteIcon3 {
   left: 86.9%;
   top: 70.6%;
 }
 
-.escena.sonando .notaMusical,
-.escena.sonando .iconoNota {
-  animation: bailar 0.8s steps(2) infinite;
+.scene.playing .musicNote,
+.scene.playing .noteIcon {
+  animation: dance 0.8s steps(2) infinite;
 }
 
 /* ---------- Boombox ---------- */
-.gramolaEscena {
+.jukeboxScene {
   position: relative;
   z-index: 1;
   display: flex;
@@ -512,8 +512,8 @@
   margin: 0 auto;
 }
 
-/* Mueble de madera del tocadiscos */
-.tocadiscos {
+/* Wooden cabinet of the turntable */
+.turntable {
   position: relative;
   background-color: #8a4f24;
   border: 6px solid #2b1a12;
@@ -521,13 +521,13 @@
   padding: 12px;
 }
 
-.tocadiscosArriba {
+.turntableTop {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.plato {
+.platter {
   position: relative;
   height: 230px;
   overflow: hidden;
@@ -535,8 +535,8 @@
   border: 4px solid #2b1a12;
 }
 
-/* Al pulsar el disco se pausa o sigue la música */
-.disco {
+/* Clicking the record pauses or resumes the music */
+.record {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -547,16 +547,16 @@
   cursor: pointer;
 }
 
-.sonando .disco {
-  animation: girar 2.5s linear infinite;
+.playing .record {
+  animation: spin 2.5s linear infinite;
 }
 
-.discoVinilo {
+.recordVinyl {
   display: block;
   width: 100%;
 }
 
-.discoEtiqueta {
+.recordLabel {
   position: absolute;
   left: 32%;
   top: 32%;
@@ -574,8 +574,8 @@
   transition: background-color 0.5s;
 }
 
-/* El brazo está levantado y baja al disco cuando suena */
-.brazo {
+/* The tonearm is raised and drops onto the record while playing */
+.tonearm {
   position: absolute;
   left: 50%;
   top: 10px;
@@ -587,12 +587,12 @@
   pointer-events: none;
 }
 
-.sonando .brazo {
+.playing .tonearm {
   transform: rotate(18deg);
 }
 
-/* Pantallita de la radio */
-.ahoraSuena {
+/* Small radio display */
+.nowPlaying {
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -602,11 +602,11 @@
   padding: 14px;
 }
 
-.ahoraSuena.aparecer {
-  animation: aparecer 0.4s;
+.nowPlaying.appear {
+  animation: appear 0.4s;
 }
 
-.ahoraSuenaEtiqueta {
+.nowPlayingLabel {
   font-family: "Silkscreen", monospace;
   font-weight: 700;
   font-size: 12px;
@@ -614,7 +614,7 @@
   color: #ffd23f;
 }
 
-.ahoraSuenaTitulo {
+.nowPlayingTitle {
   font-family: "VT323", monospace;
   font-size: 36px;
   line-height: 0.9;
@@ -623,36 +623,36 @@
   text-shadow: 0 0 8px rgba(255, 210, 63, 0.5);
 }
 
-.ahoraSuenaAutor,
-.ahoraSuenaEstado,
-.ahoraSuenaTiempo {
+.nowPlayingAuthor,
+.nowPlayingStatus,
+.nowPlayingTime {
   font-family: "Silkscreen", monospace;
   font-size: 12px;
   text-transform: uppercase;
   color: #d9c49a;
 }
 
-.ahoraSuenaEstado {
+.nowPlayingStatus {
   color: #e86a5a;
 }
 
-.sonando .ahoraSuenaEstado {
+.playing .nowPlayingStatus {
   color: #8be08e;
 }
 
-.ahoraSuenaTiempo {
+.nowPlayingTime {
   color: #fff8e7;
   white-space: nowrap;
 }
 
-.ahoraSuenaAbajo {
+.nowPlayingBottom {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   gap: 10px;
 }
 
-.progreso {
+.progress {
   height: 12px;
   margin-top: 4px;
   background-color: #2b1a12;
@@ -661,22 +661,22 @@
   cursor: pointer;
 }
 
-.progresoRelleno {
+.progressFill {
   width: 0%;
   height: 100%;
   background-color: #ffd23f;
   transition: width 0.25s linear;
 }
 
-/* Parte de abajo del mueble: dos ruedas y el altavoz */
-.tocadiscosFrente {
+/* Bottom of the cabinet: two wheels and the speaker */
+.turntableFront {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-top: 12px;
 }
 
-.perilla {
+.knob {
   width: 34px;
   height: 34px;
   background-color: #d9c49a;
@@ -686,11 +686,11 @@
   transition: transform 0.8s;
 }
 
-.sonando .perillaVolumen {
+.playing .volumeKnob {
   transform: rotate(120deg);
 }
 
-.rejilla {
+.grille {
   flex: 1;
   height: 34px;
   background-color: #2b1a12;
@@ -699,7 +699,7 @@
   border: 4px solid #2b1a12;
 }
 
-.tocadiscosPata {
+.turntableLeg {
   position: absolute;
   bottom: -18px;
   width: 26px;
@@ -707,16 +707,16 @@
   background-color: #2b1a12;
 }
 
-.tocadiscosPataIzquierda {
+.turntableLegLeft {
   left: 20px;
 }
 
-.tocadiscosPataDerecha {
+.turntableLegRight {
   right: 20px;
 }
 
-/* Notas que salen del tocadiscos cuando suena */
-.notaGramola {
+/* Notes coming out of the turntable while playing */
+.jukeboxNote {
   position: absolute;
   font-family: "Press Start 2P", monospace;
   font-size: 22px;
@@ -725,39 +725,39 @@
   transition: opacity 0.6s;
 }
 
-.sonando .notaGramola {
+.playing .jukeboxNote {
   opacity: 1;
-  animation: bailar 0.8s steps(2) infinite;
+  animation: dance 0.8s steps(2) infinite;
 }
 
-.notaGramola1 {
+.jukeboxNote1 {
   left: -6px;
   top: -34px;
   color: #ffd23f;
 }
 
-.notaGramola2 {
+.jukeboxNote2 {
   left: 40px;
   top: -24px;
   color: #e03c3c;
   animation-delay: 0.4s;
 }
 
-.notaGramola3 {
+.jukeboxNote3 {
   right: 40px;
   top: -24px;
   color: #8be08e;
   animation-delay: 0.4s;
 }
 
-.notaGramola4 {
+.jukeboxNote4 {
   right: -6px;
   top: -34px;
   color: #ffd23f;
 }
 
-/* Tablón verde con los discos, igual que el del menú */
-.discos {
+/* Green board with the records, same as the menu one */
+.records {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -769,17 +769,17 @@
   padding: 24px 22px;
 }
 
-.discosCabecera {
+.recordsHeader {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.discosCabecera .flecha {
+.recordsHeader .arrow {
   width: 44px;
 }
 
-.discosPagina {
+.recordsPage {
   flex: 1;
   font-family: "Silkscreen", monospace;
   font-weight: 700;
@@ -789,21 +789,21 @@
   color: #f3e3c0;
 }
 
-.discosLista {
+.recordsList {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
 }
 
-.gramolaLado {
+.jukeboxSide {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* Los consejos de teclado solo se ven en escritorio */
-.gramolaLadoTexto,
-.gramolaLadoTeclas {
+/* Keyboard tips are only shown on desktop */
+.jukeboxSideText,
+.jukeboxSideKeys {
   display: none;
   font-family: "Silkscreen", monospace;
   font-size: 12px;
@@ -812,17 +812,17 @@
   color: #f3e3c0;
 }
 
-.gramolaLadoTeclas {
+.jukeboxSideKeys {
   color: #c9a66b;
 }
 
-.gramolaLado .boton {
+.jukeboxSide .button {
   font-size: 12px;
   text-align: center;
 }
 
-/* ---------- Título de la gramola ---------- */
-.gramolaTitulo {
+/* ---------- Jukebox title ---------- */
+.jukeboxTitle {
   position: relative;
   z-index: 1;
   display: flex;
@@ -831,16 +831,16 @@
   gap: 16px;
 }
 
-.gramolaEscena.aparecer {
-  animation: aparecer 0.4s;
+.jukeboxScene.appear {
+  animation: appear 0.4s;
 }
 
-/* Las luces de los tubos solo salen en la versión gramola */
-.tubo {
+/* The tube lights only show in the jukebox version */
+.tube {
   display: none;
 }
 
-.hoja {
+.sheet {
   position: relative;
   width: 100%;
   max-width: 1040px;
@@ -851,20 +851,20 @@
   padding: 34px 14px 18px;
 }
 
-.hoja > .cinta {
+.sheet > .tape {
   position: absolute;
   top: -18px;
   left: 18px;
 }
 
-.pasos {
+.steps {
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
   margin-bottom: 26px;
 }
 
-.caja {
+.box {
   position: relative;
   min-width: 0;
   background-color: #fff6e0;
@@ -873,33 +873,33 @@
   color: #2b1a12;
 }
 
-.cintaCaja {
+.tapeBox {
   position: absolute;
   top: -16px;
   left: 14px;
   font-size: 10px;
 }
 
-.reglas {
+.rules {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.tarjetas {
+.teamCards {
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
   margin-bottom: 26px;
 }
 
-.cajas {
+.boxes {
   display: grid;
   grid-template-columns: 1fr;
   gap: 26px;
 }
 
-.datos li {
+.facts li {
   display: flex;
   gap: 6px;
   font-family: "Press Start 2P", monospace;
@@ -907,7 +907,7 @@
   margin-bottom: 12px;
 }
 
-.datos li span:first-child {
+.facts li span:first-child {
   flex: 1;
   min-width: 0;
   color: #6b4a33;
@@ -915,19 +915,19 @@
   white-space: nowrap;
 }
 
-.datos li span:first-child::after {
+.facts li span:first-child::after {
   content: " ..................................................";
   letter-spacing: 2px;
 }
 
-.etiquetas {
+.tags {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-bottom: 22px;
 }
 
-.etiquetas li {
+.tags li {
   font-family: "Press Start 2P", monospace;
   font-size: 10px;
   text-transform: uppercase;
@@ -937,14 +937,14 @@
   padding: 6px 10px;
 }
 
-.gracias {
+.thanks {
   font-family: "Press Start 2P", monospace;
   font-size: 12px;
   text-align: center;
   color: #d33a2c;
 }
 
-.fondoDialogo {
+.dialogBackdrop {
   display: none;
   position: fixed;
   top: 0;
@@ -958,11 +958,11 @@
   padding: 16px 16px 40px;
 }
 
-.fondoDialogo.abierto {
+.dialogBackdrop.open {
   display: flex;
 }
 
-.dialogo {
+.dialog {
   width: 100%;
   max-width: 760px;
   display: flex;
@@ -972,21 +972,21 @@
   border: 4px solid #fff8e7;
   box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.6);
   padding: 16px 18px 14px;
-  animation: aparecer 0.3s;
+  animation: appear 0.3s;
 }
 
-.dialogoFinal {
+.dialogFinal {
   border-color: #ffd23f;
 }
 
-.dialogoCuerpo {
+.dialogBody {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.dialogoTitulo {
+.dialogTitle {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -997,32 +997,32 @@
   color: #ffd23f;
 }
 
-.dialogoTexto {
+.dialogText {
   font-family: "VT323", monospace;
   font-size: 22px;
   line-height: 22px;
 }
 
-.dialogoCuenta {
+.dialogCountdown {
   font-family: "VT323", monospace;
   font-size: 18px;
   color: #d9c49a;
 }
 
-.dialogoAcciones {
+.dialogActions {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 8px;
 }
 
-.dialogoFlecha {
+.dialogArrow {
   font-size: 14px;
   color: #ffd23f;
-  animation: bailar 0.8s steps(2) infinite;
+  animation: dance 0.8s steps(2) infinite;
 }
 
-@keyframes girar {
+@keyframes spin {
   from {
     transform: rotate(0deg);
   }
@@ -1031,7 +1031,7 @@
   }
 }
 
-@keyframes bailar {
+@keyframes dance {
   0% {
     transform: translateY(0);
   }
@@ -1040,7 +1040,7 @@
   }
 }
 
-@keyframes perseguir {
+@keyframes chaseRun {
   0% {
     left: -800px;
   }
@@ -1052,7 +1052,7 @@
   }
 }
 
-@keyframes soloVuelta {
+@keyframes flipOnly {
   0% {
     opacity: 0;
   }
@@ -1064,7 +1064,7 @@
   }
 }
 
-@keyframes soloProfe {
+@keyframes teacherOnly {
   0% {
     opacity: 0;
   }
@@ -1076,7 +1076,7 @@
   }
 }
 
-@keyframes asomarse {
+@keyframes peekOut {
   0% {
     transform: translateY(0);
   }
@@ -1103,7 +1103,7 @@
   }
 }
 
-@keyframes aparecer {
+@keyframes appear {
   from {
     opacity: 0;
     transform: translateY(30px);
@@ -1114,9 +1114,9 @@
   }
 }
 
-/* ========== Cosas que comparten varias pantallas ========== */
+/* ========== Things shared by several screens ========== */
 
-.pantalla {
+.screen {
   display: none;
   position: relative;
   min-height: 100vh;
@@ -1126,23 +1126,23 @@
   background-position: center;
 }
 
-.conBarra .pantalla {
+.withBar .screen {
   min-height: calc(100vh - 58px);
 }
 
-/* Pared de tablas: un azulejo pequeño que se repite ampliado x4 (pixel art nítido) */
-.pantallaPared {
+/* Plank wall: a small tile repeated and scaled x4 (crisp pixel art) */
+.wallScreen {
   background-size: 1024px;
   background-position: center top;
   image-rendering: pixelated;
 }
 
-.planta,
-.lena {
+.plant,
+.firewood {
   z-index: 1;
 }
 
-.botonera {
+.buttonBar {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -1151,198 +1151,198 @@
   margin-top: 30px;
 }
 
-.botonVolver {
+.backButton {
   width: 140px;
 }
 
-.pantallaPared {
+.wallScreen {
   background-image: url("https://res.cloudinary.com/do4k9fww6/image/upload/v1795462143/pared.png");
 }
 
-.pantallaPared .tituloGrande {
+.wallScreen .bigTitle {
   margin: 14px 0 36px;
 }
 
-.botoneraHoja {
+.buttonBarSheet {
   max-width: 1040px;
   margin: 30px auto 0;
   flex-direction: column-reverse;
   align-items: stretch;
 }
 
-.botoneraHoja .botonVolver {
+.buttonBarSheet .backButton {
   width: 100%;
   max-width: none;
 }
 
-.pantallaPared .logoPequeno {
+.wallScreen .smallLogo {
   display: none;
 }
 
-.botoneraHoja .boton {
+.buttonBarSheet .button {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   font-size: 12px;
 }
 
 @media (min-width: 768px) {
-  .pantalla {
+  .screen {
     padding: 30px 30px 40px;
   }
 
-  .barra {
+  .topBar {
     flex-wrap: nowrap;
     padding: 12px 24px;
   }
 
-  .barraTitulo {
+  .topBarTitle {
     width: auto;
     font-size: 14px;
   }
 
-  .barraBotones {
+  .topBarButtons {
     gap: 8px;
   }
 
-  .botonBarra {
+  .barButton {
     font-size: 14px;
     padding: 12px 16px;
   }
 
-  .suelo {
+  .floor {
     height: 100px;
   }
 
-  .planta {
+  .plant {
     bottom: 60px;
     width: 72px;
   }
 
-  .lena {
+  .firewood {
     bottom: 60px;
     width: 96px;
   }
 
-  .lampara {
+  .lamp {
     display: block;
   }
 
-  .guirnalda {
+  .garland {
     width: 45%;
   }
 
-  .botonVolver {
+  .backButton {
     width: 260px;
   }
 
-  .tituloGrande {
+  .bigTitle {
     font-size: 48px;
   }
 
-  .botoneraHoja {
+  .buttonBarSheet {
     flex-direction: row;
     align-items: center;
   }
 
-  .botoneraHoja .botonVolver {
+  .buttonBarSheet .backButton {
     width: 260px;
   }
 
-  .pantallaPared .logoPequeno {
+  .wallScreen .smallLogo {
     display: flex;
   }
 }
 
 @media (min-width: 1024px) {
-  .planta {
+  .plant {
     bottom: 70px;
     width: 100px;
   }
 
-  .lena {
+  .firewood {
     bottom: 70px;
     width: 120px;
   }
 
-  .lampara {
+  .lamp {
     top: 190px;
     width: 72px;
   }
 
-  .lampara .lamparaLuz {
+  .lamp .lampLight {
     width: 280px;
     height: 280px;
     margin-left: -140px;
     margin-top: -140px;
   }
 
-  .guirnalda {
+  .garland {
     width: 38%;
   }
 
-  .lamparaIzquierda {
+  .lampLeft {
     left: calc((100% - 576px) / 4 - 36px);
   }
 
-  .lamparaDerecha {
+  .lampRight {
     right: calc((100% - 576px) / 4 - 36px);
   }
 
-  .hoja {
+  .sheet {
     padding: 44px 40px 40px;
   }
 
-  .hoja > .cinta {
+  .sheet > .tape {
     font-size: 13px;
     left: 20px;
   }
 
-  .caja {
+  .box {
     padding: 44px 30px 40px;
   }
 }
 
 @media (min-width: 1600px) {
-  .guirnalda {
+  .garland {
     max-width: 820px;
   }
 
-  .lampara {
+  .lamp {
     top: 270px;
     width: 100px;
   }
 
-  .lampara .lamparaLuz {
+  .lamp .lampLight {
     width: 400px;
     height: 400px;
     margin-left: -200px;
     margin-top: -200px;
   }
 
-  .lamparaIzquierda {
+  .lampLeft {
     left: calc((100% - 760px) / 4 - 50px);
   }
 
-  .lamparaDerecha {
+  .lampRight {
     right: calc((100% - 760px) / 4 - 50px);
   }
 
-  .suelo {
+  .floor {
     height: 150px;
   }
 
-  .rodapie {
+  .baseboard {
     top: -26px;
     height: 26px;
     background-size: auto 26px;
   }
 
-  .planta {
+  .plant {
     bottom: 110px;
     width: 150px;
   }
 
-  .lena {
+  .firewood {
     bottom: 110px;
     width: 180px;
   }

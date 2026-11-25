@@ -25,11 +25,11 @@ hr {
   border: 0;
 }
 
-.oculto {
+.hidden {
   display: none !important;
 }
 
-.boton {
+.button {
   font-family: "Silkscreen", monospace;
   font-weight: 700;
   font-size: 14px;
@@ -43,12 +43,12 @@ hr {
   transition: background-color 0.2s, transform 0.1s, box-shadow 0.1s;
 }
 
-.boton:active {
+.button:active {
   transform: translate(4px, 4px);
   box-shadow: none;
 }
 
-.botonSonido {
+.soundButton {
   width: 44px;
   height: 44px;
   background-color: #fff8e7;
@@ -59,21 +59,21 @@ hr {
   transition: transform 0.1s, box-shadow 0.1s;
 }
 
-.botonSonido:hover {
+.soundButton:hover {
   background-color: #ffe9a8;
 }
 
-.botonSonido:active {
+.soundButton:active {
   transform: translate(3px, 3px);
   box-shadow: none;
 }
 
-.botonSonido img {
+.soundButton img {
   display: block;
   width: 100%;
 }
 
-.flecha {
+.arrow {
   height: 34px;
   font-size: 14px;
   color: #fff8e7;
@@ -84,65 +84,65 @@ hr {
   transition: background-color 0.2s, transform 0.1s;
 }
 
-.flecha:hover {
+.arrow:hover {
   background-color: #f05252;
 }
 
-.flecha:active {
+.arrow:active {
   transform: scale(0.9);
 }
 
-.boton:focus-visible,
-.campo:focus-visible,
-.quitar:focus-visible,
-.fichaDisco:focus-visible,
-.flecha:focus-visible {
+.button:focus-visible,
+.field:focus-visible,
+.removeButton:focus-visible,
+.recordTile:focus-visible,
+.arrow:focus-visible {
   outline: 3px solid #3c6fe0;
   outline-offset: 2px;
 }
 
-.boton:disabled {
+.button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
   transform: none;
   box-shadow: 4px 4px 0 #2b1a12;
 }
 
-.botonAmarillo:hover {
+.yellowButton:hover {
   background-color: #ffe17a;
 }
 
-.botonCrema {
+.creamButton {
   background-color: #f3e3c0;
 }
 
-.botonCrema:hover {
+.creamButton:hover {
   background-color: #fff8e7;
 }
 
-.botonRojo {
+.redButton {
   background-color: #c21f2b;
   color: #fff8e7;
 }
 
-.botonRojo:hover {
+.redButton:hover {
   background-color: #dd323e;
 }
 
-.botonAncho {
+.wideButton {
   display: block;
   width: 100%;
 }
 
-.botonAlto {
+.tallButton {
   padding: 16px;
 }
 
-.botonGrande {
+.largeButton {
   padding: 20px 16px;
 }
 
-.campo {
+.field {
   width: 100%;
   height: 48px;
   font-family: "Pixelify Sans", sans-serif;
@@ -155,16 +155,16 @@ hr {
   transition: border-color 0.2s;
 }
 
-.campo::placeholder {
+.field::placeholder {
   color: #a85a1e;
 }
 
-.campo:focus {
+.field:focus {
   border-color: #3c6fe0;
   outline: none;
 }
 
-.campoError {
+.fieldError {
   border-color: #c21f2b;
 }
 
@@ -174,7 +174,7 @@ hr {
   color: #c21f2b;
 }
 
-.tituloSombra {
+.shadowTitle {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   color: #ffd23f;
@@ -182,7 +182,7 @@ hr {
   text-shadow: 4px 4px 0 #2b1a12;
 }
 
-.tituloGrande {
+.bigTitle {
   font-family: "Press Start 2P", monospace;
   font-weight: 400;
   font-size: 32px;
@@ -192,7 +192,7 @@ hr {
   text-shadow: -3px 0 0 #2b1a12, 3px 0 0 #2b1a12, 0 -3px 0 #2b1a12, 0 3px 0 #2b1a12, 6px 6px 0 #2b1a12;
 }
 
-.logoPequeno {
+.smallLogo {
   font-family: "Press Start 2P", monospace;
   font-size: 12px;
   text-transform: uppercase;
@@ -200,7 +200,7 @@ hr {
   text-shadow: -2px 0 0 #2b1a12, 2px 0 0 #2b1a12, 0 -2px 0 #2b1a12, 0 2px 0 #2b1a12;
 }
 
-.etiqueta {
+.label {
   display: inline-block;
   font-family: "Silkscreen", monospace;
   font-weight: 700;
@@ -212,7 +212,7 @@ hr {
   padding: 4px 7px;
 }
 
-.cinta {
+.tape {
   display: inline-block;
   font-family: "Press Start 2P", monospace;
   font-size: 11px;
@@ -224,7 +224,7 @@ hr {
   padding: 7px 10px;
 }
 
-.rol {
+.role {
   display: inline-block;
   font-family: "Press Start 2P", monospace;
   font-size: 8px;
@@ -235,7 +235,7 @@ hr {
   padding: 5px 6px;
 }
 
-.cara {
+.face {
   display: block;
   width: 100%;
   height: auto;

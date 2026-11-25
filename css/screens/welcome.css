@@ -1,14 +1,14 @@
-.pantalla.activa {
+.screen.active {
   display: block;
-  animation: aparecer 0.3s;
+  animation: appear 0.3s;
 }
 
-.pantallaWelcome {
+.welcomeScreen {
   background-image: url("https://res.cloudinary.com/divgcktiw/image/upload/v1795522773/welcomeVertical_l9enb4.jpg");
   background-position: center top;
 }
 
-.pantallaWelcome.activa {
+.welcomeScreen.active {
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -16,12 +16,12 @@
 }
 
 @media (min-width: 1024px) {
-  .pantallaWelcome {
+  .welcomeScreen {
     background-image: url("https://res.cloudinary.com/divgcktiw/image/upload/v1795522910/welcome_nnlmha.jpg");
     background-position: center;
   }
 
-  .pantallaWelcome.activa {
+  .welcomeScreen.active {
     align-items: flex-end;
     padding-bottom: 40px;
   }
@@ -29,14 +29,14 @@
     max-width: 968px;
   }
 
-  .welcomeTitulo {
+  .welcomeTitle {
     font-size: 56px;
     line-height: 1;
     text-shadow: 4px 0 0 #2b1a12, -4px 0 0 #2b1a12, 0 4px 0 #2b1a12, 0 -4px 0 #2b1a12, 4px 4px 0 #2b1a12, -4px -4px 0 #2b1a12, 4px -4px 0 #2b1a12, -4px 4px 0 #2b1a12, 8px 9px 0 #2b1a12;
     margin-bottom: 24px;
   }
 
-  #botonInicio {
+  #enterButton {
     padding: 14px 72px;
     font-size: 14px;
   }
