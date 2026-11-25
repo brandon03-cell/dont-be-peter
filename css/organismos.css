@@ -337,7 +337,7 @@
   overflow: hidden;
   font-size: calc((100vw - 28px) / 100);
   background-color: #8a4f22;
-  background-image: url("../img/fondos/parquet.png");
+  background-image: url("https://res.cloudinary.com/do4k9fww6/image/upload/v1795586692/parquet.png");
   background-size: 12.5em;
   image-rendering: pixelated;
   box-shadow: 10px 10px 0 #2b1a12;

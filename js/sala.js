@@ -121,7 +121,7 @@ function pintarSala() {
       silla.src = "https://res.cloudinary.com/do4k9fww6/image/upload/v1795462143/silla.svg";
       silla.className = "silla";
     } else {
-      silla.src = "img/sillas/sillaRetirada.png";
+      silla.src = "https://res.cloudinary.com/do4k9fww6/image/upload/v1795586692/sillaRetirada.png";
       silla.className = "silla sillaRetirada";
     }
     silla.style.left = 50 + 25 * Math.cos(anguloSilla) + "%";
