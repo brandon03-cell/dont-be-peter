@@ -1,0 +1,24 @@
+{
+  "name": "proyectopeter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandon03-cell/dont-be-peter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/brandon03-cell/dont-be-peter/issues"
+  },
+  "homepage": "https://github.com/brandon03-cell/dont-be-peter#readme",
+  "devDependencies": {
+    "jest": "^30.5.2"
+  }
+}

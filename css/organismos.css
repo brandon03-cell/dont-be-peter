@@ -1,0 +1,1349 @@
+.barra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 24px 14px;
+  background-color: #1d120c;
+  border-bottom: 4px solid #2b1a12;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.barraTitulo {
+  font-family: "Press Start 2P", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #ffd23f;
+  width: 100%;
+}
+
+.barraBotones {
+  display: flex;
+  gap: 12px;
+}
+
+.botonBarra {
+  font-size: 13px;
+  padding: 12px 16px;
+}
+
+.welcome {
+  width: 100%;
+  max-width: 351px;
+  text-align: center;
+}
+
+.welcomeTitulo {
+  font-family: "Press Start 2P", monospace;
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 1.3;
+  text-transform: uppercase;
+  color: #ffd23f;
+  text-shadow: 2px 0 0 #2b1a12, -2px 0 0 #2b1a12, 0 2px 0 #2b1a12, 0 -2px 0 #2b1a12, 2px 2px 0 #2b1a12, -2px -2px 0 #2b1a12, 2px -2px 0 #2b1a12, -2px 2px 0 #2b1a12, 4px 5px 0 #2b1a12;
+  margin-bottom: 20px;
+}
+
+#botonInicio {
+  padding: 12px 48px;
+}
+
+.alfombra {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  max-width: 576px;
+  background-color: #2f4a42;
+  border: 8px solid #2b1a12;
+  box-shadow: 8px 8px 0 rgba(43, 26, 18, 0.6);
+  outline: 4px dashed #c9a66b;
+  outline-offset: -20px;
+  padding: 26px 36px;
+}
+
+.persecucion {
+  position: absolute;
+  bottom: 20px;
+  left: -800px;
+  display: flex;
+  align-items: flex-end;
+  gap: 30px;
+  animation: perseguir 12s linear infinite;
+}
+
+.persecucionCabeza {
+  height: 60px;
+  animation: bailar 0.3s steps(2) infinite;
+}
+
+.persecucionVuelta {
+  animation: bailar 0.3s steps(2) 0.1s infinite, soloVuelta 12s steps(1) infinite;
+}
+
+.persecucionSilla {
+  height: 45px;
+  animation: bailar 0.3s steps(2) 0.15s infinite;
+}
+
+.profe {
+  display: flex;
+  align-items: center;
+  animation: soloProfe 36s steps(1) infinite;
+}
+
+.profeBoli {
+  height: 12px;
+  margin-right: -6px;
+  transform: rotate(20deg);
+}
+
+.profeCara {
+  height: 60px;
+  animation: bailar 0.3s steps(2) 0.2s infinite;
+}
+
+.menuCentro {
+  position: relative;
+  width: 100%;
+  max-width: 576px;
+}
+
+.asomado {
+  position: absolute;
+  top: 0;
+  right: 40px;
+  height: 60px;
+  animation: asomarse 9s ease-in-out infinite;
+}
+
+.botonMenu {
+  display: block;
+  width: 100%;
+  max-width: 210px;
+  margin: 0 auto;
+  font-size: 13px;
+  white-space: nowrap;
+  padding: 14px 12px;
+  transform: rotate(0.58deg);
+}
+
+.botonMenu:hover {
+  transform: rotate(0.58deg) scale(1.04);
+}
+
+.botonMenu:active {
+  transform: rotate(0.58deg) translate(4px, 4px);
+}
+
+/* El corcho y el panel oscuro solo se ven en escritorio (ver css/pantallas/reparto.css) */
+.corchoVacio {
+  font-family: "Silkscreen", monospace;
+  font-size: 12px;
+  color: #2b1a12;
+  text-align: center;
+  background-color: #fff8e7;
+  border: 3px dashed #2b1a12;
+  padding: 16px 10px;
+}
+
+.sello {
+  display: inline-block;
+  font-family: "Silkscreen", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #c21f2b;
+  border: 3px solid #c21f2b;
+  padding: 2px 6px;
+  margin: 4px 0 10px;
+  transform: rotate(4deg);
+}
+
+.hojaTitulo {
+  font-family: "Press Start 2P", monospace;
+  font-weight: 400;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.hojaNota {
+  font-size: 14px;
+  color: #a85a1e;
+  margin-bottom: 10px;
+}
+
+.pieHoja {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.pieHojaTexto {
+  font-family: "Silkscreen", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.pieHoja .boton {
+  font-size: 13px;
+  padding: 12px 10px;
+  white-space: nowrap;
+}
+
+.panelTitulo {
+  font-family: "Press Start 2P", monospace;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #ffd23f;
+  margin-bottom: 16px;
+}
+
+.panelTituloPequeno {
+  font-size: 14px;
+}
+
+.formulario {
+  display: flex;
+  gap: 8px;
+}
+
+.formulario .campo {
+  flex: 1;
+  height: 40px;
+  min-width: 0;
+}
+
+.botonAnadir {
+  width: auto;
+  flex-shrink: 0;
+}
+
+.panelNota {
+  font-size: 18px;
+  color: #d9c49a;
+  margin-bottom: 20px;
+}
+
+.panelLinea {
+  height: 3px;
+  background-color: rgba(255, 210, 63, 0.35);
+  margin-bottom: 24px;
+}
+
+.contador {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+
+.contadorNumero {
+  font-family: "Press Start 2P", monospace;
+  font-size: 64px;
+  color: #fff8e7;
+}
+
+.contadorTexto {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.contadorSillas {
+  font-size: 22px;
+  color: #d9c49a;
+}
+
+.sillasFila {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  min-height: 36px;
+  margin-bottom: 12px;
+}
+
+.sillasFila img {
+  width: 35px;
+  height: 35px;
+}
+
+.lado {
+  display: contents;
+}
+
+.hud {
+  order: 1;
+  background-color: #3a2418;
+  border: 4px solid #2b1a12;
+  box-shadow: 6px 6px 0 #2b1a12;
+  outline: 2px solid rgba(255, 210, 63, 0.35);
+  outline-offset: -10px;
+  padding: 18px 20px;
+}
+
+.hudRonda {
+  font-family: "Press Start 2P", monospace;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #ffd23f;
+  margin-bottom: 10px;
+}
+
+.hudTexto {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.hudEtiqueta {
+  display: none;
+  font-family: "Silkscreen", monospace;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #d9c49a;
+  margin-bottom: 14px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.acciones {
+  order: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.escenario {
+  order: 2;
+  width: 100%;
+}
+
+/* 1em = 1% del ancho de la escena (se cambia en cada media query) */
+.escena {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  font-size: calc((100vw - 28px) / 100);
+  background-color: #8a4f22;
+  background-image: url("https://res.cloudinary.com/do4k9fww6/image/upload/v1795586692/parquet.png");
+  background-size: 12.5em;
+  image-rendering: pixelated;
+  box-shadow: 10px 10px 0 #2b1a12;
+}
+
+.foco {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  background-image: radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0) 13em, rgba(0, 0, 0, 0.7) 19em);
+  opacity: 0;
+  transition: opacity 0.6s;
+  pointer-events: none;
+}
+
+.foco.encendido {
+  opacity: 1;
+}
+
+.marco {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 1.25em solid #2b1a12;
+  pointer-events: none;
+}
+
+.escenaHud {
+  position: absolute;
+  top: 2.5%;
+  left: 3%;
+  width: 93%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 3;
+}
+
+.escenaBanner {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-family: "Press Start 2P", monospace;
+  font-size: 3.4em;
+  text-transform: uppercase;
+  color: #ffd23f;
+  text-shadow: 0.14em 0.14em 0 #2b1a12;
+  padding: 0.21em 0.36em 0.36em 0.21em;
+}
+
+.escenaDerecha {
+  display: flex;
+  gap: 2em;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.mesa {
+  position: absolute;
+  left: 26.56%;
+  top: 32.5%;
+  width: 46.88%;
+}
+
+.mesaBrillo {
+  position: absolute;
+  left: 32.81%;
+  top: 36.88%;
+  width: 34.38%;
+}
+
+.mesaTexto {
+  position: absolute;
+  left: 25%;
+  width: 50%;
+  top: 47.5%;
+  font-family: "Press Start 2P", monospace;
+  font-size: 2.19em;
+  line-height: 2;
+  text-align: center;
+  text-transform: uppercase;
+  color: #8a6040;
+}
+
+.sillas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.corro {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+}
+
+.corro.girando {
+  animation: girar 9s linear infinite;
+}
+
+.corro.girando .jugadorDentro {
+  animation: girar 9s linear infinite reverse;
+}
+
+.notaMusical {
+  position: absolute;
+  font-family: "VT323", monospace;
+  font-size: 8.1em;
+  line-height: 1;
+  color: #fff8e7;
+  text-shadow: 0.08em 0.08em 0 #2b1a12;
+}
+
+.notaMusical1 {
+  left: 8.1%;
+  top: 17.5%;
+}
+
+.notaMusical2 {
+  left: 71.9%;
+  top: 18.75%;
+}
+
+.notaMusical3 {
+  left: 81.9%;
+  top: 73.75%;
+}
+
+.iconoNota {
+  position: absolute;
+  width: 5%;
+}
+
+.iconoNota1 {
+  left: 13.1%;
+  top: 14.4%;
+}
+
+.iconoNota2 {
+  left: 76.9%;
+  top: 15.6%;
+}
+
+.iconoNota3 {
+  left: 86.9%;
+  top: 70.6%;
+}
+
+.escena.sonando .notaMusical,
+.escena.sonando .iconoNota {
+  animation: bailar 0.8s steps(2) infinite;
+}
+
+/* ---------- Boombox ---------- */
+.gramolaEscena {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* Mueble de madera del tocadiscos */
+.tocadiscos {
+  position: relative;
+  background-color: #8a4f24;
+  border: 6px solid #2b1a12;
+  box-shadow: 8px 8px 0 rgba(43, 26, 18, 0.6);
+  padding: 12px;
+}
+
+.tocadiscosArriba {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.plato {
+  position: relative;
+  height: 230px;
+  overflow: hidden;
+  background-color: #3d2416;
+  border: 4px solid #2b1a12;
+}
+
+/* Al pulsar el disco se pausa o sigue la música */
+.disco {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 190px;
+  height: 190px;
+  margin-left: -125px;
+  margin-top: -95px;
+  cursor: pointer;
+}
+
+.sonando .disco {
+  animation: girar 2.5s linear infinite;
+}
+
+.discoVinilo {
+  display: block;
+  width: 100%;
+}
+
+.discoEtiqueta {
+  position: absolute;
+  left: 32%;
+  top: 32%;
+  width: 36%;
+  height: 36%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Press Start 2P", monospace;
+  font-size: 13px;
+  color: #2b1a12;
+  background-color: #ffd23f;
+  border: 3px solid #2b1a12;
+  border-radius: 50%;
+  transition: background-color 0.5s;
+}
+
+/* El brazo está levantado y baja al disco cuando suena */
+.brazo {
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  width: 70px;
+  margin-left: 50px;
+  transform-origin: 75% 12%;
+  transform: rotate(-20deg);
+  transition: transform 0.8s;
+  pointer-events: none;
+}
+
+.sonando .brazo {
+  transform: rotate(18deg);
+}
+
+/* Pantallita de la radio */
+.ahoraSuena {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #1c110c;
+  border: 4px solid #2b1a12;
+  box-shadow: inset 0 0 0 3px #4a2c1a;
+  padding: 14px;
+}
+
+.ahoraSuena.aparecer {
+  animation: aparecer 0.4s;
+}
+
+.ahoraSuenaEtiqueta {
+  font-family: "Silkscreen", monospace;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #ffd23f;
+}
+
+.ahoraSuenaTitulo {
+  font-family: "VT323", monospace;
+  font-size: 36px;
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: #fff8e7;
+  text-shadow: 0 0 8px rgba(255, 210, 63, 0.5);
+}
+
+.ahoraSuenaAutor,
+.ahoraSuenaEstado,
+.ahoraSuenaTiempo {
+  font-family: "Silkscreen", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #d9c49a;
+}
+
+.ahoraSuenaEstado {
+  color: #e86a5a;
+}
+
+.sonando .ahoraSuenaEstado {
+  color: #8be08e;
+}
+
+.ahoraSuenaTiempo {
+  color: #fff8e7;
+  white-space: nowrap;
+}
+
+.ahoraSuenaAbajo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.progreso {
+  height: 12px;
+  margin-top: 4px;
+  background-color: #2b1a12;
+  border: 2px solid #d9c49a;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.progresoRelleno {
+  width: 0%;
+  height: 100%;
+  background-color: #ffd23f;
+  transition: width 0.25s linear;
+}
+
+/* Parte de abajo del mueble: dos ruedas y el altavoz */
+.tocadiscosFrente {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.perilla {
+  width: 34px;
+  height: 34px;
+  background-color: #d9c49a;
+  border: 4px solid #2b1a12;
+  border-top-color: #e03c3c;
+  border-radius: 50%;
+  transition: transform 0.8s;
+}
+
+.sonando .perillaVolumen {
+  transform: rotate(120deg);
+}
+
+.rejilla {
+  flex: 1;
+  height: 34px;
+  background-color: #2b1a12;
+  background-image: linear-gradient(90deg, #5a3320 50%, #2b1a12 50%);
+  background-size: 8px 100%;
+  border: 4px solid #2b1a12;
+}
+
+.tocadiscosPata {
+  position: absolute;
+  bottom: -18px;
+  width: 26px;
+  height: 14px;
+  background-color: #2b1a12;
+}
+
+.tocadiscosPataIzquierda {
+  left: 20px;
+}
+
+.tocadiscosPataDerecha {
+  right: 20px;
+}
+
+/* Notas que salen del tocadiscos cuando suena */
+.notaGramola {
+  position: absolute;
+  font-family: "Press Start 2P", monospace;
+  font-size: 22px;
+  text-shadow: 3px 3px 0 #2b1a12;
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+
+.sonando .notaGramola {
+  opacity: 1;
+  animation: bailar 0.8s steps(2) infinite;
+}
+
+.notaGramola1 {
+  left: -6px;
+  top: -34px;
+  color: #ffd23f;
+}
+
+.notaGramola2 {
+  left: 40px;
+  top: -24px;
+  color: #e03c3c;
+  animation-delay: 0.4s;
+}
+
+.notaGramola3 {
+  right: 40px;
+  top: -24px;
+  color: #8be08e;
+  animation-delay: 0.4s;
+}
+
+.notaGramola4 {
+  right: -6px;
+  top: -34px;
+  color: #ffd23f;
+}
+
+/* Tablón verde con los discos, igual que el del menú */
+.discos {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background-color: #2f4a42;
+  border: 6px solid #2b1a12;
+  box-shadow: 8px 8px 0 rgba(43, 26, 18, 0.6);
+  outline: 3px dashed #c9a66b;
+  outline-offset: -14px;
+  padding: 24px 22px;
+}
+
+.discosCabecera {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.discosCabecera .flecha {
+  width: 44px;
+}
+
+.discosPagina {
+  flex: 1;
+  font-family: "Silkscreen", monospace;
+  font-weight: 700;
+  font-size: 12px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #f3e3c0;
+}
+
+.discosLista {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.gramolaLado {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Los consejos de teclado solo se ven en escritorio */
+.gramolaLadoTexto,
+.gramolaLadoTeclas {
+  display: none;
+  font-family: "Silkscreen", monospace;
+  font-size: 12px;
+  line-height: 18px;
+  text-transform: uppercase;
+  color: #f3e3c0;
+}
+
+.gramolaLadoTeclas {
+  color: #c9a66b;
+}
+
+.gramolaLado .boton {
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ---------- Título de la gramola ---------- */
+.gramolaTitulo {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.gramolaEscena.aparecer {
+  animation: aparecer 0.4s;
+}
+
+/* Las luces de los tubos solo salen en la versión gramola */
+.tubo {
+  display: none;
+}
+
+.hoja {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  background-color: #f3e6c8;
+  border: 4px solid #2b1a12;
+  box-shadow: 8px 8px 0 #2b1a12;
+  padding: 34px 14px 18px;
+}
+
+.hoja > .cinta {
+  position: absolute;
+  top: -18px;
+  left: 18px;
+}
+
+.pasos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.caja {
+  position: relative;
+  min-width: 0;
+  background-color: #fff6e0;
+  border: 3px solid #2b1a12;
+  padding: 30px 14px 16px;
+  color: #2b1a12;
+}
+
+.cintaCaja {
+  position: absolute;
+  top: -16px;
+  left: 14px;
+  font-size: 10px;
+}
+
+.reglas {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-bottom: 26px;
+}
+
+.cajas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 26px;
+}
+
+.datos li {
+  display: flex;
+  gap: 6px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 9px;
+  margin-bottom: 12px;
+}
+
+.datos li span:first-child {
+  flex: 1;
+  min-width: 0;
+  color: #6b4a33;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.datos li span:first-child::after {
+  content: " ..................................................";
+  letter-spacing: 2px;
+}
+
+.etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.etiquetas li {
+  font-family: "Press Start 2P", monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  background-color: #f7c63c;
+  border: 3px solid #2b1a12;
+  box-shadow: 3px 3px 0 #2b1a12;
+  padding: 6px 10px;
+}
+
+.gracias {
+  font-family: "Press Start 2P", monospace;
+  font-size: 12px;
+  text-align: center;
+  color: #d33a2c;
+}
+
+.fondoDialogo {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(43, 26, 18, 0.55);
+  align-items: flex-end;
+  justify-content: center;
+  padding: 16px 16px 40px;
+}
+
+.fondoDialogo.abierto {
+  display: flex;
+}
+
+.dialogo {
+  width: 100%;
+  max-width: 760px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background-color: #2b1a12;
+  border: 4px solid #fff8e7;
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.6);
+  padding: 16px 18px 14px;
+  animation: aparecer 0.3s;
+}
+
+.dialogoFinal {
+  border-color: #ffd23f;
+}
+
+.dialogoCuerpo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dialogoTitulo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Press Start 2P", monospace;
+  font-size: 11px;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: #ffd23f;
+}
+
+.dialogoTexto {
+  font-family: "VT323", monospace;
+  font-size: 22px;
+  line-height: 22px;
+}
+
+.dialogoCuenta {
+  font-family: "VT323", monospace;
+  font-size: 18px;
+  color: #d9c49a;
+}
+
+.dialogoAcciones {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.dialogoFlecha {
+  font-size: 14px;
+  color: #ffd23f;
+  animation: bailar 0.8s steps(2) infinite;
+}
+
+@keyframes girar {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bailar {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes perseguir {
+  0% {
+    left: -800px;
+  }
+  50% {
+    left: 100%;
+  }
+  100% {
+    left: -800px;
+  }
+}
+
+@keyframes soloVuelta {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes soloProfe {
+  0% {
+    opacity: 0;
+  }
+  83.33% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes asomarse {
+  0% {
+    transform: translateY(0);
+  }
+  55% {
+    transform: translateY(0);
+  }
+  62% {
+    transform: translateY(-85%);
+  }
+  70% {
+    transform: translateY(-85%) rotate(-10deg);
+  }
+  78% {
+    transform: translateY(-85%) rotate(10deg);
+  }
+  84% {
+    transform: translateY(-85%);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== Cosas que comparten varias pantallas ========== */
+
+.pantalla {
+  display: none;
+  position: relative;
+  min-height: 100vh;
+  padding: 20px 14px 30px;
+  background-color: #2b1a12;
+  background-size: cover;
+  background-position: center;
+}
+
+.conBarra .pantalla {
+  min-height: calc(100vh - 58px);
+}
+
+/* Pared de tablas: un azulejo pequeño que se repite ampliado x4 (pixel art nítido) */
+.pantallaPared {
+  background-size: 1024px;
+  background-position: center top;
+  image-rendering: pixelated;
+}
+
+.planta,
+.lena {
+  z-index: 1;
+}
+
+.botonera {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.botonVolver {
+  width: 140px;
+}
+
+.pantallaPared {
+  background-image: url("https://res.cloudinary.com/do4k9fww6/image/upload/v1795462143/pared.png");
+}
+
+.pantallaPared .tituloGrande {
+  margin: 14px 0 36px;
+}
+
+.botoneraHoja {
+  max-width: 1040px;
+  margin: 30px auto 0;
+  flex-direction: column-reverse;
+  align-items: stretch;
+}
+
+.botoneraHoja .botonVolver {
+  width: 100%;
+  max-width: none;
+}
+
+.pantallaPared .logoPequeno {
+  display: none;
+}
+
+.botoneraHoja .boton {
+  font-family: "Press Start 2P", monospace;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+@media (min-width: 768px) {
+  .pantalla {
+    padding: 30px 30px 40px;
+  }
+
+  .barra {
+    flex-wrap: nowrap;
+    padding: 12px 24px;
+  }
+
+  .barraTitulo {
+    width: auto;
+    font-size: 14px;
+  }
+
+  .barraBotones {
+    gap: 8px;
+  }
+
+  .botonBarra {
+    font-size: 14px;
+    padding: 12px 16px;
+  }
+
+  .suelo {
+    height: 100px;
+  }
+
+  .planta {
+    bottom: 60px;
+    width: 72px;
+  }
+
+  .lena {
+    bottom: 60px;
+    width: 96px;
+  }
+
+  .lampara {
+    display: block;
+  }
+
+  .guirnalda {
+    width: 45%;
+  }
+
+  .botonVolver {
+    width: 260px;
+  }
+
+  .tituloGrande {
+    font-size: 48px;
+  }
+
+  .botoneraHoja {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .botoneraHoja .botonVolver {
+    width: 260px;
+  }
+
+  .pantallaPared .logoPequeno {
+    display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .planta {
+    bottom: 70px;
+    width: 100px;
+  }
+
+  .lena {
+    bottom: 70px;
+    width: 120px;
+  }
+
+  .lampara {
+    top: 190px;
+    width: 72px;
+  }
+
+  .lampara .lamparaLuz {
+    width: 280px;
+    height: 280px;
+    margin-left: -140px;
+    margin-top: -140px;
+  }
+
+  .guirnalda {
+    width: 38%;
+  }
+
+  .lamparaIzquierda {
+    left: calc((100% - 576px) / 4 - 36px);
+  }
+
+  .lamparaDerecha {
+    right: calc((100% - 576px) / 4 - 36px);
+  }
+
+  .hoja {
+    padding: 44px 40px 40px;
+  }
+
+  .hoja > .cinta {
+    font-size: 13px;
+    left: 20px;
+  }
+
+  .caja {
+    padding: 44px 30px 40px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .guirnalda {
+    max-width: 820px;
+  }
+
+  .lampara {
+    top: 270px;
+    width: 100px;
+  }
+
+  .lampara .lamparaLuz {
+    width: 400px;
+    height: 400px;
+    margin-left: -200px;
+    margin-top: -200px;
+  }
+
+  .lamparaIzquierda {
+    left: calc((100% - 760px) / 4 - 50px);
+  }
+
+  .lamparaDerecha {
+    right: calc((100% - 760px) / 4 - 50px);
+  }
+
+  .suelo {
+    height: 150px;
+  }
+
+  .rodapie {
+    top: -26px;
+    height: 26px;
+    background-size: auto 26px;
+  }
+
+  .planta {
+    bottom: 110px;
+    width: 150px;
+  }
+
+  .lena {
+    bottom: 110px;
+    width: 180px;
+  }
+}

@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #2b1a12;
+  color: #fff8e7;
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 16px;
+}
+
+img {
+  image-rendering: pixelated;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+hr {
+  border: 0;
+}
+
+.oculto {
+  display: none !important;
+}
+
+.boton {
+  font-family: "Silkscreen", monospace;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #2b1a12;
+  background-color: #ffd23f;
+  border: 4px solid #2b1a12;
+  box-shadow: 4px 4px 0 #2b1a12;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s, box-shadow 0.1s;
+}
+
+.boton:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+.botonSonido {
+  width: 44px;
+  height: 44px;
+  background-color: #fff8e7;
+  border: 3px solid #2b1a12;
+  box-shadow: 3px 3px 0 #2b1a12;
+  padding: 6px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.botonSonido:hover {
+  background-color: #ffe9a8;
+}
+
+.botonSonido:active {
+  transform: translate(3px, 3px);
+  box-shadow: none;
+}
+
+.botonSonido img {
+  display: block;
+  width: 100%;
+}
+
+.flecha {
+  height: 34px;
+  font-size: 14px;
+  color: #fff8e7;
+  background-color: #e03c3c;
+  border: 3px solid #2b1a12;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.flecha:hover {
+  background-color: #f05252;
+}
+
+.flecha:active {
+  transform: scale(0.9);
+}
+
+.boton:focus-visible,
+.campo:focus-visible,
+.quitar:focus-visible,
+.fichaDisco:focus-visible,
+.flecha:focus-visible {
+  outline: 3px solid #3c6fe0;
+  outline-offset: 2px;
+}
+
+.boton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: 4px 4px 0 #2b1a12;
+}
+
+.botonAmarillo:hover {
+  background-color: #ffe17a;
+}
+
+.botonCrema {
+  background-color: #f3e3c0;
+}
+
+.botonCrema:hover {
+  background-color: #fff8e7;
+}
+
+.botonRojo {
+  background-color: #c21f2b;
+  color: #fff8e7;
+}
+
+.botonRojo:hover {
+  background-color: #dd323e;
+}
+
+.botonAncho {
+  display: block;
+  width: 100%;
+}
+
+.botonAlto {
+  padding: 16px;
+}
+
+.botonGrande {
+  padding: 20px 16px;
+}
+
+.campo {
+  width: 100%;
+  height: 48px;
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 16px;
+  color: #2b1a12;
+  background-color: #fff8e7;
+  border: 4px solid #2b1a12;
+  box-shadow: inset 4px 4px 0 #d9c49a;
+  padding: 10px 12px;
+  transition: border-color 0.2s;
+}
+
+.campo::placeholder {
+  color: #a85a1e;
+}
+
+.campo:focus {
+  border-color: #3c6fe0;
+  outline: none;
+}
+
+.campoError {
+  border-color: #c21f2b;
+}
+
+.error {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #c21f2b;
+}
+
+.tituloSombra {
+  font-family: "Press Start 2P", monospace;
+  font-weight: 400;
+  color: #ffd23f;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 0 #2b1a12;
+}
+
+.tituloGrande {
+  font-family: "Press Start 2P", monospace;
+  font-weight: 400;
+  font-size: 32px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffd23f;
+  text-shadow: -3px 0 0 #2b1a12, 3px 0 0 #2b1a12, 0 -3px 0 #2b1a12, 0 3px 0 #2b1a12, 6px 6px 0 #2b1a12;
+}
+
+.logoPequeno {
+  font-family: "Press Start 2P", monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #ffd23f;
+  text-shadow: -2px 0 0 #2b1a12, 2px 0 0 #2b1a12, 0 -2px 0 #2b1a12, 0 2px 0 #2b1a12;
+}
+
+.etiqueta {
+  display: inline-block;
+  font-family: "Silkscreen", monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff8e7;
+  background-color: #2b1a12;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: 4px 7px;
+}
+
+.cinta {
+  display: inline-block;
+  font-family: "Press Start 2P", monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  color: #fff8e7;
+  background-color: #d33a2c;
+  border: 3px solid #2b1a12;
+  box-shadow: 3px 3px 0 #2b1a12;
+  padding: 7px 10px;
+}
+
+.rol {
+  display: inline-block;
+  font-family: "Press Start 2P", monospace;
+  font-size: 8px;
+  text-transform: uppercase;
+  color: #fff8e7;
+  background-color: #d33a2c;
+  border: 2px solid #2b1a12;
+  padding: 5px 6px;
+}
+
+.cara {
+  display: block;
+  width: 100%;
+  height: auto;
+}

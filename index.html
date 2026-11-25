@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Don't be Peter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500&family=Press+Start+2P&family=Silkscreen:wght@400;700&family=VT323&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/atomos.css">
+  <link rel="stylesheet" href="css/moleculas.css">
+  <link rel="stylesheet" href="css/organismos.css">
+  <link rel="stylesheet" href="css/pantallas/welcome.css">
+  <link rel="stylesheet" href="css/pantallas/menu.css">
+  <link rel="stylesheet" href="css/pantallas/reparto.css">
+  <link rel="stylesheet" href="css/pantallas/sala.css">
+  <link rel="stylesheet" href="css/pantallas/gramola.css">
+  <link rel="stylesheet" href="css/pantallas/tutorial.css">
+  <link rel="stylesheet" href="css/pantallas/creditos.css">
+  <link rel="stylesheet" href="css/pantallas/aviso.css">
+</head>
+<body>
+  <header class="barra oculto" id="barra">
+    <p class="barraTitulo">Don't be Peter</p>
+    <div class="barraBotones">
+      <button class="boton botonCrema botonBarra" id="botonSonido">Sonido</button>
+      <button class="boton botonRojo botonBarra" id="botonReiniciar">Reiniciar</button>
+      </div>
+  </header>
+
+  <main>
+    <!-- ========== WELCOME (Manuel) ========== -->
+    <section class="pantalla pantallaWelcome activa" id="pantallaWelcome">
+      <div class="welcome">
+        <h1 class="welcomeTitulo">Don't be Peter</h1>
+        <button class="boton botonAmarillo" id="botonInicio">Iniciar</button>
+      </div>
+    </section>
+
+    <!-- ========== MENÚ (Brandon) ========== -->
+    <section class="pantalla pantallaMenu" id="pantallaMenu">
+      <div class="guirnalda guirnaldaIzquierda">
+        <img class="guirnaldaCable" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462140/cable.svg" alt="">
+        <img class="bombilla bombilla1 bombillaVerde" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462140/bombillaVerde.svg" alt="">
+        <img class="bombilla bombilla2 bombillaRoja" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462138/bombillaRoja.svg" alt="">
+        <img class="bombilla bombilla3 bombillaAzul" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462138/bombillaAzul.svg" alt="">
+        <img class="bombilla bombilla4 bombillaAmarilla" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462139/bombillaAmarilla.svg" alt="">
+      </div>
+      <div class="guirnalda guirnaldaDerecha">
+        <img class="guirnaldaCable" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462140/cable.svg" alt="">
+        <img class="bombilla bombilla1 bombillaAzul" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462138/bombillaAzul.svg" alt="">
+        <img class="bombilla bombilla2 bombillaVerde" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462140/bombillaVerde.svg" alt="">
+        <img class="bombilla bombilla3 bombillaAmarilla" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462139/bombillaAmarilla.svg" alt="">
+        <img class="bombilla bombilla4 bombillaRoja" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462138/bombillaRoja.svg" alt="">
+      </div>
+      <button class="botonSonido" id="botonSonidoMenu" aria-label="Quitar la música">
+        <img id="iconoSonidoMenu" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462138/altavoz.svg" alt="">
+      </button>
+
+      <div class="lampara lamparaIzquierda">
+        <span class="lamparaLuz"></span>
+        <img class="lamparaDibujo" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462142/lampara.svg" alt="">
+      </div>
+      <div class="lampara lamparaDerecha">
+        <span class="lamparaLuz"></span>
+        <img class="lamparaDibujo" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462142/lampara.svg" alt="">
+      </div>
+
+      <img class="ventanaCabana" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462143/ventana.svg" alt="">
+
+      <h1 class="tituloSombra tituloSombraMenu">Don't be Peter</h1>
+
+      <div class="menuCentro">
+        <img class="asomado" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462141/diego.png" alt="">
+        <div class="alfombra">
+          <button class="boton botonAmarillo botonMenu" id="botonEmpezar">Empezar partida</button>
+          <button class="boton botonAmarillo botonMenu" id="botonMusica">Boombox</button>
+          <button class="boton botonAmarillo botonMenu" id="botonTutorial">Tutorial</button>
+          <button class="boton botonAmarillo botonMenu" id="botonCreditos">Créditos</button>
+        </div>
+      </div>
+
+      <div class="suelo">
+        <div class="rodapie"></div>
+      </div>
+      <img class="planta" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462141/planta.svg" alt="">
+      <img class="lena" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462142/lena.svg" alt="">
+
+      <div class="persecucion">
+        <img class="persecucionCabeza persecucionVuelta" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462142/manuel.png" alt="">
+        <img class="persecucionCabeza persecucionVuelta" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462138/alba.png" alt="">
+        <img class="persecucionCabeza" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462142/juanjo.png" alt="">
+        <img class="persecucionSilla" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462143/silla.svg" alt="">
+        <div class="profe">
+          <img class="profeBoli" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462138/boli.svg" alt="">
+          <img class="profeCara" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462143/paloma.png" alt="">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== REPARTO (Alba) ========== -->
+    <section class="pantalla pantallaReparto" id="pantallaReparto">
+      <div class="reparto">
+        <h2 class="tituloSombra tituloSombraReparto">¿Quién juega hoy?</h2>
+        <div class="repartoCuerpo">
+          <div class="corcho">
+            <div class="corchoDentro">
+              <p class="corchoVacio" id="corchoVacio">Todavía no hay nadie en el tablón. Añade un fichaje o carga el equipo de clase.</p>
+              <ul class="fichas" id="listaFichas"></ul>
+            </div>
+          </div>
+          <div class="panel panelFichaje">
+            <span class="sello">Confidencial</span>
+            <h3 class="hojaTitulo">Hoja de reparto</h3>
+            <p class="hojaNota">Máximo 12 candidatos. Se guarda en este navegador.</p>
+            <h3 class="panelTitulo">Nuevo fichaje</h3>
+            <form class="formulario" id="formularioNombre">
+              <label class="oculto" for="campoNombre">Nombre del candidato</label>
+              <input class="campo" type="text" id="campoNombre" placeholder="Nombre del candidato" maxlength="20" autocomplete="off">
+              <button class="boton botonAmarillo botonAncho botonAnadir" type="submit"><span class="soloEscritorio">+ </span>Añadir<span class="soloEscritorio"> a la sala</span></button>
+            </form>
+            <p class="error" id="mensajeError"></p>
+            <p class="panelNota">Sin nombres repetidos · máximo 12</p>
+            <hr class="panelLinea">
+            <h3 class="panelTitulo panelTituloPequeno">En la sala</h3>
+            <div class="contador">
+              <p class="contadorNumero" id="contadorNumero">0</p>
+              <div>
+                <p class="contadorTexto" id="contadorTexto">jugadores</p>
+                <p class="contadorSillas" id="contadorSillas">= 0 sillas</p>
+              </div>
+            </div>
+            <div class="sillasFila" id="sillasFila"></div>
+            <p class="panelNota">Siempre hay una silla menos que jugadores.</p>
+            <button class="boton botonCrema botonAncho" id="botonEjemplo">Cargar equipo de clase</button>
+          </div>
+          <div class="pieHoja">
+            <p class="pieHojaTexto" id="textoCandidatos">0 candidatos</p>
+            <button class="boton botonCrema" id="botonEjemploMovil">Cargar ejemplo</button>
+          </div>
+        </div>
+        <div class="botonera">
+          <button class="boton botonCrema botonGrande botonVolver" id="botonVolverReparto">← Volver</button>
+          <div class="botoneraDerecha">
+            <button class="boton botonAmarillo botonGrande botonAncho" id="botonJugar" disabled>¡Que suene la música!</button>
+            <p class="botoneraNota">Necesitas 2 jugadores o más para empezar</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SALA (Manuel) ========== -->
+    <section class="pantalla pantallaSala" id="pantallaSala">
+          <div class="sala">
+        <div class="lado">
+          <div class="hud">
+            <h2 class="hudRonda" id="textoRonda">Ronda 1</h2>
+            <p class="hudTexto" id="textoJugadores">4 jugadores · 3 sillas</p>
+            <h3 class="hudEtiqueta">En juego</h3>
+            <div class="chips" id="chipsJugadores"></div>
+          </div>
+          <div class="acciones">
+            <button class="boton botonAmarillo botonAncho botonAlto" id="botonParar">Parar música</button>
+            <button class="boton botonCrema botonAncho botonAlto" id="botonCambiarDisco">♪ Cambiar disco</button>
+          </div>
+        </div>
+        <div class="escenario">
+          <div class="escena" id="escena">
+            <div class="escenaHud">
+              <div class="contadorHud">
+                <p class="contadorHudNombre">Ronda</p>
+                <p class="contadorHudValor" id="hudRonda">1</p>
+              </div>
+              <p class="escenaBanner" id="textoBanner">¡A bailar!</p>
+              <div class="escenaDerecha">
+                <div class="contadorHud">
+                  <p class="contadorHudNombre">Sillas</p>
+                  <p class="contadorHudValor" id="hudSillas">3</p>
+                </div>
+                <div class="contadorHud">
+                  <p class="contadorHudNombre">Tiempo</p>
+                  <p class="contadorHudValor" id="hudTime">0</p>
+                </div>
+              </div>
+            </div>
+            <img class="mesa" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795586692/mesa.svg" alt="">
+            <img class="mesaBrillo" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795586692/mesaBrillo.svg" alt="">
+            <p class="mesaTexto" id="textoMesa">3 sillas<br>4 personas</p>
+            <div class="sillas" id="sillas"></div>
+            <p class="notaMusical notaMusical1">♪</p>
+            <img class="iconoNota iconoNota1" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795586692/nota.svg" alt="">
+            <p class="notaMusical notaMusical2">♪</p>
+            <img class="iconoNota iconoNota2" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795586692/nota.svg" alt="">
+            <p class="notaMusical notaMusical3">♫</p>
+            <img class="iconoNota iconoNota3" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795586692/nota.svg" alt="">
+            <div class="corro" id="corro"></div>
+            <div class="foco" id="foco"></div>
+            <div class="marco"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== GRAMOLA (Diego) ========== -->
+    <section class="pantalla pantallaGramola gramolaJukebox" id="pantallaGramola">
+      <div class="guirnalda guirnaldaIzquierda">
+        <img class="guirnaldaCable" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528506/cable_d9evoq.svg" alt="">
+        <img class="bombilla bombilla1 bombillaAmarilla" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528547/bombillaAmarilla_lpncxa.svg" alt="">
+        <img class="bombilla bombilla2 bombillaAzul" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528555/bombillaAzul_fmmvpn.svg" alt="">
+        <img class="bombilla bombilla3 bombillaRoja" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528557/bombillaRoja_k5utw2.svg" alt="">
+        <img class="bombilla bombilla4 bombillaVerde" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528559/bombillaVerde_cddgtu.svg" alt="">
+      </div>
+      <div class="guirnalda guirnaldaDerecha">
+        <img class="guirnaldaCable" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528506/cable_d9evoq.svg" alt="">
+        <img class="bombilla bombilla1 bombillaRoja" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528557/bombillaRoja_k5utw2.svg" alt="">
+        <img class="bombilla bombilla2 bombillaAmarilla" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528547/bombillaAmarilla_lpncxa.svg" alt="">
+        <img class="bombilla bombilla3 bombillaVerde" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528559/bombillaVerde_cddgtu.svg" alt="">
+        <img class="bombilla bombilla4 bombillaAzul" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528555/bombillaAzul_fmmvpn.svg" alt="">
+      </div>
+
+      <div class="lampara lamparaIzquierda">
+        <span class="lamparaLuz"></span>
+        <img class="lamparaDibujo" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528669/lampara_h1njch.svg" alt="">
+      </div>
+      <div class="lampara lamparaDerecha">
+        <span class="lamparaLuz"></span>
+        <img class="lamparaDibujo" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528669/lampara_h1njch.svg" alt="">
+      </div>
+
+      <div class="gramolaTitulo">
+        <h2 class="tituloSombra tituloSombraGramola">Boombox</h2>
+      </div>
+
+      <div class="gramolaEscena" id="escenaGramola">
+
+        <span class="tubo tuboAzul"></span>
+        <span class="tubo tuboVerde"></span>
+
+        <div class="tocadiscos">
+          <p class="notaGramola notaGramola1">♫</p>
+          <p class="notaGramola notaGramola2">♪</p>
+          <p class="notaGramola notaGramola3">♪</p>
+          <p class="notaGramola notaGramola4">♫</p>
+
+          <div class="tocadiscosArriba">
+            <div class="plato">
+              <div class="disco" id="disco" title="Pausar / seguir">
+                <img class="discoVinilo" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528271/vinilo_m4p4aj.svg" alt="">
+                <p class="discoEtiqueta" id="etiquetaDisco">A1</p>
+              </div>
+              <img class="brazo" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528280/brazo_ybe4j0.svg" alt="">
+            </div>
+
+            <div class="ahoraSuena" id="ahoraSuena">
+              <p class="ahoraSuenaEtiqueta">Ahora suena</p>
+              <p class="ahoraSuenaTitulo" id="tituloCancion">Stage Select</p>
+              <p class="ahoraSuenaAutor" id="autorCancion">Juhani Junkala</p>
+              <p class="ahoraSuenaEstado" id="estadoCancion">En pausa</p>
+              <div class="progreso" id="barraProgreso" title="Pulsa para avanzar o retroceder">
+                <div class="progresoRelleno" id="rellenoProgreso"></div>
+              </div>
+              <div class="ahoraSuenaAbajo">
+                <p class="ahoraSuenaTiempo" id="tiempoCancion">0:00 / 0:00</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tocadiscosFrente">
+            <span class="perilla"></span>
+            <span class="rejilla"></span>
+            <span class="perilla perillaVolumen"></span>
+          </div>
+          <span class="tocadiscosPata tocadiscosPataIzquierda"></span>
+          <span class="tocadiscosPata tocadiscosPataDerecha"></span>
+        </div>
+
+        <div class="discos">
+          <div class="discosCabecera">
+            <button class="flecha" id="paginaAnterior" aria-label="Página anterior">◀</button>
+            <p class="discosPagina" id="textoPagina">Página A · 1 de 1</p>
+            <button class="flecha" id="paginaSiguiente" aria-label="Página siguiente">▶</button>
+          </div>
+          <ul class="discosLista" id="listaCanciones"></ul>
+
+          <div class="gramolaLado">
+            <p class="gramolaLadoTexto">Pulsa un disco para ponerlo y el vinilo para pausar</p>
+            <p class="gramolaLadoTeclas">Espacio: pausa · Flechas: otra canción</p>
+            <button class="boton botonAmarillo botonAncho" id="botonVolverPartida">Volver a la partida</button>
+            <button class="boton botonCrema botonAncho" id="botonVolverGramola">Volver al menú</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="suelo">
+        <div class="rodapie"></div>
+      </div>
+      <img class="planta" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528748/planta_p9j8ny.svg" alt="">
+      <img class="lena" src="https://res.cloudinary.com/dmonwbtuz/image/upload/v1795528751/lena_ufwgul.svg" alt="">
+    </section>
+
+    <!-- ========== TUTORIAL (Alba) ========== -->
+        <section class="pantalla pantallaPared" id="pantallaTutorial">
+      <p class="logoPequeno">Don't be Peter</p>
+      <h2 class="tituloGrande">Tutorial</h2>
+      <div class="hoja">
+        <span class="cinta">¿Cómo se juega?</span>
+        <ol class="pasos">
+          <li class="paso">
+            <span class="pasoNumero">1</span>
+            <img class="pasoDibujo" src="https://res.cloudinary.com/daul6tzck/image/upload/v1795169968/paso1_h2oqa1.png" alt="">
+            <div class="pasoTextos">
+              <h3 class="pasoTitulo">Invita</h3>
+              <p class="pasoTexto">Apunta a los jugadores en la hoja de reparto.</p>
+            </div>
+          </li>
+          <li class="paso">
+            <span class="pasoNumero">2</span>
+            <img class="pasoDibujo" src="https://res.cloudinary.com/daul6tzck/image/upload/v1795169968/paso2_imeqmv.png" alt="">
+            <div class="pasoTextos">
+              <h3 class="pasoTitulo">Baila</h3>
+              <p class="pasoTexto">Suena la música y todos bailan alrededor.</p>
+            </div>
+          </li>
+          <li class="paso">
+            <span class="pasoNumero">3</span>
+            <img class="pasoDibujo" src="https://res.cloudinary.com/daul6tzck/image/upload/v1795169969/paso3_a2bq7d.png" alt="">
+            <div class="pasoTextos">
+              <h3 class="pasoTitulo">¡Siéntate!</h3>
+              <p class="pasoTexto">Para la música con el botón o con espacio.</p>
+            </div>
+          </li>
+          <li class="paso">
+            <span class="pasoNumero">4</span>
+            <img class="pasoDibujo" src="https://res.cloudinary.com/daul6tzck/image/upload/v1795169970/paso4_wsfn6r.png" alt="">
+            <div class="pasoTextos">
+              <h3 class="pasoTitulo">No seas Peter</h3>
+              <p class="pasoTexto">Uno se queda de pie, al azar. ¡Ese es Peter!</p>
+            </div>
+          </li>
+        </ol>
+        <div class="caja">
+          <span class="cinta cintaCaja">Reglas</span>
+          <ul class="reglas">
+            <li class="regla"><span class="reglaIcono">!</span>Siempre hay una silla menos que jugadores.</li>
+            <li class="regla"><span class="reglaIcono">?</span>El que es Peter ya no vuelve a salir hasta reiniciar.</li>
+            <li class="regla"><span class="reglaIcono">*</span>Gana el último que queda sentado.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="botonera botoneraHoja">
+        <button class="boton botonCrema botonGrande botonVolver" id="botonVolverTutorial">Volver</button>
+        <button class="boton botonAmarillo botonGrande botonEmpezar" id="botonEmpezarTutorial">Empezar partida</button>
+      </div>
+    </section>
+
+    <!-- ========== CRÉDITOS (Brandon) ========== -->
+    <section class="pantalla pantallaPared pantallaCreditos" id="pantallaCreditos">
+    <p class="logoPequeno">Don't be Peter</p>
+      <h2 class="tituloGrande">Créditos</h2>
+      <div class="hoja">
+        <span class="cinta">El equipo</span>
+        <div class="tarjetas">
+          <div class="tarjeta">
+            <div class="tarjetaFoto"><img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462138/alba.png" alt="Cara de Alba"></div>
+            <div>
+              <p class="tarjetaNombre">Alba Ruiz<br>de la Vega</p>
+              <span class="rol">Scrum master</span>
+            </div>
+          </div>
+          <div class="tarjeta">
+            <div class="tarjetaFoto"><img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462142/manuel.png" alt="Cara de Manuel"></div>
+            <div>
+              <p class="tarjetaNombre">Manuel Vasco<br>López</p>
+              <span class="rol">Desarrollo</span>
+            </div>
+          </div>
+          <div class="tarjeta">
+            <div class="tarjetaFoto"><img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462141/diego.png" alt="Cara de Diego"></div>
+            <div>
+              <p class="tarjetaNombre">Diego José<br>Alonso Arias</p>
+              <span class="rol">Product owner</span>
+            </div>
+          </div>
+          <div class="tarjeta">
+            <div class="tarjetaFoto"><img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462140/brandon.png" alt="Cara de Brandon"></div>
+            <div>
+              <p class="tarjetaNombre">Brandon David<br>Chusgo Paico</p>
+              <span class="rol">Desarrollo</span>
+            </div>
+          </div>
+        </div>
+        <div class="cajas">
+          <div class="caja">
+            <span class="cinta cintaCaja">Proyecto</span>
+            <ul class="datos">
+              <li><span>Proyecto</span><span>Wheel of Doom</span></li>
+              <li><span>Centro</span><span>CEI · Sevilla</span></li>
+              <li><span>Curso</span><span>2º DAW · 2026</span></li>
+              <li><span>Profesora</span><span>Paloma</span></li>
+              <li><span>Música</span><span>Chiptune 8 bits</span></li>
+              <li><span>Tipografía</span><span>Press Start 2P</span></li>
+            </ul>
+          </div>
+          <div class="caja">
+            <span class="cinta cintaCaja">Hecho con</span>
+            <ul class="etiquetas">
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>JavaScript</li>
+              <li>Jest</li>
+            </ul>
+            <p class="gracias">¡Gracias por jugar!</p>
+          </div>
+        </div>
+      </div>
+      <div class="botonera botoneraHoja">
+        <button class="boton botonCrema botonGrande botonVolver" id="botonVolverCreditos">Volver</button>
+        <div class="caritas">
+          <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462143/paloma.png" alt="">
+          <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462142/juanjo.png" alt="">
+          <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462142/rafa.png" alt="">
+          <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462140/daniel.png" alt="">
+          <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462142/joseLuis.png" alt="">
+          <img src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462142/julian.png" alt="">
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== AVISO Y FINAL (Diego) ========== -->
+  <div class="fondoDialogo" id="dialogo">
+    <div class="dialogo" id="cajaDialogo">
+      <div class="retrato">
+        <img class="retratoCara" id="dialogoCara" src="https://res.cloudinary.com/do4k9fww6/image/upload/v1795462138/alba.png" alt="">
+        <span class="retratoSello" id="dialogoSello">Peter</span>
+      </div>
+      <div class="dialogoCuerpo">
+        <p class="dialogoTitulo"><span id="dialogoTitulo">Ronda 1 · ¡Ese es Peter!</span></p>
+        <p class="dialogoTexto" id="dialogoTexto"></p>
+        <p class="dialogoCuenta" id="dialogoCuenta"></p>
+        <div class="dialogoAcciones">
+          <button class="boton botonAmarillo" id="dialogoBoton">Siguiente ronda</button>
+          <span class="dialogoFlecha">▼</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  </main>
+
+  <script src="js/comun.js"></script>
+  <script src="js/juego.js"></script>
+  <script src="js/welcome.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/reparto.js"></script>
+  <script src="js/sala.js"></script>
+  <script src="js/gramola.js"></script>
+  <script src="js/tutorial.js"></script>
+  <script src="js/creditos.js"></script>
+  <script src="js/aviso.js"></script>
+</body>
+</html>

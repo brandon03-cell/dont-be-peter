@@ -1,0 +1,76 @@
+/* ========== Créditos · Brandon ========== */
+
+.caritas {
+    display: none;
+    gap: 4px;
+}
+
+.caritas img {
+    width: 44px;
+    height: 44px;
+}
+
+@media (min-width: 768px) {
+    .tarjetas {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .cajas {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .caritas {
+        display: flex;
+    }
+}
+
+@media (min-width: 1024px) {
+    .tarjetas {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+    }
+
+    .tarjeta {
+        flex-direction: column;
+        text-align: center;
+        padding: 14px 14px 20px;
+    }
+
+    .tarjetaFoto {
+        width: 100%;
+        height: 120px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+    }
+
+    .tarjetaFoto img {
+        width: 112px;
+    }
+
+    .tarjetaNombre {
+        font-size: 13px;
+        margin: 8px 0 14px;
+    }
+
+    .datos li {
+        font-size: 11px;
+        margin-bottom: 16px;
+    }
+
+    .tarjetaNombre {
+        font-size: 11px;
+    }
+
+    .rol {
+        font-size: 10px;
+    }
+
+    .etiquetas li {
+        font-size: 12px;
+    }
+
+    .cajas {
+        gap: 30px;
+    }
+}
